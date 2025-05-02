@@ -31,19 +31,19 @@ if (sel == -1)
                     status_text = "Can't connect without internet!";
                     snd_play(snd_hurt1);
                 }
-                else if (global.room_id == "")
+                else if (string_trim(global.room_id) == "")
                 {
                     status_color = c_red;
                     status_text = "Empty room ID!";
                     snd_play(snd_hurt1);
                 }
-                else if (global.password == "")
+                else if (string_trim(global.password) == "")
                 {
                     status_color = c_red;
                     status_text = "Empty password!";
                     snd_play(snd_hurt1);
                 }
-                else if (global.nickname == "")
+                else if (string_trim(global.nickname) == "")
                 {
                     status_color = c_red;
                     status_text = "Empty nickname!";
@@ -160,7 +160,7 @@ else if (sel > 0)
             if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
                 keyboard_string += clipboard_get_text();
             
-            global.room_id = keyboard_string;
+            global.room_id = string_trim(keyboard_string);
             
             if (keyboard_check_pressed(vk_enter))
             {
@@ -176,7 +176,7 @@ else if (sel > 0)
             if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
                 keyboard_string += clipboard_get_text();
             
-            global.password = keyboard_string;
+            global.password = string_trim(keyboard_string);
             
             if (keyboard_check_pressed(vk_enter))
             {
