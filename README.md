@@ -39,5 +39,5 @@ How to contribute to the mod:
 
 # Credits
 - Coding: Chistosito, NERS
-- Goal list: Tadyman, Chistosito
+- Goal list: Tadyman, Chistosito, Trinky44, devek1
 - UMP: nhaar.
