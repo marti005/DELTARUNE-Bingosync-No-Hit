@@ -22,6 +22,13 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 - There's no way to highlight goals in-game, like you do by right clicking them on the website
 - Occasionally, messages might pop up in chat saying you disconnected, but you actually didn't.
 
+# Gameplay Images
+<p align="center">
+  <img src="gameplay_image_1.png" title="DELTARUNE Chapter 1, in the mod's main menu. All the fields are filled out and the option &quot;Connect to room&quot; is highlighted.">
+  <img src="gameplay_image_2.png" title="DELTARUNE Chapter 1, in Seam's shop. The chat is in the top left corner saying that NERS has connected, changed color to blue and marked the goal &quot;Buy an item from Seam and Rouxls&quot;. The board with 25 goals can be seen in the top right corner, with some information below stating the room's seed, lockout mode and the player's keybinds.">
+  <img src="gameplay_image_2.png" title="DELTARUNE Chapter 2, in Sans's store. The chat is in the top left corner saying that NERS has connected, changed color to blue, marked the goal &quot;Speak to Sans&quot; and said &quot;holy shit guys its sans&quot;. The board with 25 goals can be seen in the top right corner, with some information below stating the room's seed, lockout mode and the player's keybinds.">
+</p>
+
 # Contributing
 How to contribute to the mod:
 - Create a fork of the repo and download the files
