@@ -55,7 +55,7 @@ if (sel == -1)
                     status_text = "Nickname is too long\n(maximum 50 characters allowed)!";
                     snd_play(snd_hurt1);                   
                 }
-                else if (string_lower(global.color) == "blank" || scr_color_from_name(string_lower(global.color)) == 16777215)
+                else if (string_lower(string_trim(global.color)) == "blank" || scr_color_from_name(string_lower(string_trim(global.color))) == 16777215)
                 {
                     status_color = c_red;
                     status_text = "Invalid color! Use orange, red, blue, green, purple, navy, teal, brown, pink or yellow.";
@@ -63,11 +63,11 @@ if (sel == -1)
                 }
                 else
                 {
-                    if(global.nickname != string_trim(global.nickname))
+                    if (global.nickname != string_trim(global.nickname))
                         global.nickname = string_trim(global.nickname);
 
-                    if(global.color != string_lower(global.color))
-                        global.color = string_lower(global.color);
+                    if (global.color != string_lower(string_trim(global.color)))
+                        global.color = string_lower(string_trim(global.color));
 
                     scr_save_bingo_data();
                     httppost = http_post_string("https://bingosync.com/api/join-room", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"nickname\": \"" + scr_escape_string(global.nickname) + "\", \"password\": \"" + scr_escape_string(global.password) + "\" }");
