@@ -1,0 +1,30 @@
+/// IMPORT
+
+scr_load_bingo_data();
+global.ws_client = -1;
+global.ws_key = "{}";
+global.chat_line = array_create(5, "");
+global.chat_color = array_create(array_length(global.chat_line), c_white);
+global.count_once = false;
+#if CHAPTER_1
+global.clover_manual = false;
+#elsif CHAPTER_2
+global.failed_pot_balance = false;
+#endif
+httppost = -1;
+pos = 0;
+max_pos = 9;
+sel = -1;
+internet = os_is_network_connected();
+status_color = internet ? c_lime : c_red;
+status_text = internet ? "Internet connection found!" : "Internet connection not found!\nRetrying...";
+
+function censor_password()
+{
+    var text = "";
+    
+    for (var i = 0; i < string_length(global.password); i++)
+        text += "*";
+    
+    return text;
+}
