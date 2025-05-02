@@ -49,7 +49,7 @@ if (sel == -1)
                     status_text = "Empty nickname!";
                     snd_play(snd_hurt1);
                 }
-                else if(string_length(global.nickname) > 50)
+                else if (string_length(global.nickname) > 50)
                 {
                     status_color = c_red;
                     status_text = "Nickname is too long\n(maximum 50 characters allowed)!";
