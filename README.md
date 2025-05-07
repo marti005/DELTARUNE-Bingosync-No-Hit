@@ -5,7 +5,7 @@
 # DELTARUNE Bingosync Mod
 <b>NOTE</b>: This mod is only supported on Chapter 1&2 LTS v3 (1.19).
 
-This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1%262/goal_list.json). You can also chat with other players, see the board update live and change your name color.
+This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1%262/goal_list.json). You can also chat with other players, see the board update live, star goals and change your name color.
 
 # How to install and use
 - This mod was only tested on Windows and it's currently unknown if it's supported on Mac. If you have macOS and want to test it, use game.ios instead of data.win in the following steps. Linux is not supported at all because the game_change() function doesn't work;
@@ -19,14 +19,13 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 
 # Current quirks
 - You can't open the chat while holding Control or Shift;
-- There's no way to highlight goals in-game, like you do by right clicking them on the website;
 - Occasionally, messages might pop up in chat saying you disconnected, but you actually didn't.
 
 # Gameplay Images
 <p align="center">
   <img src="gameplay_image_1.png" title="DELTARUNE Chapter 1, in the mod's main menu. All the fields are filled out and the option &quot;Connect to room&quot; is highlighted.">
   <img src="gameplay_image_2.png" title="DELTARUNE Chapter 1, in Seam's shop. The chat is in the top left corner saying that NERS has connected, changed color to blue and marked the goal &quot;Buy an item from Seam and Rouxls&quot;. The board with 25 goals can be seen in the top right corner, with some information below stating the room's seed, lockout mode and the player's mod keybinds.">
-  <img src="gameplay_image_3.png" title="DELTARUNE Chapter 2, in Sans's store. The chat is in the top left corner saying that NERS has connected, changed color to blue, marked the goal &quot;Speak to Sans&quot; and said &quot;holy shit guys its sans&quot;. Some information can be seen in the top right corner stating the room's seed, lockout mode and the player's mod keybinds. The player also has the chatbox open, ready to type.">
+  <img src="gameplay_image_3.png" title="DELTARUNE Chapter 2, in Sans's store. The chat is in the top left corner saying that NERS has connected, changed color to blue, marked the goal &quot;Speak to Sans&quot; and said &quot;holy shit guys it&#39;s sans&quot;. Some information can be seen in the top right corner stating the room's seed, lockout mode and the player's mod keybinds. The player also has the chatbox open, ready to type.">
 </p>
 
 # Contributing
