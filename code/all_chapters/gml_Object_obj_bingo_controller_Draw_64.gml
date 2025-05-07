@@ -67,7 +67,7 @@ if (global.show_board && board_connected)
                 if (string_count(" ", shown_str) < 2)
                 {
                     new_lines = 0;
-                    
+
                     while (string_width_ext(shown_str, 13, (x2 - x1) + 20) >= ((x2 - x1) + 20))
                     {
                         new_lines++;
@@ -120,7 +120,7 @@ if (global.chat_typing)
         new_lines++;
         shown_str = string_insert("\n", shown_str, 50 * new_lines);
     }
-    
+
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_ltgray);
