@@ -59,7 +59,7 @@ if (global.show_board && board_connected)
                 }
                 
                 if (global.starred_goals[idx])
-                    draw_sprite_ext(spr_bingosync_star, 0, x1, y1, 0.25, 0.25, 0, c_white, 1);
+                    draw_sprite(spr_goal_star, 0, x1, y1);
                 
                 draw_set_color(c_white);
                 var shown_str = global.goal_name[idx];
@@ -67,7 +67,7 @@ if (global.show_board && board_connected)
                 if (string_count(" ", shown_str) < 2)
                 {
                     new_lines = 0;
-
+                    
                     while (string_width_ext(shown_str, 13, (x2 - x1) + 20) >= ((x2 - x1) + 20))
                     {
                         new_lines++;
@@ -120,7 +120,7 @@ if (global.chat_typing)
         new_lines++;
         shown_str = string_insert("\n", shown_str, 50 * new_lines);
     }
-
+    
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_ltgray);
