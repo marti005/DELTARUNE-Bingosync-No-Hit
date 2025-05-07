@@ -3,7 +3,7 @@
 if (!board_connected)
     exit;
 
-if (!global.chat_typing)
+if (!global.chat_typing && !global.starring_goals)
 {
     if (keyboard_check_pressed(global.board_key))
     {
@@ -52,6 +52,7 @@ if (!global.chat_typing)
 else if (keyboard_check_pressed(vk_escape))
 {
     global.chat_typing = false;
+    global.starring_goals = false;
     keyboard_string = "";
     keyboard_clear(vk_escape);
 }

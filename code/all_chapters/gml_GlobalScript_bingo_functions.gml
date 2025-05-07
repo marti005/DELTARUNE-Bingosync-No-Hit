@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "1.01";
+    return "1.02";
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
@@ -383,9 +383,9 @@ function scr_load_bingo_data()
     global.nickname = "";
     global.color = "";
     global.last_card_timestamp = 0;
+    global.goal_progress = array_create(global.num_goals, 0);
     global.show_chat = true;
     global.show_board = true;
-    global.goal_progress = array_create(global.num_goals, 0);
     global.board_key = 66;
     global.chat_key = 84;
     global.reveal_key = 82;
@@ -411,6 +411,7 @@ function scr_load_bingo_data()
         global.password = json.last_saved_room.password;
         global.nickname = json.last_saved_room.nickname;
         global.color = json.last_saved_room.color;
+        global.starred_goals = json.last_saved_room.starred_goals;
         global.last_card_timestamp = json.last_saved_room.last_card_timestamp;
         global.show_chat = json.preferences.show_chat;
         global.show_board = json.preferences.show_board;
@@ -506,6 +507,7 @@ function scr_save_bingo_data()
     data.last_saved_room.password = global.password;
     data.last_saved_room.nickname = global.nickname;
     data.last_saved_room.color = global.color;
+    data.last_saved_room.starred_goals = global.starred_goals;
     data.last_saved_room.last_card_timestamp = global.last_card_timestamp;
     data.preferences.show_chat = global.show_chat;
     data.preferences.show_board = global.show_board;
@@ -594,6 +596,7 @@ function scr_save_bingo_data()
 function scr_reset_bingo_data()
 {
     global.goal_progress = array_create(global.num_goals, 0);
+    global.starred_goals = array_create(25, false);
     global.money_files = array_create(6, 0);
     global.shop_items = array_create(2, 0);
     global.bananas = array_create(2, 0);
@@ -1113,7 +1116,7 @@ function scr_internal_name_from_slot(arg0)
             return "full berdly spare";
         
         case 75:
-            return "equip white ribbon";
+            return "equip white ribbon (ch1)";
         
         case 76:
             return "pot balance";

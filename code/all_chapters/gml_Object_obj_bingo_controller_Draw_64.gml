@@ -31,6 +31,8 @@ if (global.show_board && board_connected)
         var i = 0;
         var j = 0;
         var c = 0;
+        var mousex = window_mouse_get_x();
+        var mousey = window_mouse_get_y();
         
         for (i = 0; i < grid_size; i++)
         {
@@ -50,17 +52,26 @@ if (global.show_board && board_connected)
                     draw_rectangle(x1 + (c * section_width), y1, x1 + ((c + 1) * section_width), y2, false);
                 }
                 
+                if (global.starring_goals && mousex >= x1 && mousex <= x2 && mousey >= y1 && mousey <= y2 && device_mouse_check_button_pressed(0, mb_right))
+                {
+                    global.starred_goals[idx] = !global.starred_goals[idx];
+                    scr_save_bingo_data();
+                }
+                
+                if (global.starred_goals[idx])
+                    draw_sprite_ext(spr_bingosync_star, 0, x1, y1, 0.25, 0.25, 0, c_white, 1);
+                
                 draw_set_color(c_white);
                 var shown_str = global.goal_name[idx];
                 
-                if (string_count(" ", shown_str) <= 2)
+                if (string_count(" ", shown_str) < 2)
                 {
                     new_lines = 0;
-
+                    
                     while (string_width_ext(shown_str, 13, (x2 - x1) + 20) >= ((x2 - x1) + 20))
                     {
                         new_lines++;
-                        shown_str = string_insert("\n", shown_str, (18 - new_lines) * new_lines);
+                        shown_str = string_insert("\n", shown_str, (20 - new_lines) * new_lines);
                         shown_str = string_replace_all(shown_str, " \n", "\n");
                         shown_str = string_replace_all(shown_str, "\n ", "\n");
                         
@@ -73,6 +84,9 @@ if (global.show_board && board_connected)
                 idx++;
             }
         }
+        
+        if (global.starring_goals)
+            draw_sprite_ext(spr_maus_cursor, 0, mousex, mousey, 0.5, 0.5, 0, c_white, 1);
     }
 }
 
@@ -106,11 +120,11 @@ if (global.chat_typing)
         new_lines++;
         shown_str = string_insert("\n", shown_str, 50 * new_lines);
     }
-
+    
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_ltgray);
-    draw_text_outline(1, height - 48, "Typing in chat. Press ESC to cancel. You can use /color to change your name color.", 0);
+    draw_text_outline(1, height - 48, "Typing in chat. Press ESC to cancel. Commands: /color, /star.", 0);
     draw_set_color(c_dkgray);
     draw_rectangle(0, height - 30, width, height, false);
     draw_set_color(c_white);
@@ -122,13 +136,15 @@ if (global.chat_typing)
         
         if (string_length(str) > 0)
         {
-            if (string_pos("/color", string_lower(str)) == 1 || string_pos("/colour", string_lower(str)) == 1)
+            var str_lower = string_lower(str);
+            
+            if (string_pos("/color", str_lower) == 1 || string_pos("/colour", str_lower) == 1)
             {
-                var split_string = string_split(str, " ");
+                var split_string = string_split(str_lower, " ");
                 var chosen_color = "blank";
                 
                 if (array_length(split_string) > 1)
-                    chosen_color = string_lower(split_string[1]);
+                    chosen_color = split_string[1];
                 
                 if (chosen_color == "blank" || scr_color_from_name(chosen_color) == 16777215)
                 {
@@ -138,6 +154,19 @@ if (global.chat_typing)
                 {
                     global.color = chosen_color;
                     http_post_string("https://bingosync.com/api/color", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\" }");
+                }
+            }
+            else if (string_pos("/star", str_lower) == 1)
+            {
+                if (!global.show_board || !board_connected || !board_revealed)
+                {
+                    scr_chat_message(c_red, "You can't star goals while the board is hidden.");
+                }
+                else
+                {
+                    global.starring_goals = true;
+                    window_mouse_set(width / 2, height / 2);
+                    scr_chat_message(c_yellow, "Right click goals to star them. Press ESC to cancel.");
                 }
             }
             else
