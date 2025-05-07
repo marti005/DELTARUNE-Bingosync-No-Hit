@@ -37,6 +37,6 @@ How to contribute to the mod:
 - If you've made some modifications and you want them to be added in the mod, open a Pull Request and we'll look at it.
 
 # Credits
-- Coding: Chistosito, NERS
-- Goal list: Tadyman, Chistosito, Trinky44, devek1
+- Coding: Chistosito, NERS;
+- Goal list: Tadyman, Chistosito, Trinky44, devek1;
 - UMP: nhaar.
