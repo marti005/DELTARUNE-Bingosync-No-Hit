@@ -8,12 +8,7 @@ using System.Security.Cryptography;
 EnsureDataLoaded();
 
 GlobalDecompileContext UMP_DECOMPILE_CONTEXT = new(Data);
-Underanalyzer.Decompiler.IDecompileSettings decompileSettings = new Underanalyzer.Decompiler.DecompileSettings()
-{
-    RemoveSingleLineBlockBraces = true,
-    EmptyLineAroundBranchStatements = true,
-    EmptyLineBeforeSwitchCases = true
-};
+Underanalyzer.Decompiler.IDecompileSettings decompileSettings = Data.ToolInfo.DecompilerSettings;
 
 /// <summary>
 /// Wrapper for the IScriptInterface methods
@@ -58,6 +53,11 @@ abstract class UMPLoader
     /// <param name="filePath">Path to the file, relative to the directory where the main script is</param>
     /// <returns>An array with all the code entries</returns>
     public abstract string[] GetCodeNames (string filePath);
+
+    public virtual bool AcceptFile(string filePath)
+    {
+        return true;
+    }
     
     // TO-DO: implement cache
     public virtual bool EnableCache { get; } = false;
@@ -135,6 +135,10 @@ abstract class UMPLoader
         // preprocessing code (everything using #)
         foreach (string file in files)
         {
+            if (!AcceptFile(file))
+            {
+                continue;
+            }
             string code = File.ReadAllText(file);
             // ignoring files
             if (ShouldIgnoreFile(code, file))
