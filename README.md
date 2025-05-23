@@ -31,8 +31,8 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 # Contributing
 How to contribute to the mod:
 - Create a fork of the repo and download the files;
-- Use [the latest](https://github.com/UnderminersTeam/UndertaleModTool/releases/latest) version of UndertaleModTool;
 - Download [the latest](https://github.com/nhaar/ump/releases/latest) version of UMP and place the script in the same folder as the mod;
+- Use [the latest](https://github.com/UnderminersTeam/UndertaleModTool/releases/latest) version of UndertaleModTool;
 - Open a chapter's data.win, click on Scripts -> Run other script... -> bingosync_script.csx to import the mod and you can save the file;
 - You can find a guide on how to use UMP [here](https://github.com/nhaar/ump/blob/main/guide/guide.md);
 - If you've made some modifications and you want them to be added in the mod, open a Pull Request and we'll look at it.
