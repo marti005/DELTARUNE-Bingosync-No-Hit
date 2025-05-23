@@ -52,7 +52,7 @@ if (global.show_board && board_connected)
                     draw_rectangle(x1 + (c * section_width), y1, x1 + ((c + 1) * section_width), y2, false);
                 }
                 
-                if (global.starring_goals && mousex >= x1 && mousex <= x2 && mousey >= y1 && mousey <= y2 && device_mouse_check_button_pressed(0, mb_right))
+                if (global.starring_goals && mousex >= x1 && mousex <= x2 && mousey >= y1 && mousey <= y2 && (device_mouse_check_button_pressed(0, mb_left) || device_mouse_check_button_pressed(0, mb_right)))
                 {
                     global.starred_goals[idx] = !global.starred_goals[idx];
                     scr_save_bingo_data();
@@ -153,6 +153,7 @@ if (global.chat_typing)
                 else
                 {
                     global.color = chosen_color;
+                    scr_save_bingo_data();
                     http_post_string("https://bingosync.com/api/color", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\" }");
                 }
             }
@@ -166,7 +167,7 @@ if (global.chat_typing)
                 {
                     global.starring_goals = true;
                     window_mouse_set(width / 2, height / 2);
-                    scr_chat_message(c_yellow, "Right click goals to star them. Press ESC to cancel.");
+                    scr_chat_message(c_yellow, "Click on goals to star them. Press ESC to cancel.");
                 }
             }
             else

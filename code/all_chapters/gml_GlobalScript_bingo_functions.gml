@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "1.02";
+    return "1.03";
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
@@ -384,12 +384,17 @@ function scr_load_bingo_data()
     global.color = "";
     global.last_card_timestamp = 0;
     global.goal_progress = array_create(global.num_goals, 0);
-    global.show_chat = true;
     global.show_board = true;
     global.board_key = 66;
     global.chat_key = 84;
     global.reveal_key = 82;
     global.toggle_chat_key = 89;
+    global.show_connections = true;
+    global.show_reveals = true;
+    global.show_chats = true;
+    global.show_colors = true;
+    global.show_goal_marks = true;
+    global.show_new_cards = true;
     global.money_files = array_create(6, 0);
     global.shop_items = array_create(2, 0);
     global.bananas = array_create(2, 0);
@@ -407,91 +412,202 @@ function scr_load_bingo_data()
         var file = file_text_open_read("bingo_data.json");
         var json = json_parse(file_text_read_string(file));
         file_text_close(file);
-        global.room_id = json.last_saved_room.room_id;
-        global.password = json.last_saved_room.password;
-        global.nickname = json.last_saved_room.nickname;
-        global.color = json.last_saved_room.color;
-        global.starred_goals = json.last_saved_room.starred_goals;
-        global.last_card_timestamp = json.last_saved_room.last_card_timestamp;
-        global.show_chat = json.preferences.show_chat;
-        global.show_board = json.preferences.show_board;
-        global.board_key = json.keybinds.board;
-        global.chat_key = json.keybinds.chat;
-        global.reveal_key = json.keybinds.reveal;
-        global.toggle_chat_key = json.keybinds.toggle_chat;
-        var list = ds_list_create();
-        ds_list_read(list, json.progress.general);
         
-        for (var i = 0; i < global.num_goals; i++)
-            global.goal_progress[i] = ds_list_find_value(list, i);
+        if (variable_struct_exists(json, "last_saved_room"))
+        {
+            if (variable_struct_exists(json.last_saved_room, "room_id"))
+                global.room_id = json.last_saved_room.room_id;
+            
+            if (variable_struct_exists(json.last_saved_room, "password"))
+                global.password = json.last_saved_room.password;
+            
+            if (variable_struct_exists(json.last_saved_room, "nickname"))
+                global.nickname = json.last_saved_room.nickname;
+            
+            if (variable_struct_exists(json.last_saved_room, "color"))
+                global.color = json.last_saved_room.color;
+            
+            if (variable_struct_exists(json.last_saved_room, "starred_goals"))
+                global.starred_goals = json.last_saved_room.starred_goals;
+            
+            if (variable_struct_exists(json.last_saved_room, "last_card_timestamp"))
+                global.last_card_timestamp = json.last_saved_room.last_card_timestamp;
+        }
         
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.money_files);
+        if (variable_struct_exists(json, "preferences"))
+        {
+            if (variable_struct_exists(json.preferences, "show_chat"))
+                global.show_chat = json.preferences.show_chat;
+            
+            if (variable_struct_exists(json.preferences, "show_board"))
+                global.show_board = json.preferences.show_board;
+        }
         
-        for (var i = 0; i < array_length(global.money_files); i++)
-            global.money_files[i] = ds_list_find_value(list, i);
+        if (variable_struct_exists(json, "keybinds"))
+        {
+            if (variable_struct_exists(json.keybinds, "board"))
+                global.board_key = json.keybinds.board;
+            
+            if (variable_struct_exists(json.keybinds, "chat"))
+                global.chat_key = json.keybinds.chat;
+            
+            if (variable_struct_exists(json.keybinds, "reveal"))
+                global.reveal_key = json.keybinds.reveal;
+            
+            if (variable_struct_exists(json.keybinds, "toggle_chat"))
+                global.toggle_chat_key = json.keybinds.toggle_chat;
+        }
+
+        if (variable_struct_exists(json, "filters"))
+        {
+            if (variable_struct_exists(json.filters, "connections"))
+                global.show_connections = json.filters.connections;
+            
+            if (variable_struct_exists(json.filters, "reveals"))
+                global.show_reveals = json.filters.reveals;
+            
+            if (variable_struct_exists(json.filters, "chats"))
+                global.show_chats = json.filters.chats;
+            
+            if (variable_struct_exists(json.filters, "colors"))
+                global.show_colors = json.filters.colors;
+
+            if (variable_struct_exists(json.filters, "goal_marks"))
+                global.show_goal_marks = json.filters.goal_marks;
+
+            if (variable_struct_exists(json.filters, "new_cards"))
+                global.show_new_cards = json.filters.new_cards;
+        }
         
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.shop_items);
-        
-        for (var i = 0; i < array_length(global.shop_items); i++)
-            global.shop_items[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.bananas);
-        
-        for (var i = 0; i < array_length(global.bananas); i++)
-            global.bananas[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.eggs);
-        
-        for (var i = 0; i < array_length(global.eggs); i++)
-            global.eggs[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.fix_us);
-        
-        for (var i = 0; i < array_length(global.fix_us); i++)
-            global.fix_us[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.smorg);
-        
-        for (var i = 0; i < array_length(global.smorg); i++)
-            global.smorg[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.berdly_encounters);
-        
-        for (var i = 0; i < array_length(global.berdly_encounters); i++)
-            global.berdly_encounters[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.revivemints);
-        
-        for (var i = 0; i < array_length(global.revivemints); i++)
-            global.revivemints[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.dojo_challenges);
-        
-        for (var i = 0; i < array_length(global.dojo_challenges); i++)
-            global.dojo_challenges[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.wrong_warps);
-        
-        for (var i = 0; i < array_length(global.wrong_warps); i++)
-            global.wrong_warps[i] = ds_list_find_value(list, i);
-        
-        ds_list_clear(list);
-        ds_list_read(list, json.progress.specific.recruits);
-        
-        for (var i = 0; i < array_length(global.recruits); i++)
-            global.recruits[i] = ds_list_find_value(list, i);
-        
-        ds_list_destroy(list);
+        if (variable_struct_exists(json, "progress"))
+        {
+            var list = ds_list_create();
+            
+            if (variable_struct_exists(json.progress, "general"))
+            {
+                ds_list_read(list, json.progress.general);
+                
+                for (var i = 0; i < global.num_goals; i++)
+                    global.goal_progress[i] = ds_list_find_value(list, i);
+                
+                ds_list_clear(list);
+            }
+            
+            if (variable_struct_exists(json.progress, "specific"))
+            {
+                if (variable_struct_exists(json.progress.specific, "money_files"))
+                {
+                    ds_list_read(list, json.progress.specific.money_files);
+                    
+                    for (var i = 0; i < array_length(global.money_files); i++)
+                        global.money_files[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "shop_items"))
+                {
+                    ds_list_read(list, json.progress.specific.shop_items);
+                    
+                    for (var i = 0; i < array_length(global.shop_items); i++)
+                        global.shop_items[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "bananas"))
+                {
+                    ds_list_read(list, json.progress.specific.bananas);
+                    
+                    for (var i = 0; i < array_length(global.bananas); i++)
+                        global.bananas[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "eggs"))
+                {
+                    ds_list_read(list, json.progress.specific.eggs);
+                    
+                    for (var i = 0; i < array_length(global.eggs); i++)
+                        global.eggs[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "fix_us"))
+                {
+                    ds_list_read(list, json.progress.specific.fix_us);
+                    
+                    for (var i = 0; i < array_length(global.fix_us); i++)
+                        global.fix_us[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "smorg"))
+                {
+                    ds_list_read(list, json.progress.specific.smorg);
+                    
+                    for (var i = 0; i < array_length(global.smorg); i++)
+                        global.smorg[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "berdly_encounters"))
+                {
+                    ds_list_read(list, json.progress.specific.berdly_encounters);
+                    
+                    for (var i = 0; i < array_length(global.berdly_encounters); i++)
+                        global.berdly_encounters[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "revivemints"))
+                {
+                    ds_list_read(list, json.progress.specific.revivemints);
+                    
+                    for (var i = 0; i < array_length(global.revivemints); i++)
+                        global.revivemints[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "dojo_challenges"))
+                {
+                    ds_list_read(list, json.progress.specific.dojo_challenges);
+                    
+                    for (var i = 0; i < array_length(global.dojo_challenges); i++)
+                        global.dojo_challenges[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "wrong_warps"))
+                {
+                    ds_list_read(list, json.progress.specific.wrong_warps);
+                    
+                    for (var i = 0; i < array_length(global.wrong_warps); i++)
+                        global.wrong_warps[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+                
+                if (variable_struct_exists(json.progress.specific, "recruits"))
+                {
+                    ds_list_read(list, json.progress.specific.recruits);
+                    
+                    for (var i = 0; i < array_length(global.recruits); i++)
+                        global.recruits[i] = ds_list_find_value(list, i);
+                    
+                    ds_list_clear(list);
+                }
+            }
+            
+            ds_list_destroy(list);
+        }
     }
 }
 
@@ -501,6 +617,7 @@ function scr_save_bingo_data()
     data.last_saved_room = {};
     data.preferences = {};
     data.keybinds = {};
+    data.filters = {};
     data.progress = {};
     data.progress.specific = {};
     data.last_saved_room.room_id = global.room_id;
@@ -515,6 +632,12 @@ function scr_save_bingo_data()
     data.keybinds.chat = global.chat_key;
     data.keybinds.reveal = global.reveal_key;
     data.keybinds.toggle_chat = global.toggle_chat_key;
+    data.filters.connections = global.show_connections;
+    data.filters.reveals = global.show_reveals;
+    data.filters.chats = global.show_chats;
+    data.filters.colors = global.show_colors;
+    data.filters.goal_marks = global.show_goal_marks;
+    data.filters.new_cards = global.show_new_cards;
     var list = ds_list_create();
     
     for (var i = 0; i < global.num_goals; i++)
@@ -1165,9 +1288,16 @@ function scr_add_goal_progress(arg0, arg1)
         {
             // Prevent goals from triggering multiple times in quick succession (the colors will be updated properly when the board request comes through anyway)
             if (global.goal_colors[board_slot - 1] == "blank")
+            {
                 global.goal_colors[board_slot - 1] = global.color;
-            else
+                obj_bingo_controller.alarm[0] = 3 * room_speed;
+            }
+            // Prevent your color from showing up when you mark a taken goal with Lockout enabled (visual bug)
+            else if (global.room_lockout == "Non-Lockout")
+            {
                 global.goal_colors[board_slot - 1] += " " + global.color;
+                obj_bingo_controller.alarm[0] = 3 * room_speed;
+            }
             
             http_post_string("https://bingosync.com/api/select", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\", \"slot\": \"" + board_slot + "\", \"remove_color\": false }");
         }

@@ -30,16 +30,17 @@ function wrong_warp_check()
         if (!instance_exists(obj_mainchara) || (instance_exists(obj_mainchara) && !obj_mainchara.roomenterfreezeend))
         {
             var len = array_length(global.wrong_warps);
+            var room_name = room_get_name(room);
             
             for (var i = 0; i < len; i++)
             {
-                if (global.wrong_warps[i] == room_get_name(room))
+                if (global.wrong_warps[i] == room_name)
                 {
                     exit;
                 }
                 else if (global.wrong_warps[i] == "")
                 {
-                    global.wrong_warps[i] = room_get_name(room);
+                    global.wrong_warps[i] = room_name;
                     scr_save_bingo_data();
                     
                     if (i == (len - 1))

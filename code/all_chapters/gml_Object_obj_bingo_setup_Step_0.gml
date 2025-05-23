@@ -127,6 +127,42 @@ if (sel == -1)
                 status_color = c_ltgray;
                 status_text = "Press ESC to cancel.\nNote that trying to use non-English keyboard characters will most likely cause problems!";
                 break;
+
+            case 10:
+                global.show_connections = !global.show_connections;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
+
+            case 11:
+                global.show_reveals = !global.show_reveals;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
+
+            case 12:
+                global.show_chats = !global.show_chats;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
+
+            case 13:
+                global.show_colors = !global.show_colors;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
+
+            case 14:
+                global.show_goal_marks = !global.show_goal_marks;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
+
+            case 15:
+                global.show_new_cards = !global.show_new_cards;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
         }
     }
     

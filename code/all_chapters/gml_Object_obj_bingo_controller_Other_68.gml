@@ -25,32 +25,47 @@ try
                 switch (json.type)
                 {
                     case "connection":
-                        scr_chat_message(c_white, string(json.player.name + " " + json.event_type + "."));
+                        if (global.show_connections)
+                            scr_chat_message(16777215, string(json.player.name + " " + json.event_type + "."));
+                        
                         break;
                     
                     case "revealed":
-                        scr_chat_message(c_white, string(json.player.name + " revealed the card."));
+                        if (global.show_reveals)
+                            scr_chat_message(16777215, string(json.player.name + " revealed the card."));
+                        
                         break;
                     
                     case "chat":
-                        scr_chat_message(scr_color_from_name(json.player.color), string(json.player.name + ": " + string_copy(json.text, 1, 100)));
+                        if (global.show_chats)
+                            scr_chat_message(scr_color_from_name(json.player.color), string(json.player.name + ": " + string_copy(json.text, 1, 100)));
+                        
                         break;
                     
                     case "color":
-                        scr_chat_message(scr_color_from_name(json.player.color), string(json.player.name + " changed color to " + json.player.color + "."));
+                        if (global.show_colors)
+                            scr_chat_message(scr_color_from_name(json.player.color), string(json.player.name + " changed color to " + json.player.color + "."));
+                        
                         break;
                     
                     case "goal":
-                        if (json.remove)
-                            scr_chat_message(c_white, string(json.player.name + " cleared \"" + json.square.name + "\"."));
-                        else
-                            scr_chat_message(c_white, string(json.player.name + " marked \"" + json.square.name + "\"."));
+                        if (global.show_goal_marks)
+                        {
+                            if (json.remove)
+                                scr_chat_message(16777215, string(json.player.name + " cleared \"" + json.square.name + "\"."));
+                            else
+                                scr_chat_message(16777215, string(json.player.name + " marked \"" + json.square.name + "\"."));
+                        }
                         
                         break;
                     
                     case "new-card":
-                        scr_chat_message(c_white, string(json.player.name + " generated a new card (seed: " + json.seed + ")."));
-                        scr_chat_message(c_yellow, "Your progress was reset.");
+                        if (global.show_new_cards)
+                        {
+                            scr_chat_message(16777215, string(json.player.name + " generated a new card (seed: " + (json.hide_card ? "hidden" : json.seed) + ")."));
+                            scr_chat_message(65535, "Your progress was reset.");
+                        }
+
                         global.room_seed = -1;
                         http_room_settings = http_get("https://bingosync.com/room/" + scr_escape_string(global.room_id) + "/room-settings");
                         alarm[0] = 3 * room_speed;

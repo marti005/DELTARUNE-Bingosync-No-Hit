@@ -11,11 +11,19 @@ try
         {
             status_color = c_red;
             status_text = "Invalid room ID!";
+            snd_play(snd_hurt1);
         }
         else if (string_pos("Incorrect Password", string(info)) > 0)
         {
             status_color = c_red;
             status_text = "Incorrect password!";
+            snd_play(snd_hurt1);
+        }
+        else if (string_pos("socket_key", string(info)) == 0)
+        {
+            status_color = c_red;
+            status_text = "Couldn't connect to Bingosync...\nTry again later.";
+            snd_play(snd_hurt1);
         }
         else
         {

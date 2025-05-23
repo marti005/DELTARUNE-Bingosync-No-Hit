@@ -32,12 +32,6 @@
 #endif
 /// END
 
-/// AFTER
-        case 6:
-/// CODE
-            scr_add_goal_progress(79, 1);
-/// END
-
 #if !CHAPTER_1
 /// AFTER
         case 11:

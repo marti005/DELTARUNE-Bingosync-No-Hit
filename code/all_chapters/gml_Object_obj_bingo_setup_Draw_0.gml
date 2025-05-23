@@ -6,7 +6,7 @@ draw_set_valign(fa_top);
 draw_set_color(c_yellow);
 draw_text(0, 0, "Bingosync Mod " + scr_get_mod_version() + " by Chistosito & NERS (Chapter " + string(global.chapter) + ")");
 var base_x = 320;
-var base_y = 100;
+var base_y = 70;
 var spacing = 20;
 var text_connect = "Connect to room";
 var text_room_id = "Room ID: " + ((global.room_id != "" || sel == 1) ? global.room_id : "[Empty. Select to be able to type]");
@@ -18,6 +18,12 @@ var text_board = (sel == 6) ? "Board toggle keybind: Listening..." : ("Board tog
 var text_chat = (sel == 7) ? "Chat keybind: Listening..." : ("Chat keybind: " + scr_input_name(global.chat_key));
 var text_reveal = (sel == 8) ? "Board reveal keybind: Listening..." : ("Board reveal keybind: " + scr_input_name(global.reveal_key));
 var text_toggle_chat = (sel == 9) ? "Chat toggle keybind: Listening..." : ("Chat toggle keybind: " + scr_input_name(global.toggle_chat_key));
+var text_connections = "Show connection/disconnection messages: " + (global.show_connections ? "Yes" : "No");
+var text_reveals = "Show board reveal messages: " + (global.show_reveals ? "Yes" : "No");
+var text_chats = "Show chat messages from players: " + (global.show_chats ? "Yes" : "No");
+var text_colors = "Show color change messages: " + (global.show_colors ? "Yes" : "No");
+var text_goal_marks = "Show goal mark/clear messages: " + (global.show_goal_marks ? "Yes" : "No");
+var text_new_cards = "Show new board messages: " + (global.show_new_cards ? "Yes" : "No");
 var selected_text;
 
 switch (pos)
@@ -61,6 +67,30 @@ switch (pos)
     case 9:
         selected_text = text_toggle_chat;
         break;
+
+    case 10:
+        selected_text = text_connections;
+        break;
+
+    case 11:
+        selected_text = text_reveals;
+        break;
+
+    case 12:
+        selected_text = text_chats;
+        break;
+
+    case 13:
+        selected_text = text_colors;
+        break;
+
+    case 14:
+        selected_text = text_goal_marks;
+        break;
+
+    case 15:
+        selected_text = text_new_cards;
+        break;
 }
 
 var text_width = string_width(selected_text);
@@ -87,5 +117,17 @@ draw_set_color((pos == 8) ? c_yellow : c_white);
 draw_text(base_x, base_y + (8 * spacing), text_reveal);
 draw_set_color((pos == 9) ? c_yellow : c_white);
 draw_text(base_x, base_y + (9 * spacing), text_toggle_chat);
+draw_set_color((pos == 10) ? c_yellow : c_white);
+draw_text(base_x, base_y + (10 * spacing), text_connections);
+draw_set_color((pos == 11) ? c_yellow : c_white);
+draw_text(base_x, base_y + (11 * spacing), text_reveals);
+draw_set_color((pos == 12) ? c_yellow : c_white);
+draw_text(base_x, base_y + (12 * spacing), text_chats);
+draw_set_color((pos == 13) ? c_yellow : c_white);
+draw_text(base_x, base_y + (13 * spacing), text_colors);
+draw_set_color((pos == 14) ? c_yellow : c_white);
+draw_text(base_x, base_y + (14 * spacing), text_goal_marks);
+draw_set_color((pos == 15) ? c_yellow : c_white);
+draw_text(base_x, base_y + (15 * spacing), text_new_cards);
 draw_set_color(status_color);
 draw_text_ext(320, base_y + ((max_pos + 2) * spacing), status_text, 15, 350);

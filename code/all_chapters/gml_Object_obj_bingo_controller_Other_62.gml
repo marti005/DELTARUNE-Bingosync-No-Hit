@@ -34,7 +34,7 @@ try
             case http_feed:
                 var info = json_parse(ds_map_find_value(async_load, "result"));
                 
-                for(var i = array_length(info.events) - 1; i >= 0; i--)
+                for (var i = array_length(info.events) - 1; i >= 0; i--)
                 {
                     if (info.events[i].type == "new-card" && info.events[i].is_current == true)
                     {
