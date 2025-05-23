@@ -10,7 +10,6 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 # How to install and use
 - This mod was only tested on Windows and it's currently unknown if it's supported on Mac. If you have macOS and want to test it, use game.ios instead of data.win in the following steps. Linux is not supported at all because the game_change() function doesn't work;
 - Download [the latest](https://github.com/ners-xd/deltarune-bingosync/releases/latest) version of the mod;
-- Download [the latest](https://github.com/nhaar/ump/releases/latest) version of UMP and place the script in the same folder as the mod;
 - Back up your chapters' vanilla data.win files;
 - Use your preferred ROM Patcher to apply the patches to each of the vanilla data.win files. If you don't have any, I recommend using [this one](https://www.marcrobledo.com/RomPatcher.js) (place the original file in the ROM section and the mod in the Patch section);
 - Rename your vanilla files to something else and rename the modded ones to data.win so the game can recognize them;
@@ -33,6 +32,7 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 How to contribute to the mod:
 - Create a fork of the repo and download the files;
 - Use [the latest](https://github.com/UnderminersTeam/UndertaleModTool/releases/latest) version of UndertaleModTool;
+- Download [the latest](https://github.com/nhaar/ump/releases/latest) version of UMP and place the script in the same folder as the mod;
 - Open a chapter's data.win, click on Scripts -> Run other script... -> bingosync_script.csx to import the mod and you can save the file;
 - You can find a guide on how to use UMP [here](https://github.com/nhaar/ump/blob/main/guide/guide.md);
 - If you've made some modifications and you want them to be added in the mod, open a Pull Request and we'll look at it.
