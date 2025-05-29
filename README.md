@@ -5,7 +5,7 @@
 # DELTARUNE Bingosync Mod
 <b>NOTE</b>: This mod is only supported on Chapter 1&2 LTS v3 (1.19).
 
-This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1%262/goal_list.json). You can also chat with other players, see the board update live, star goals and change your name color.
+This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1%262/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1%262/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
 
 # How to install and use
 - This mod was only tested on Windows and it's currently unknown if it's supported on Mac. If you have macOS and want to test it, use game.ios instead of data.win in the following steps. Linux is not supported at all because the game_change() function doesn't work;
