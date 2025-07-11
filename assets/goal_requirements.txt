@@ -85,7 +85,7 @@ Get 3 ReviveMints: Get 3 of the mints available throughout CH1-4. They are in:
 	- CH4 Right of Gerson's Study, the chest in the pink and green piano puzzle room
 	- CH4 Sanctuary 2, the room where you move the piano, smash the orange bookshelf and it'll reveal a chest
 	- CH4 Sanctuary 1&2, donate 500-1999 D$ to the waterfall and come back to get it from the chest
-	- EMBEZZLING FROM MISS MIZZLE DOES NOT COUNT FOR THIS GOAL
+	- EMBEZZLING MIZZLES DOES NOT COUNT FOR THIS GOAL
 
 Eat Moss: Self explanatory. Found in:
 	- CH1: Top right of the cell you're in after the forest chase
