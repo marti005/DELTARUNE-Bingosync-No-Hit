@@ -195,11 +195,11 @@ Z Rank Board 1 or 2: Self explanatory
 
 Get to the Tropic of Love: Get to the Tropic of Love with the raft (go right immediately) and interact with the tree on the heart-shaped island
 
-Bomberman Key (Board 1): Get the key that spawns after Susie throws a few bombs in the bottom right of Board 1
+Bomberman Key (Board 1): Get the key that spawns after Susie throws a few bombs in the hidden room found down->left of the cacti in Board 1
 
 Beat Fake Gerson: Self explanatory
 
-Get Pipis: Watch the bonus cutscene in CH3 found in the secret entrance in the bottom left of the second-to-last room of TV World (before the Rouxls battle) if you have Spamton NEO defeated in Main Route
+Get Pipis: Watch the bonus cutscene in CH3 found in the secret entrance in the bottom left of the second-to-last room of TV World (before the Rouxls battle) if you're starting from a fresh CH3 file OR don't have Spamton NEO defeated OR you're on Weird Route
 
 Recruit Miss Mizzle: Self explanatory
 
@@ -232,7 +232,7 @@ Find the 3 Golden Sheets: Self explanatory. They are all found in Sanctuary 1:
 
 Have a Tea Party With Gerson: See above
 
-Enter Ralsei's Room: Self explanatory
+Enter Ralsei's Room: Self explanatory (you need to have watched the tea party cutscene in Kris & Susie's room first)
 
 Get PrincessRibbon: It's found in CH4 by completing the climbing challenge to the right of the Biblioxes room in Sanctuary 3
 
@@ -277,7 +277,7 @@ Get a Dog Dollar: Self explanatory. They are found in:
 	- CH3: Gambling
 	- CH4: In Sanctuary 3 go back to Gerson's study, go through the upstairs center door and open the chest
 
-Get Annoying Dog on Rouxls: Wait for Lancer to be unlocked and wait on your turn for ~33 seconds
+Get Annoying Dog on Rouxls: Wait for Lancer to be unlocked in the CH3 Rouxls fight and wait on your turn for ~33 seconds
 
 Recruit Shuttah: Self explanatory
 
@@ -285,7 +285,7 @@ Lose Shuttah: Self explanatory
 
 Lose Rabbick (CH3): Have Ribbick fully recruited, then encounter the double Ribbick in the room with the trashcans. CroakOn them until 100% and one of them will turn into a Rabbick
 
-Go to the diner with Susie: Have a seat with Susie at the diner in CH4's Light World
+Go to the diner with Susie: Have a seat with Susie at the diner in CH4's Light World (you need to have stolen Asriel's money from his nightstand first)
 
 Recruit an enemy in each chapter: Self explanatory
 
