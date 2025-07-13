@@ -4,12 +4,7 @@
 switch (global.encounterno)
 {
     case 189:
-        global.smorg[2]++;
-        scr_save_bingo_data();
-        
-        if (scr_array_total(global.smorg))
-            scr_add_goal_progress(27, 1);
-        
+        scr_add_goal_array(global.smorg, 2, 27);    
         break;
 
     case 183:
@@ -18,11 +13,7 @@ switch (global.encounterno)
         else
             scr_add_goal_progress(91, 1);
 
-        global.golden_sheets[2]++;
-        scr_save_bingo_data();
-
-        if (scr_array_total(global.golden_sheets))
-            scr_add_goal_progress(102, 1);
+        scr_add_goal_array(global.golden_sheets, 2, 102);
         break;
 }
 /// END

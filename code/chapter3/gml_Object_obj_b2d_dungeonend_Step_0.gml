@@ -5,5 +5,5 @@
         {
             scr_speaker("no_name");
 /// CODE
-			scr_add_goal_progress(113, 1);
+            scr_add_goal_progress(113, 1);
 /// END

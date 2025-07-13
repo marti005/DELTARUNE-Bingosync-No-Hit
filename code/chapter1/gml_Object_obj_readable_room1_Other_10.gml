@@ -3,7 +3,7 @@
 /// AFTER
         global.gold += 40;
 /// CODE
-        scr_add_money(40);
+        scr_add_goal_money(40);
 /// END
 
 /// AFTER

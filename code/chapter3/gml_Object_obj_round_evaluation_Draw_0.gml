@@ -8,8 +8,8 @@
             
             if (currentphyspoints < 350 && !madesound)
 /// CODE
-			if (floor(rtimer) == 60 && currentphyspoints >= 400)
-				scr_add_goal_progress(119, 1);
+            if (floor(rtimer) == 60 && currentphyspoints >= 400)
+                scr_add_goal_progress(119, 1);
 /// END
 
 /// BEFORE

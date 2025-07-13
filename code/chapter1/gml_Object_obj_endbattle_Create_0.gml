@@ -5,29 +5,16 @@ switch (global.encounterno)
 {
     case 25:
         scr_add_goal_progress(5, 1);
-        global.secret_bosses[0]++;
-        scr_save_bingo_data();
-
-        if (scr_array_total(global.secret_bosses, 2))
-            scr_add_goal_progress(110, 1);
+        scr_add_goal_array(global.secret_bosses, 0, 110);
         break;
 
     case 40:
         scr_add_goal_progress(12, 1);
-        global.main_bosses[0]++;
-        scr_save_bingo_data();
-
-        if (scr_array_total(global.main_bosses, 2))
-            scr_add_goal_progress(111, 1);
+        scr_add_goal_array(global.main_bosses, 0, 111);
         break;
 
     case 23:
-        global.smorg[0]++;
-        scr_save_bingo_data();
-        
-        if (scr_array_total(global.smorg))
-            scr_add_goal_progress(27, 1);
-        
+        scr_add_goal_array(global.smorg, 0, 27);  
         break;
 
     case 8:
