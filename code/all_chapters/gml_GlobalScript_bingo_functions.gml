@@ -1106,7 +1106,7 @@ function scr_internal_name_from_slot(slot)
         case 128:
             return "recruit an enemy in each chapter";
 
-        case 128:
+        case 129:
             return "lanino/elnina rematch";
         
         default:
