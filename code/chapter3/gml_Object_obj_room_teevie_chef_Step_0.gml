@@ -12,4 +12,5 @@
 /// CODE
     scr_add_goal_array(global.recruits, 16, 71);
     scr_add_goal_array(global.recruits, 17, 71);
+    scr_add_goal_array(global.chapter_recruits, 1, 128);
 /// END
