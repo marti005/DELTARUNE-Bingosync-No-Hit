@@ -4,7 +4,6 @@
 if (EVENT == 76)
 {
 /// CODE
-    var file = ((global.chapter - 1) * 3) + global.filechoice;
-    global.money_files[file] = 0;
+    global.money_files[((global.chapter - 1) * 3) + global.filechoice] = 0;
     scr_save_bingo_data();
 /// END

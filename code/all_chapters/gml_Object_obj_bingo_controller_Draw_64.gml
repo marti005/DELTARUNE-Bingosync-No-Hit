@@ -16,10 +16,10 @@ if (global.show_board && board_connected)
 {
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
+    var len = (grid_size * square_size) + ((grid_size - 1) * spacing);
     
     if (!board_revealed)
     {
-        var len = (grid_size * square_size) + ((grid_size - 1) * spacing);
         draw_set_color(c_navy);
         draw_rectangle(base_x, base_y, base_x + len, base_y + len, false);
         draw_set_color(c_white);
@@ -33,6 +33,8 @@ if (global.show_board && board_connected)
         var c = 0;
         var mousex = window_mouse_get_x();
         var mousey = window_mouse_get_y();
+        draw_set_color(c_black);
+        draw_rectangle(base_x - 1, base_y - 1, base_x + len + 1, base_y + len + 1, false);
         
         for (i = 0; i < grid_size; i++)
         {
@@ -96,7 +98,7 @@ if (global.room_seed != -1)
     draw_set_halign(fa_right);
     draw_set_valign(fa_top);
     var text_x = (base_x + ((square_size + spacing) * grid_size)) - 1;
-    var text_y = ((base_y + ((square_size + spacing) * grid_size)) - (2 * spacing)) + 1;
+    var text_y = ((base_y + ((square_size + spacing) * grid_size)) - (2 * spacing)) + 2;
     var text_y_offset = (instance_exists(obj_darkcontroller) && global.interact == 5) ? obj_darkcontroller.tp : 0;
     draw_text_outline(text_x, (global.show_board && board_connected) ? text_y : text_y_offset, "Seed: " + (board_revealed ? string(global.room_seed) : "Hidden") + " / " + global.room_lockout + "\n" + scr_input_name(global.board_key) + ": Toggle board\n" + scr_input_name(global.toggle_chat_key) + ": Toggle chat\n" + scr_input_name(global.chat_key) + ": Open chatbox", 0);
 }

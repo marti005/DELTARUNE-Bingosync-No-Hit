@@ -6,11 +6,7 @@
             switch (arg0)
             {
                 case 2:
-                    global.eggs[global.chapter - 1]++;
-                    scr_save_bingo_data();
-                    
-                    if (scr_array_total(global.eggs, 2))
-                        scr_add_goal_progress(21, 1);
+                    scr_add_goal_array(global.eggs, global.chapter - 1, 21);
 
 #if CHAPTER_2
                     if (room == room_dw_city_man)

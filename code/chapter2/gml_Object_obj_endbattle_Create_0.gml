@@ -4,21 +4,11 @@
 switch (global.encounterno)
 {
     case 74:
-        global.smorg[1]++;
-        scr_save_bingo_data();
-        
-        if (scr_array_total(global.smorg))
-            scr_add_goal_progress(27, 1);
-        
+        scr_add_goal_array(global.smorg, 1, 27);       
         break;
     
     case 58:
-        global.berdly_encounters[0]++;
-        scr_save_bingo_data();
-        
-        if (scr_array_total(global.berdly_encounters))
-            scr_add_goal_progress(34, 1);
-        
+        scr_add_goal_array(global.berdly_encounters, 0, 34);       
         break;
     
     case 83:

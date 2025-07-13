@@ -12,9 +12,5 @@
             snd_free(global.batmusic[0]);
 /// CODE
             scr_add_goal_progress(33, 1);
-            global.secret_bosses[1]++;
-            scr_save_bingo_data();
-
-            if (scr_array_total(global.secret_bosses, 2))
-                scr_add_goal_progress(110, 1);
+            scr_add_goal_array(global.secret_bosses, 1, 110);
 /// END

@@ -16,36 +16,20 @@
                 break;
 
             case 4:
-                global.ribbons[0]++;
-                scr_save_bingo_data();
-                
-                if (scr_array_total(global.ribbons))
-                    scr_add_goal_progress(114, 1);
+                scr_add_goal_array(global.ribbons, 0, 114);
                 break;
 
             case 3:
-                global.ribbons[1]++;
-                scr_save_bingo_data();
-                
-                if (scr_array_total(global.ribbons))
-                    scr_add_goal_progress(114, 1);
+                scr_add_goal_array(global.ribbons, 1, 114);
                 break;
 
             case 26:
-                global.ribbons[2]++;
-                scr_save_bingo_data();
-                
-                if (scr_array_total(global.ribbons))
-                    scr_add_goal_progress(114, 1);
+                scr_add_goal_array(global.ribbons, 2, 114);
                 break;
 
             case 53:
                 scr_add_goal_progress(105, 1);
-                global.ribbons[3]++;
-                scr_save_bingo_data();
-                
-                if (scr_array_total(global.ribbons))
-                    scr_add_goal_progress(114, 1);
+                scr_add_goal_array(global.ribbons, 3, 114);
                 break;
         }
 /// END

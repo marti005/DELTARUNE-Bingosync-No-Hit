@@ -2,76 +2,63 @@
 
 function scr_get_mod_version()
 {
-    return "2.00";
+    return "2.01";
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
 #if CHAPTER_1
-function draw_text_outline(arg0, arg1, arg2, arg3)
+function draw_text_outline(text_x, text_y, text, text_color)
 {
-    var resetcolor = draw_get_color();
-    draw_set_color(arg3);
-    draw_text(arg0 - 1, arg1, arg2);
-    draw_text(arg0 - 1, arg1 - 1, arg2);
-    draw_text(arg0 - 1, arg1 + 1, arg2);
-    draw_text(arg0 + 1, arg1, arg2);
-    draw_text(arg0 + 1, arg1 + 1, arg2);
-    draw_text(arg0 + 1, arg1 - 1, arg2);
-    draw_text(arg0, arg1 + 1, arg2);
-    draw_text(arg0, arg1 - 1, arg2);
-    draw_set_color(resetcolor);
-    draw_text(arg0, arg1, arg2);
+    var reset_color = draw_get_color();
+    draw_set_color(text_color);
+    draw_text(text_x - 1, text_y, text);
+    draw_text(text_x - 1, text_y - 1, text);
+    draw_text(text_x - 1, text_y + 1, text);
+    draw_text(text_x + 1, text_y, text);
+    draw_text(text_x + 1, text_y + 1, text);
+    draw_text(text_x + 1, text_y - 1, text);
+    draw_text(text_x, text_y + 1, text);
+    draw_text(text_x, text_y - 1, text);
+    draw_set_color(reset_color);
+    draw_text(text_x, text_y, text);
 }
 #endif
 
-function draw_text_outline_ext(arg0, arg1, arg2, arg3, arg4, arg5 = 0)
+function draw_text_outline_ext(text_x, text_y, text, text_sep, text_w, text_color = 0)
 {
-    var resetcolor = draw_get_color();
-    draw_set_color(arg5);
-    draw_text_ext(arg0 - 1, arg1, arg2, arg3, arg4);
-    draw_text_ext(arg0 - 1, arg1 - 1, arg2, arg3, arg4);
-    draw_text_ext(arg0 - 1, arg1 + 1, arg2, arg3, arg4);
-    draw_text_ext(arg0 + 1, arg1, arg2, arg3, arg4);
-    draw_text_ext(arg0 + 1, arg1 + 1, arg2, arg3, arg4);
-    draw_text_ext(arg0 + 1, arg1 - 1, arg2, arg3, arg4);
-    draw_text_ext(arg0, arg1 + 1, arg2, arg3, arg4);
-    draw_text_ext(arg0, arg1 - 1, arg2, arg3, arg4);
-    draw_set_color(resetcolor);
-    draw_text_ext(arg0, arg1, arg2, arg3, arg4);
+    var reset_color = draw_get_color();
+    draw_set_color(text_color);
+    draw_text_ext(text_x - 1, text_y, text, text_sep, text_w);
+    draw_text_ext(text_x - 1, text_y - 1, text, text_sep, text_w);
+    draw_text_ext(text_x - 1, text_y + 1, text, text_sep, text_w);
+    draw_text_ext(text_x + 1, text_y, text, text_sep, text_w);
+    draw_text_ext(text_x + 1, text_y + 1, text, text_sep, text_w);
+    draw_text_ext(text_x + 1, text_y - 1, text, text_sep, text_w);
+    draw_text_ext(text_x, text_y + 1, text, text_sep, text_w);
+    draw_text_ext(text_x, text_y - 1, text, text_sep, text_w);
+    draw_set_color(reset_color);
+    draw_text_ext(text_x, text_y, text, text_sep, text_w);
 }
 
-function draw_text_outline_ext_transformed(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8 = 0)
+function draw_text_outline_ext_transformed(text_x, text_y, text, text_sep, text_w, text_xscale, text_yscale, text_angle, text_color = 0)
 {
-    var resetcolor = draw_get_color();
-    draw_set_color(arg8);
-    draw_text_ext_transformed(arg0 - 1, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0 - 1, arg1 - 1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0 - 1, arg1 + 1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0 + 1, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0 + 1, arg1 + 1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0 + 1, arg1 - 1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0, arg1 + 1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_text_ext_transformed(arg0, arg1 - 1, arg2, arg3, arg4, arg5, arg6, arg7);
-    draw_set_color(resetcolor);
-    draw_text_ext_transformed(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+    var reset_color = draw_get_color();
+    draw_set_color(text_color);
+    draw_text_ext_transformed(text_x - 1, text_y, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x - 1, text_y - 1, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x - 1, text_y + 1, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x + 1, text_y, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x + 1, text_y + 1, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x + 1, text_y - 1, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x, text_y + 1, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_text_ext_transformed(text_x, text_y - 1, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
+    draw_set_color(reset_color);
+    draw_text_ext_transformed(text_x, text_y, text, text_sep, text_w, text_xscale, text_yscale, text_angle);
 }
 
-function scr_array_total(arg0, arg1 = array_length(arg0))
+function scr_input_name(input)
 {
-    var total = 0;
-
-    for (var i = 0; i < array_length(arg0); i++)
-    {
-        if (arg0[i] >= 1)
-            total++;
-    }
-
-    return total >= arg1;
-}
-
-function scr_input_name(arg0)
-{
-    switch (arg0)
+    switch (input)
     {
         case 8:
             return "BACKSPACE";
@@ -287,18 +274,19 @@ function scr_input_name(arg0)
             return "APOSTROPHE";
         
         default:
-            return chr(arg0);
+            return chr(input);
     }
 }
 
-function scr_escape_string(arg0)
+function scr_escape_string(str)
 {
-    arg0 = string_trim(arg0);
+    str = string_trim(str);
     var escaped = "";
+    var char = "";
     
-    for (var i = 1; i <= string_length(arg0); i++)
+    for (var i = 1; i <= string_length(str); i++)
     {
-        var char = string_char_at(arg0, i);
+        char = string_char_at(str, i);
         
         switch (char)
         {
@@ -319,9 +307,9 @@ function scr_escape_string(arg0)
     return escaped;
 }
 
-function scr_color_from_name(arg0)
+function scr_color_from_name(color_str)
 {
-    switch (arg0)
+    switch (color_str)
     {
         case "blank":
             return c_gray;
@@ -361,7 +349,7 @@ function scr_color_from_name(arg0)
     }
 }
 
-function scr_chat_message(arg0, arg1)
+function scr_chat_message(msg_color, msg_text)
 {
     var len = array_length(global.chat_line) - 1;
     
@@ -371,8 +359,8 @@ function scr_chat_message(arg0, arg1)
         {
             if (global.chat_line[i] == "")
             {
-                global.chat_color[i] = arg0;
-                global.chat_line[i] = arg1;
+                global.chat_color[i] = msg_color;
+                global.chat_line[i] = msg_text;
                 exit;
             }
         }
@@ -384,8 +372,35 @@ function scr_chat_message(arg0, arg1)
         global.chat_line[i] = global.chat_line[i + 1];
     }
     
-    global.chat_color[len] = arg0;
-    global.chat_line[len] = arg1;
+    global.chat_color[len] = msg_color;
+    global.chat_line[len] = msg_text;
+}
+
+function scr_ds_list_to_array(list, key)
+{
+    ds_list_read(list, key);
+    var size = ds_list_size(list);
+    var array = array_create(size, 0);
+    var value = 0;
+    
+    for (var i = 0; i < size; i++)
+    {
+        value = ds_list_find_value(list, i);
+        array[i] = is_undefined(value) ? 0 : value;
+    }
+    
+    ds_list_clear(list);
+    return array;
+}
+
+function scr_array_to_ds_list(list, array)
+{
+    ds_list_clear(list);
+    
+    for (var i = 0; i < array_length(array); i++)
+        ds_list_add(list, array[i]);
+    
+    return list;
 }
 
 function scr_load_bingo_data()
@@ -507,259 +522,67 @@ function scr_load_bingo_data()
         if (variable_struct_exists(json, "progress"))
         {
             var list = ds_list_create();
-            var value = 0;
-            var i = 0;
             
             if (variable_struct_exists(json.progress, "general"))
-            {
-                ds_list_read(list, json.progress.general);
-                
-                for (i = 0; i < global.num_goals; i++)
-                {
-                    value = ds_list_find_value(list, i);
-                    global.goal_progress[i] = is_undefined(value) ? 0 : value;
-                }
-                
-                ds_list_clear(list);
-            }
+                global.goal_progress = scr_ds_list_to_array(list, json.progress.general);
             
             if (variable_struct_exists(json.progress, "specific"))
             {
                 if (variable_struct_exists(json.progress.specific, "money_files"))
-                {
-                    ds_list_read(list, json.progress.specific.money_files);
-                    
-                    for (i = 0; i < array_length(global.money_files); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.money_files[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.money_files = scr_ds_list_to_array(list, json.progress.specific.money_files);
                 
                 if (variable_struct_exists(json.progress.specific, "shop_items"))
-                {
-                    ds_list_read(list, json.progress.specific.shop_items);
-                    
-                    for (i = 0; i < array_length(global.shop_items); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.shop_items[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.shop_items = scr_ds_list_to_array(list, json.progress.specific.shop_items);
                 
                 if (variable_struct_exists(json.progress.specific, "bananas"))
-                {
-                    ds_list_read(list, json.progress.specific.bananas);
-                    
-                    for (i = 0; i < array_length(global.bananas); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.bananas[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.bananas = scr_ds_list_to_array(list, json.progress.specific.bananas);
                 
                 if (variable_struct_exists(json.progress.specific, "eggs"))
-                {
-                    ds_list_read(list, json.progress.specific.eggs);
-                    
-                    for (i = 0; i < array_length(global.eggs); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.eggs[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.eggs = scr_ds_list_to_array(list, json.progress.specific.eggs);
                 
                 if (variable_struct_exists(json.progress.specific, "fix_us"))
-                {
-                    ds_list_read(list, json.progress.specific.fix_us);
-                    
-                    for (i = 0; i < array_length(global.fix_us); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.fix_us[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.fix_us = scr_ds_list_to_array(list, json.progress.specific.fix_us);
                 
                 if (variable_struct_exists(json.progress.specific, "smorg"))
-                {
-                    ds_list_read(list, json.progress.specific.smorg);
-                    
-                    for (i = 0; i < array_length(global.smorg); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.smorg[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.smorg = scr_ds_list_to_array(list, json.progress.specific.smorg);
                 
                 if (variable_struct_exists(json.progress.specific, "berdly_encounters"))
-                {
-                    ds_list_read(list, json.progress.specific.berdly_encounters);
-                    
-                    for (i = 0; i < array_length(global.berdly_encounters); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.berdly_encounters[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.berdly_encounters = scr_ds_list_to_array(list, json.progress.specific.berdly_encounters);
                 
                 if (variable_struct_exists(json.progress.specific, "revivemints"))
-                {
-                    ds_list_read(list, json.progress.specific.revivemints);
-                    
-                    for (i = 0; i < array_length(global.revivemints); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.revivemints[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.revivemints = scr_ds_list_to_array(list, json.progress.specific.revivemints);
                 
                 if (variable_struct_exists(json.progress.specific, "dojo_challenges"))
-                {
-                    ds_list_read(list, json.progress.specific.dojo_challenges);
-                    
-                    for (i = 0; i < array_length(global.dojo_challenges); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.dojo_challenges[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.dojo_challenges = scr_ds_list_to_array(list, json.progress.specific.dojo_challenges);
                 
                 if (variable_struct_exists(json.progress.specific, "wrong_warps"))
-                {
-                    ds_list_read(list, json.progress.specific.wrong_warps);
-                    
-                    for (i = 0; i < array_length(global.wrong_warps); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.wrong_warps[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.wrong_warps = scr_ds_list_to_array(list, json.progress.specific.wrong_warps);
                 
                 if (variable_struct_exists(json.progress.specific, "recruits"))
-                {
-                    ds_list_read(list, json.progress.specific.recruits);
-                    
-                    for (i = 0; i < array_length(global.recruits); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.recruits[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.recruits = scr_ds_list_to_array(list, json.progress.specific.recruits);
+                
                 if (variable_struct_exists(json.progress.specific, "golden_sheets"))
-                {
-                    ds_list_read(list, json.progress.specific.golden_sheets);
-                    
-                    for (i = 0; i < array_length(global.golden_sheets); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.golden_sheets[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.golden_sheets = scr_ds_list_to_array(list, json.progress.specific.golden_sheets);
+                
                 if (variable_struct_exists(json.progress.specific, "golden_items"))
-                {
-                    ds_list_read(list, json.progress.specific.golden_items);
-                    
-                    for (i = 0; i < array_length(global.golden_items); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.golden_items[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.golden_items = scr_ds_list_to_array(list, json.progress.specific.golden_items);
+                
                 if (variable_struct_exists(json.progress.specific, "secret_bosses"))
-                {
-                    ds_list_read(list, json.progress.specific.secret_bosses);
-                    
-                    for (i = 0; i < array_length(global.secret_bosses); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.secret_bosses[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.secret_bosses = scr_ds_list_to_array(list, json.progress.specific.secret_bosses);
+                
                 if (variable_struct_exists(json.progress.specific, "main_bosses"))
-                {
-                    ds_list_read(list, json.progress.specific.main_bosses);
-                    
-                    for (i = 0; i < array_length(global.main_bosses); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.main_bosses[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.main_bosses = scr_ds_list_to_array(list, json.progress.specific.main_bosses);
+                
                 if (variable_struct_exists(json.progress.specific, "ribbons"))
-                {
-                    ds_list_read(list, json.progress.specific.ribbons);
-                    
-                    for (i = 0; i < array_length(global.ribbons); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.ribbons[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.ribbons = scr_ds_list_to_array(list, json.progress.specific.ribbons);
+                
                 if (variable_struct_exists(json.progress.specific, "b2_photos"))
-                {
-                    ds_list_read(list, json.progress.specific.b2_photos);
-                    
-                    for (i = 0; i < array_length(global.b2_photos); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.b2_photos[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
-
+                    global.b2_photos = scr_ds_list_to_array(list, json.progress.specific.b2_photos);
+                
                 if (variable_struct_exists(json.progress.specific, "chapter_recruits"))
-                {
-                    ds_list_read(list, json.progress.specific.chapter_recruits);
-                    
-                    for (i = 0; i < array_length(global.chapter_recruits); i++)
-                    {
-                        value = ds_list_find_value(list, i);
-                        global.chapter_recruits[i] = is_undefined(value) ? 0 : value;
-                    }
-                    
-                    ds_list_clear(list);
-                }
+                    global.chapter_recruits = scr_ds_list_to_array(list, json.progress.specific.chapter_recruits);
             }
-            
+
             ds_list_destroy(list);
         }
     }
@@ -767,6 +590,8 @@ function scr_load_bingo_data()
 
 function scr_save_bingo_data()
 {
+    var list = ds_list_create();
+    var file = file_text_open_write("bingo_data.json");
     var data = {};
     data.last_saved_room = {};
     data.preferences = {};
@@ -792,123 +617,26 @@ function scr_save_bingo_data()
     data.filters.colors = global.show_colors;
     data.filters.goal_marks = global.show_goal_marks;
     data.filters.new_cards = global.show_new_cards;
-    var list = ds_list_create();
-    var i = 0;
-    
-    for (i = 0; i < global.num_goals; i++)
-        ds_list_add(list, global.goal_progress[i]);
-    
-    data.progress.general = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.money_files); i++)
-        ds_list_add(list, global.money_files[i]);
-    
-    data.progress.specific.money_files = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.shop_items); i++)
-        ds_list_add(list, global.shop_items[i]);
-    
-    data.progress.specific.shop_items = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.bananas); i++)
-        ds_list_add(list, global.bananas[i]);
-    
-    data.progress.specific.bananas = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.eggs); i++)
-        ds_list_add(list, global.eggs[i]);
-    
-    data.progress.specific.eggs = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.fix_us); i++)
-        ds_list_add(list, global.fix_us[i]);
-    
-    data.progress.specific.fix_us = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.smorg); i++)
-        ds_list_add(list, global.smorg[i]);
-    
-    data.progress.specific.smorg = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.berdly_encounters); i++)
-        ds_list_add(list, global.berdly_encounters[i]);
-    
-    data.progress.specific.berdly_encounters = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.revivemints); i++)
-        ds_list_add(list, global.revivemints[i]);
-    
-    data.progress.specific.revivemints = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.dojo_challenges); i++)
-        ds_list_add(list, global.dojo_challenges[i]);
-    
-    data.progress.specific.dojo_challenges = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.wrong_warps); i++)
-        ds_list_add(list, global.wrong_warps[i]);
-    
-    data.progress.specific.wrong_warps = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.recruits); i++)
-        ds_list_add(list, global.recruits[i]);
-    
-    data.progress.specific.recruits = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.golden_sheets); i++)
-        ds_list_add(list, global.golden_sheets[i]);
-    
-    data.progress.specific.golden_sheets = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.golden_items); i++)
-        ds_list_add(list, global.golden_items[i]);
-    
-    data.progress.specific.golden_items = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.secret_bosses); i++)
-        ds_list_add(list, global.secret_bosses[i]);
-    
-    data.progress.specific.secret_bosses = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.main_bosses); i++)
-        ds_list_add(list, global.main_bosses[i]);
-    
-    data.progress.specific.main_bosses = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.ribbons); i++)
-        ds_list_add(list, global.ribbons[i]);
-    
-    data.progress.specific.ribbons = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.b2_photos); i++)
-        ds_list_add(list, global.b2_photos[i]);
-    
-    data.progress.specific.b2_photos = ds_list_write(list);
-    ds_list_clear(list);
-    
-    for (i = 0; i < array_length(global.chapter_recruits); i++)
-        ds_list_add(list, global.chapter_recruits[i]);
-    
-    data.progress.specific.chapter_recruits = ds_list_write(list);
+    data.progress.general = ds_list_write(scr_array_to_ds_list(list, global.goal_progress));
+    data.progress.specific.money_files = ds_list_write(scr_array_to_ds_list(list, global.money_files));
+    data.progress.specific.shop_items = ds_list_write(scr_array_to_ds_list(list, global.shop_items));
+    data.progress.specific.bananas = ds_list_write(scr_array_to_ds_list(list, global.bananas));
+    data.progress.specific.eggs = ds_list_write(scr_array_to_ds_list(list, global.eggs));
+    data.progress.specific.fix_us = ds_list_write(scr_array_to_ds_list(list, global.fix_us));
+    data.progress.specific.smorg = ds_list_write(scr_array_to_ds_list(list, global.smorg));
+    data.progress.specific.berdly_encounters = ds_list_write(scr_array_to_ds_list(list, global.berdly_encounters));
+    data.progress.specific.revivemints = ds_list_write(scr_array_to_ds_list(list, global.revivemints));
+    data.progress.specific.dojo_challenges = ds_list_write(scr_array_to_ds_list(list, global.dojo_challenges));
+    data.progress.specific.wrong_warps = ds_list_write(scr_array_to_ds_list(list, global.wrong_warps));
+    data.progress.specific.recruits = ds_list_write(scr_array_to_ds_list(list, global.recruits));
+    data.progress.specific.golden_sheets = ds_list_write(scr_array_to_ds_list(list, global.golden_sheets));
+    data.progress.specific.golden_items = ds_list_write(scr_array_to_ds_list(list, global.golden_items));
+    data.progress.specific.secret_bosses = ds_list_write(scr_array_to_ds_list(list, global.secret_bosses));
+    data.progress.specific.main_bosses = ds_list_write(scr_array_to_ds_list(list, global.main_bosses));
+    data.progress.specific.ribbons = ds_list_write(scr_array_to_ds_list(list, global.ribbons));
+    data.progress.specific.b2_photos = ds_list_write(scr_array_to_ds_list(list, global.b2_photos));
+    data.progress.specific.chapter_recruits = ds_list_write(scr_array_to_ds_list(list, global.chapter_recruits));
     ds_list_destroy(list);
-    var file = file_text_open_write("bingo_data.json");
     file_text_write_string(file, json_stringify(data));
     file_text_close(file);
 }
@@ -938,64 +666,58 @@ function scr_reset_bingo_data()
     scr_save_bingo_data();
 }
 
-function scr_goal_slot_from_name(arg0)
+function scr_goal_slot_from_name(name)
 {
-    arg0 = string_lower(string_trim(arg0));
+    name = string_lower(string_trim(name));
 
     for (var i = 0; i < array_length(global.goal_slot); i++)
     {
-        if (string_lower(global.goal_name[i]) == arg0)
+        if (string_lower(global.goal_name[i]) == name)
             return string_digits(global.goal_slot[i]);
     }
     
     return 0;
 }
 
-function scr_goal_requirements(arg0)
+function scr_goal_requirements(slot)
 {
-    if (arg0 < 0 || arg0 >= global.num_goals)
+    if (slot < 0 || slot >= global.num_goals)
         return false;
 
-    switch (arg0)
+    switch (slot)
     {
         case 2:
-            return global.goal_progress[arg0] >= 10;
+        case 16:
+        case 80:
+            return global.goal_progress[slot] >= 10;
         
         case 3:
-            return global.goal_progress[arg0] >= 5;
+        case 72:
+            return global.goal_progress[slot] >= 5;
         
         case 10:
-            return global.goal_progress[arg0] >= 25;
-        
-        case 16:
-            return global.goal_progress[arg0] >= 10;
+            return global.goal_progress[slot] >= 25;
         
         case 30:
-            return global.goal_progress[arg0] >= 15;
+            return global.goal_progress[slot] >= 15;
         
         case 31:
-            return global.goal_progress[arg0] >= 20;
+            return global.goal_progress[slot] >= 20;
         
         case 42:
-            return global.goal_progress[arg0] >= 3;
-        
-        case 72:
-            return global.goal_progress[arg0] >= 5;
+            return global.goal_progress[slot] >= 3;
         
         case 78:
-            return global.goal_progress[arg0] >= 2;
-        
-        case 80:
-            return global.goal_progress[arg0] >= 10;
+            return global.goal_progress[slot] >= 2;
         
         default:
-            return global.goal_progress[arg0] >= 1;
+            return global.goal_progress[slot] >= 1;
     }
 }
 
-function scr_internal_name_from_slot(arg0)
+function scr_internal_name_from_slot(slot)
 {
-    switch (arg0)
+    switch (slot)
     {
         case 0:
             return "$2000";
@@ -1392,16 +1114,65 @@ function scr_internal_name_from_slot(arg0)
     }
 }
 
-function scr_add_goal_progress(arg0, arg1)
+function scr_add_goal_array(array, index, slot)
+{
+    array[index]++;
+    scr_save_bingo_data();
+    var total = 0;
+    var threshold = 0;
+
+    for (var i = 0; i < array_length(array); i++)
+    {
+        if (array[index] >= 1)
+            total++;
+    }
+
+    switch (slot)
+    {
+        case 21:
+        case 106:
+        case 110:
+        case 111:
+            threshold = 2;
+            break;
+
+        case 36:
+        case 71:
+            threshold = 3;
+            break;
+
+        default:
+            threshold = array_length(array);
+            break;
+    }
+
+    if (total >= threshold)
+        scr_add_goal_progress(slot, 1);
+}
+
+function scr_add_goal_money(amount)
+{
+    var file = ((global.chapter - 1) * 3) + global.filechoice;
+    global.money_files[file] += amount;
+    scr_save_bingo_data();
+
+    if (global.money_files[file] >= 2000)
+        scr_add_goal_progress(0, 1);
+
+    if (global.money_files[file] >= 3000)
+        scr_add_goal_progress(22, 1);
+}
+
+function scr_add_goal_progress(slot, amount)
 {
     if (global.ws_client == -1)
         exit;
     
-    global.goal_progress[arg0] += arg1;
+    global.goal_progress[slot] += amount;
     
-    if (scr_goal_requirements(arg0))
+    if (scr_goal_requirements(slot))
     {
-        var board_slot = scr_goal_slot_from_name(scr_internal_name_from_slot(arg0));
+        var board_slot = scr_goal_slot_from_name(scr_internal_name_from_slot(slot));
         
         if (board_slot > 0 && string_pos(global.color, global.goal_colors[board_slot - 1]) == 0)
         {
@@ -1411,7 +1182,7 @@ function scr_add_goal_progress(arg0, arg1)
                 global.goal_colors[board_slot - 1] = global.color;
                 obj_bingo_controller.alarm[0] = 3 * room_speed;
             }
-            // Prevent your color from showing up when you mark a taken goal with Lockout enabled (visual bug)
+            // Prevent your color from showing up when you mark a taken goal with Lockout enabled
             else if (global.room_lockout == "Non-Lockout")
             {
                 global.goal_colors[board_slot - 1] += " " + global.color;
@@ -1423,17 +1194,4 @@ function scr_add_goal_progress(arg0, arg1)
     }
     
     scr_save_bingo_data();
-}
-
-function scr_add_money(arg0)
-{
-    var file = ((global.chapter - 1) * 3) + global.filechoice;
-    global.money_files[file] += arg0;
-    scr_save_bingo_data();
-
-    if (global.money_files[file] >= 2000)
-        scr_add_goal_progress(0, 1);
-
-    if (global.money_files[file] >= 3000)
-        scr_add_goal_progress(22, 1);
 }

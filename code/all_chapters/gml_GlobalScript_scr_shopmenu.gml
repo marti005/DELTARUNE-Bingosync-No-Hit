@@ -6,7 +6,7 @@
                     snd_play(snd_locker);
                     global.gold += sellvalue;
 /// CODE
-                    scr_add_money(sellvalue);
+                    scr_add_goal_money(sellvalue);
 /// END
 
 /// AFTER
@@ -15,7 +15,7 @@
                     snd_play(snd_locker);
                     global.gold += sellvalue;
 /// CODE
-                    scr_add_money(sellvalue);
+                    scr_add_goal_money(sellvalue);
 /// END
 
 /// AFTER
@@ -24,5 +24,5 @@
                     snd_play(snd_locker);
                     global.gold += sellvalue;
 /// CODE
-                    scr_add_money(sellvalue);
+                    scr_add_goal_money(sellvalue);
 /// END

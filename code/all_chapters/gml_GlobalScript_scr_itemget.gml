@@ -12,20 +12,14 @@
                 switch (room)
                 {
                     case room_forest_dancers1:
-                        global.revivemints[0]++;
+                        scr_add_goal_array(global.revivemints, 0, 36);
                         break;
 
                     case room_cc_4f:
-                        global.revivemints[1]++;
+                        scr_add_goal_array(global.revivemints, 1, 36);
                         break;
                 }
-                
-                scr_save_bingo_data();
-                
-                if (scr_array_total(global.revivemints, 3))
-                    scr_add_goal_progress(36, 1);
             }
-/// END
 #else
 /// AFTER
             global.item[__i] = arg0;
@@ -45,43 +39,37 @@
                 switch (room_get_name(room))
                 {
                     case "room_dw_cyber_viro_ring":
-                        global.revivemints[2]++;
+                        scr_add_goal_array(global.revivemints, 2, 36);
                         break;
 
                     case "room_dw_mansion_fire_paintings":
-                        global.revivemints[3]++;
+                        scr_add_goal_array(global.revivemints, 3, 36);
                         break;
 
                     case "room_dw_green_room":
-                        global.revivemints[4]++;
+                        scr_add_goal_array(global.revivemints, 4, 36);
                         break;
 
                     case "room_dw_ranking_b":
-                        global.revivemints[5]++;
+                        scr_add_goal_array(global.revivemints, 5, 36);
                         break;
 
                     case "room_dw_b3bs_mysterypuzzle":
-                        global.revivemints[6]++;
+                        scr_add_goal_array(global.revivemints, 6, 36);
                         break;
 
                     case "room_dw_church_pianopiece_right":
-                        global.revivemints[7]++;
+                        scr_add_goal_array(global.revivemints, 7, 36);
                         break;
 
                     case "room_dw_churchb_library":
-                        global.revivemints[8]++;
+                        scr_add_goal_array(global.revivemints, 8, 36);
                         break;
 
                     case "room_dw_churchb_moneyfountain":
-                        global.revivemints[9]++;
+                        scr_add_goal_array(global.revivemints, 9, 36);
                         break;
                 }
-                
-                scr_save_bingo_data();
-                
-                if (scr_array_total(global.revivemints, 3))
-                    scr_add_goal_progress(36, 1);
-
                 break;
 
             case 35:
@@ -97,5 +85,5 @@
                 break;
         }
     }
-/// END
 #endif
+/// END

@@ -6,6 +6,6 @@
 /// CODE
     {
         global.gold += arg0;
-        scr_add_money(arg0);
+        scr_add_goal_money(arg0);
     }
 /// END

@@ -106,7 +106,7 @@ if (sel == -1)
             case 4:
                 keyboard_string = global.color;
                 status_color = c_ltgray;
-                status_text = "Press ESC or Enter to stop typing.";
+                status_text = "Press ESC or Enter to stop typing.\nUse orange, red, blue, green, purple, navy, teal, brown, pink or yellow.";
                 sel = 4;
                 snd_play(snd_select);
                 break;
