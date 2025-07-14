@@ -4,9 +4,9 @@
         con = 18;
 /// CODE
 #if CHAPTER_1 || CHAPTER_2
-        scr_add_goal_array(global.fix_us, global.chapter - 1, 24);
+        scr_add_goal_array("fix_us", global.chapter - 1, 24);
 #else
-        scr_add_goal_array(global.fix_us, global.chapter - 2, 24);
+        scr_add_goal_array("fix_us", global.chapter - 2, 24);
 #endif
 /// END
 

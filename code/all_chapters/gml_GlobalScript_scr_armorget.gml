@@ -16,20 +16,20 @@
                 break;
 
             case 4:
-                scr_add_goal_array(global.ribbons, 0, 114);
+                scr_add_goal_array("ribbons", 0, 114);
                 break;
 
             case 3:
-                scr_add_goal_array(global.ribbons, 1, 114);
+                scr_add_goal_array("ribbons", 1, 114);
                 break;
 
             case 26:
-                scr_add_goal_array(global.ribbons, 2, 114);
+                scr_add_goal_array("ribbons", 2, 114);
                 break;
 
             case 53:
                 scr_add_goal_progress(105, 1);
-                scr_add_goal_array(global.ribbons, 3, 114);
+                scr_add_goal_array("ribbons", 3, 114);
                 break;
         }
 /// END

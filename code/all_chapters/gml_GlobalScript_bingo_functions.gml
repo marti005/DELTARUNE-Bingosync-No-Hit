@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "2.01";
+    return "2.02";
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
@@ -1114,16 +1114,20 @@ function scr_internal_name_from_slot(slot)
     }
 }
 
-function scr_add_goal_array(array, index, slot)
+function scr_add_goal_array(array_name, index, slot)
 {
-    array[index]++;
-    scr_save_bingo_data();
+    // I don't like this approach but since this game uses Copy On Write and UndertaleModTool doesn't support accessors,
+    // this is the first way I could think of to do it.
+    var array = variable_global_get(array_name);
     var total = 0;
     var threshold = 0;
+    array[index]++;
+    variable_global_set(array_name, array);
+    scr_save_bingo_data();
 
     for (var i = 0; i < array_length(array); i++)
     {
-        if (array[index] >= 1)
+        if (array[i] >= 1)
             total++;
     }
 

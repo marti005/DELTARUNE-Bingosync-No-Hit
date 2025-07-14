@@ -4,11 +4,11 @@
 switch (global.encounterno)
 {
     case 74:
-        scr_add_goal_array(global.smorg, 1, 27);       
+        scr_add_goal_array("smorg", 1, 27);       
         break;
     
     case 58:
-        scr_add_goal_array(global.berdly_encounters, 0, 34);       
+        scr_add_goal_array("berdly_encounters", 0, 34);       
         break;
     
     case 83:
