@@ -26,6 +26,6 @@
 /// AFTER
         case 1206:
 /// CODE
-            if(room == room_dw_cyber_musical_door)
+            if (room == room_dw_cyber_musical_door)
                 scr_add_goal_progress(58, 1);
 /// END

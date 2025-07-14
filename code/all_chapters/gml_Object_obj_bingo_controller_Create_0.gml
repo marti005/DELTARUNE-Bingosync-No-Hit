@@ -6,9 +6,6 @@ board_revealed = false;
 http_board = -1;
 http_room_settings = -1;
 http_feed = -1;
-temp_halign = 0;
-temp_valign = 0;
-temp_alpha = 0;
 global.goal_name = array_create(25, "");
 global.goal_slot = array_create(25, "");
 global.goal_colors = array_create(25, "blank");
@@ -17,8 +14,7 @@ global.room_lockout = "";
 
 if (os_is_network_connected())
 {
-    var socket_id = 7;
-    global.ws_client = network_create_socket(socket_id);
+    global.ws_client = network_create_socket(network_socket_wss);
     network_connect_raw_async(global.ws_client, "wss://sockets.bingosync.com/broadcast", 443);
 }
 

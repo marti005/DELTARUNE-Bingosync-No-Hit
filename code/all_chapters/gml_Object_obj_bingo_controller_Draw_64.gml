@@ -1,16 +1,16 @@
 /// IMPORT
 
-temp_valign = draw_get_valign();
-temp_halign = draw_get_halign();
-temp_alpha = draw_get_alpha();
-draw_set_alpha(1);
-draw_set_font(fnt_main);
+var temp_halign = draw_get_halign();
+var temp_valign = draw_get_valign();
+var temp_alpha = draw_get_alpha();
 var grid_size = 5;
 var square_size = 58;
 var spacing = 2;
 var base_x = 340;
 var base_y = 1;
 var new_lines = 0;
+draw_set_alpha(1);
+draw_set_font(fnt_main);
 
 if (global.show_board && board_connected)
 {
@@ -31,6 +31,14 @@ if (global.show_board && board_connected)
         var i = 0;
         var j = 0;
         var c = 0;
+        var x1 = 0;
+        var y1 = 0;
+        var x2 = 0;
+        var y2 = 0;
+        var colors_array = 0;
+        var num_colors = 0;
+        var section_width = 0;
+        var shown_str = "";
         var mousex = window_mouse_get_x();
         var mousey = window_mouse_get_y();
         draw_set_color(c_black);
@@ -40,13 +48,13 @@ if (global.show_board && board_connected)
         {
             for (j = 0; j < grid_size; j++)
             {
-                var x1 = base_x + (j * (square_size + spacing));
-                var y1 = base_y + (i * (square_size + spacing));
-                var x2 = x1 + square_size;
-                var y2 = y1 + square_size;
-                var colors_array = string_split(global.goal_colors[idx], " ");
-                var num_colors = array_length(colors_array);
-                var section_width = square_size / num_colors;
+                x1 = base_x + (j * (square_size + spacing));
+                y1 = base_y + (i * (square_size + spacing));
+                x2 = x1 + square_size;
+                y2 = y1 + square_size;
+                colors_array = string_split(global.goal_colors[idx], " ");
+                num_colors = array_length(colors_array);
+                section_width = square_size / num_colors;
                 
                 for (c = 0; c < num_colors; c++)
                 {
@@ -64,7 +72,7 @@ if (global.show_board && board_connected)
                     draw_sprite(spr_goal_star, 0, x1, y1);
                 
                 draw_set_color(c_white);
-                var shown_str = global.goal_name[idx];
+                shown_str = global.goal_name[idx];
                 
                 if (string_count(" ", shown_str) < 2)
                 {

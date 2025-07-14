@@ -27,7 +27,7 @@
                     scr_add_goal_progress(80, 1);
 #endif
 #if CHAPTER_1
-                    if(global.monstertype[star] == 11)
+                    if (global.monstertype[star] == 11)
                         scr_add_goal_progress(66, 1);
 #endif
 /// END
@@ -67,7 +67,7 @@
                 scr_add_goal_progress(30, 1);
 #endif
 #if CHAPTER_1
-                if(global.monstertype[star] == 11)
+                if (global.monstertype[star] == 11)
                     scr_add_goal_progress(66, 1);
 #endif
 /// END
@@ -76,7 +76,7 @@
 /// AFTER
         case 204:
 /// CODE
-            if(global.encounterno == 8 && !global.clover_manual)
+            if (global.encounterno == 8 && !global.clover_manual)
                 global.clover_manual = true;
 /// END
 #endif
