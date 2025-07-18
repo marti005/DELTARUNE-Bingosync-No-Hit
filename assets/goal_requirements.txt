@@ -289,4 +289,8 @@ Go to the diner with Susie: Have a seat with Susie at the diner in CH4's Light W
 
 Recruit an enemy in each chapter: Self explanatory
 
-Lanino/Elnina Rematch: Beat the only available dojo challenge in CH4.
+Lanino/Elnina Rematch: Beat the only available dojo challenge in CH4
+
+Obtain 5 Armors: Get this many UNIQUE armors. Note that the starting equipment does NOT count. You have to buy or find things
+
+Obtain 5 Weapons: Get this many UNIQUE weapons. Same conditions as above apply.

@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "2.02";
+    return "2.03";
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
@@ -60,221 +60,78 @@ function scr_input_name(input)
 {
     switch (input)
     {
-        case 8:
-            return "BACKSPACE";
-        
-        case 9:
-            return "TAB";
-        
-        case 12:
-            return "NUM 5 (NUMLOCK OFF)";
-        
-        case 13:
-            return "ENTER";
-        
-        case 16:
-            return "SHIFT";
-        
-        case 17:
-            return "CONTROL";
-        
-        case 18:
-            return "ALT";
-        
-        case 19:
-            return "PAUSE";
-        
-        case 20:
-            return "CAPS LOCK";
-        
-        case 27:
-            return "ESCAPE";
-        
-        case 32:
-            return "SPACE";
-        
-        case 33:
-            return "PAGE UP";
-        
-        case 34:
-            return "PAGE DOWN";
-        
-        case 35:
-            return "END";
-        
-        case 36:
-            return "HOME";
-        
-        case 37:
-            return "LEFT";
-        
-        case 38:
-            return "UP";
-        
-        case 39:
-            return "RIGHT";
-        
-        case 40:
-            return "DOWN";
-        
-        case 44:
-            return "PRINT SCREEN";
-        
-        case 45:
-            return "INSERT";
-        
-        case 46:
-            return "DELETE";
-        
-        case 91:
-            return "WINDOWS KEY";
-        
-        case 92:
-            return "RIGHT WINDOWS KEY";
-        
-        case 93:
-            return "CONTEXT MENU";
-        
-        case 96:
-            return "NUM 0";
-        
-        case 97:
-            return "NUM 1";
-        
-        case 98:
-            return "NUM 2";
-        
-        case 99:
-            return "NUM 3";
-        
-        case 100:
-            return "NUM 4";
-        
-        case 101:
-            return "NUM 5 (NUMLOCK ON)";
-        
-        case 102:
-            return "NUM 6";
-        
-        case 103:
-            return "NUM 7";
-        
-        case 104:
-            return "NUM 8";
-        
-        case 105:
-            return "NUM 9";
-        
-        case 106:
-            return "NUM *";
-        
-        case 107:
-            return "NUM +";
-        
-        case 109:
-            return "NUM -";
-        
-        case 110:
-            return "NUM .";
-        
-        case 111:
-            return "NUM /";
-        
-        case 112:
-            return "F1";
-        
-        case 113:
-            return "F2";
-        
-        case 114:
-            return "F3";
-        
-        case 115:
-            return "F4";
-        
-        case 116:
-            return "F5";
-        
-        case 117:
-            return "F6";
-        
-        case 118:
-            return "F7";
-        
-        case 119:
-            return "F8";
-        
-        case 120:
-            return "F9";
-        
-        case 121:
-            return "F10";
-        
-        case 122:
-            return "F11";
-        
-        case 123:
-            return "F12";
-        
-        case 144:
-            return "NUM LOCK";
-        
-        case 145:
-            return "SCROLL LOCK";
-        
-        case 160:
-            return "LEFT SHIFT";
-        
-        case 161:
-            return "RIGHT SHIFT";
-        
-        case 162:
-            return "LEFT CONTROL";
-        
-        case 163:
-            return "RIGHT CONTROL";
-        
-        case 164:
-            return "LEFT ALT";
-        
-        case 165:
-            return "RIGHT ALT";
-        
-        case 186:
-            return ";";
-        
-        case 187:
-            return "=";
-        
-        case 188:
-            return ",";
-        
-        case 189:
-            return "-";
-        
-        case 190:
-            return ".";
-        
-        case 191:
-            return "/";
-        
-        case 192:
-            return "TILDE";
-        
-        case 219:
-            return "[";
-        
-        case 220:
-            return "\\";
-        
-        case 221:
-            return "]";
-        
-        case 222:
-            return "APOSTROPHE";
-        
-        default:
-            return chr(input);
+        case 8:   return "BACKSPACE";
+        case 9:   return "TAB";
+        case 12:  return "NUM 5 (NUM LOCK OFF)";
+        case 13:  return "ENTER";
+        case 16:  return "SHIFT";
+        case 17:  return "CONTROL";
+        case 18:  return "ALT";
+        case 19:  return "PAUSE";
+        case 20:  return "CAPS LOCK";
+        case 27:  return "ESCAPE";
+        case 32:  return "SPACE";
+        case 33:  return "PAGE UP";
+        case 34:  return "PAGE DOWN";
+        case 35:  return "END";
+        case 36:  return "HOME";
+        case 37:  return "LEFT";
+        case 38:  return "UP";
+        case 39:  return "RIGHT";
+        case 40:  return "DOWN";
+        case 44:  return "PRINT SCREEN";
+        case 45:  return "INSERT";
+        case 46:  return "DELETE";
+        case 91:  return "WINDOWS KEY";
+        case 92:  return "RIGHT WINDOWS KEY";
+        case 93:  return "CONTEXT MENU";
+        case 96:  return "NUM 0";
+        case 97:  return "NUM 1";
+        case 98:  return "NUM 2";
+        case 99:  return "NUM 3";
+        case 100: return "NUM 4";
+        case 101: return "NUM 5 (NUM LOCK ON)";
+        case 102: return "NUM 6";
+        case 103: return "NUM 7";
+        case 104: return "NUM 8";
+        case 105: return "NUM 9";
+        case 106: return "NUM *";
+        case 107: return "NUM +";
+        case 109: return "NUM -";
+        case 110: return "NUM .";
+        case 111: return "NUM /";
+        case 112: return "F1";
+        case 113: return "F2";
+        case 114: return "F3";
+        case 115: return "F4";
+        case 116: return "F5";
+        case 117: return "F6";
+        case 118: return "F7";
+        case 119: return "F8";
+        case 120: return "F9";
+        case 121: return "F10";
+        case 122: return "F11";
+        case 123: return "F12";
+        case 144: return "NUM LOCK";
+        case 145: return "SCROLL LOCK";
+        case 160: return "LEFT SHIFT";
+        case 161: return "RIGHT SHIFT";
+        case 162: return "LEFT CONTROL";
+        case 163: return "RIGHT CONTROL";
+        case 164: return "LEFT ALT";
+        case 165: return "RIGHT ALT";
+        case 186: return ";";
+        case 187: return "=";
+        case 188: return ",";
+        case 189: return "-";
+        case 190: return ".";
+        case 191: return "/";
+        case 192: return "TILDE";
+        case 219: return "[";
+        case 220: return "\\";
+        case 221: return "]";
+        case 222: return "APOSTROPHE";
+        default:  return chr(input);
     }
 }
 
@@ -311,51 +168,29 @@ function scr_color_from_name(color_str)
 {
     switch (color_str)
     {
-        case "blank":
-            return c_gray;
-        
-        case "green":
-            return 0x62C462;
-        
-        case "red":
-            return 0x5B5FEE;
-        
-        case "orange":
-            return 0x0694F8;
-        
-        case "blue":
-            return 0xDEC05B;
-        
-        case "purple":
-            return 0xBF2D82;
-        
-        case "navy":
-            return 0xB5480D;
-        
-        case "teal":
-            return 0x959641;
-        
-        case "pink":
-            return 0x9C79DE;
-        
-        case "brown":
-            return 0x235CAB;
-        
-        case "yellow":
-            return 0x0BBAC1;
-        
-        default:
-            return c_white;
+        case "blank":  return c_gray;
+        case "green":  return 0x62C462;
+        case "red":    return 0x5B5FEE;
+        case "orange": return 0x0694F8;
+        case "blue":   return 0xDEC05B;
+        case "purple": return 0xBF2D82;
+        case "navy":   return 0xB5480D;
+        case "teal":   return 0x959641;
+        case "pink":   return 0x9C79DE;
+        case "brown":  return 0x235CAB;
+        case "yellow": return 0x0BBAC1;
+        default:       return c_white;
     }
 }
 
 function scr_chat_message(msg_color, msg_text)
 {
     var len = array_length(global.chat_line) - 1;
+    var i = 0;
     
     if (global.chat_line[len] == "")
     {
-        for (var i = 0; i <= len; i++)
+        for (i = 0; i <= len; i++)
         {
             if (global.chat_line[i] == "")
             {
@@ -366,7 +201,7 @@ function scr_chat_message(msg_color, msg_text)
         }
     }
     
-    for (var i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         global.chat_color[i] = global.chat_color[i + 1];
         global.chat_line[i] = global.chat_line[i + 1];
@@ -407,10 +242,14 @@ function scr_load_bingo_data()
 {
     global.recruits_list = ds_list_create();
     ds_list_add(global.recruits_list,
+        // Chapter 2 (10)
         30, 31, 32, 33, 34, 35, 36, 40, 42, 44,
+        // Chapter 3 (8)
         54, 55, 56, 57, 58, 59, 60, 61,
+        // Chapter 4 (8)
         62, 63, 64, 65, 66, 67, 68, 69);
-    global.num_goals = 130;
+        // Total: 26
+    global.num_goals = 132;
     global.room_id = "";
     global.password = "";
     global.nickname = "";
@@ -446,6 +285,8 @@ function scr_load_bingo_data()
     global.ribbons = array_create(4, 0);
     global.b2_photos = array_create(4, 0);
     global.chapter_recruits = array_create(3, 0);
+    global.armors_got = array_create(55, 0);
+    global.weapons_got = array_create(55, 0);
 
     if (file_exists("bingo_data.json"))
     {
@@ -455,132 +296,66 @@ function scr_load_bingo_data()
         
         if (variable_struct_exists(json, "last_saved_room"))
         {
-            if (variable_struct_exists(json.last_saved_room, "room_id"))
-                global.room_id = json.last_saved_room.room_id;
-            
-            if (variable_struct_exists(json.last_saved_room, "password"))
-                global.password = json.last_saved_room.password;
-            
-            if (variable_struct_exists(json.last_saved_room, "nickname"))
-                global.nickname = json.last_saved_room.nickname;
-            
-            if (variable_struct_exists(json.last_saved_room, "color"))
-                global.color = json.last_saved_room.color;
-            
-            if (variable_struct_exists(json.last_saved_room, "starred_goals"))
-                global.starred_goals = json.last_saved_room.starred_goals;
-            
-            if (variable_struct_exists(json.last_saved_room, "last_card_timestamp"))
-                global.last_card_timestamp = json.last_saved_room.last_card_timestamp;
+            if (variable_struct_exists(json.last_saved_room, "room_id")) global.room_id = json.last_saved_room.room_id;
+            if (variable_struct_exists(json.last_saved_room, "password")) global.password = json.last_saved_room.password;
+            if (variable_struct_exists(json.last_saved_room, "nickname")) global.nickname = json.last_saved_room.nickname;
+            if (variable_struct_exists(json.last_saved_room, "color")) global.color = json.last_saved_room.color;
+            if (variable_struct_exists(json.last_saved_room, "starred_goals")) global.starred_goals = json.last_saved_room.starred_goals;
+            if (variable_struct_exists(json.last_saved_room, "last_card_timestamp")) global.last_card_timestamp = json.last_saved_room.last_card_timestamp;
         }
         
         if (variable_struct_exists(json, "preferences"))
         {
-            if (variable_struct_exists(json.preferences, "show_chat"))
-                global.show_chat = json.preferences.show_chat;
-            
-            if (variable_struct_exists(json.preferences, "show_board"))
-                global.show_board = json.preferences.show_board;
+            if (variable_struct_exists(json.preferences, "show_chat")) global.show_chat = json.preferences.show_chat;
+            if (variable_struct_exists(json.preferences, "show_board")) global.show_board = json.preferences.show_board;
         }
         
         if (variable_struct_exists(json, "keybinds"))
         {
-            if (variable_struct_exists(json.keybinds, "board"))
-                global.board_key = json.keybinds.board;
-            
-            if (variable_struct_exists(json.keybinds, "chat"))
-                global.chat_key = json.keybinds.chat;
-            
-            if (variable_struct_exists(json.keybinds, "reveal"))
-                global.reveal_key = json.keybinds.reveal;
-            
-            if (variable_struct_exists(json.keybinds, "toggle_chat"))
-                global.toggle_chat_key = json.keybinds.toggle_chat;
+            if (variable_struct_exists(json.keybinds, "board")) global.board_key = json.keybinds.board;
+            if (variable_struct_exists(json.keybinds, "chat")) global.chat_key = json.keybinds.chat;
+            if (variable_struct_exists(json.keybinds, "reveal")) global.reveal_key = json.keybinds.reveal;
+            if (variable_struct_exists(json.keybinds, "toggle_chat")) global.toggle_chat_key = json.keybinds.toggle_chat;
         }
 
         if (variable_struct_exists(json, "filters"))
         {
-            if (variable_struct_exists(json.filters, "connections"))
-                global.show_connections = json.filters.connections;
-            
-            if (variable_struct_exists(json.filters, "reveals"))
-                global.show_reveals = json.filters.reveals;
-            
-            if (variable_struct_exists(json.filters, "chats"))
-                global.show_chats = json.filters.chats;
-            
-            if (variable_struct_exists(json.filters, "colors"))
-                global.show_colors = json.filters.colors;
-
-            if (variable_struct_exists(json.filters, "goal_marks"))
-                global.show_goal_marks = json.filters.goal_marks;
-
-            if (variable_struct_exists(json.filters, "new_cards"))
-                global.show_new_cards = json.filters.new_cards;
+            if (variable_struct_exists(json.filters, "connections")) global.show_connections = json.filters.connections;
+            if (variable_struct_exists(json.filters, "reveals")) global.show_reveals = json.filters.reveals;
+            if (variable_struct_exists(json.filters, "chats")) global.show_chats = json.filters.chats;
+            if (variable_struct_exists(json.filters, "colors")) global.show_colors = json.filters.colors;
+            if (variable_struct_exists(json.filters, "goal_marks")) global.show_goal_marks = json.filters.goal_marks;
+            if (variable_struct_exists(json.filters, "new_cards")) global.show_new_cards = json.filters.new_cards;
         }
         
         if (variable_struct_exists(json, "progress"))
         {
             var list = ds_list_create();
-            
-            if (variable_struct_exists(json.progress, "general"))
-                global.goal_progress = scr_ds_list_to_array(list, json.progress.general);
+
+            if (variable_struct_exists(json.progress, "general")) global.goal_progress = scr_ds_list_to_array(list, json.progress.general);
             
             if (variable_struct_exists(json.progress, "specific"))
             {
-                if (variable_struct_exists(json.progress.specific, "money_files"))
-                    global.money_files = scr_ds_list_to_array(list, json.progress.specific.money_files);
-                
-                if (variable_struct_exists(json.progress.specific, "shop_items"))
-                    global.shop_items = scr_ds_list_to_array(list, json.progress.specific.shop_items);
-                
-                if (variable_struct_exists(json.progress.specific, "bananas"))
-                    global.bananas = scr_ds_list_to_array(list, json.progress.specific.bananas);
-                
-                if (variable_struct_exists(json.progress.specific, "eggs"))
-                    global.eggs = scr_ds_list_to_array(list, json.progress.specific.eggs);
-                
-                if (variable_struct_exists(json.progress.specific, "fix_us"))
-                    global.fix_us = scr_ds_list_to_array(list, json.progress.specific.fix_us);
-                
-                if (variable_struct_exists(json.progress.specific, "smorg"))
-                    global.smorg = scr_ds_list_to_array(list, json.progress.specific.smorg);
-                
-                if (variable_struct_exists(json.progress.specific, "berdly_encounters"))
-                    global.berdly_encounters = scr_ds_list_to_array(list, json.progress.specific.berdly_encounters);
-                
-                if (variable_struct_exists(json.progress.specific, "revivemints"))
-                    global.revivemints = scr_ds_list_to_array(list, json.progress.specific.revivemints);
-                
-                if (variable_struct_exists(json.progress.specific, "dojo_challenges"))
-                    global.dojo_challenges = scr_ds_list_to_array(list, json.progress.specific.dojo_challenges);
-                
-                if (variable_struct_exists(json.progress.specific, "wrong_warps"))
-                    global.wrong_warps = scr_ds_list_to_array(list, json.progress.specific.wrong_warps);
-                
-                if (variable_struct_exists(json.progress.specific, "recruits"))
-                    global.recruits = scr_ds_list_to_array(list, json.progress.specific.recruits);
-                
-                if (variable_struct_exists(json.progress.specific, "golden_sheets"))
-                    global.golden_sheets = scr_ds_list_to_array(list, json.progress.specific.golden_sheets);
-                
-                if (variable_struct_exists(json.progress.specific, "golden_items"))
-                    global.golden_items = scr_ds_list_to_array(list, json.progress.specific.golden_items);
-                
-                if (variable_struct_exists(json.progress.specific, "secret_bosses"))
-                    global.secret_bosses = scr_ds_list_to_array(list, json.progress.specific.secret_bosses);
-                
-                if (variable_struct_exists(json.progress.specific, "main_bosses"))
-                    global.main_bosses = scr_ds_list_to_array(list, json.progress.specific.main_bosses);
-                
-                if (variable_struct_exists(json.progress.specific, "ribbons"))
-                    global.ribbons = scr_ds_list_to_array(list, json.progress.specific.ribbons);
-                
-                if (variable_struct_exists(json.progress.specific, "b2_photos"))
-                    global.b2_photos = scr_ds_list_to_array(list, json.progress.specific.b2_photos);
-                
-                if (variable_struct_exists(json.progress.specific, "chapter_recruits"))
-                    global.chapter_recruits = scr_ds_list_to_array(list, json.progress.specific.chapter_recruits);
+                if (variable_struct_exists(json.progress.specific, "money_files")) global.money_files = scr_ds_list_to_array(list, json.progress.specific.money_files);
+                if (variable_struct_exists(json.progress.specific, "shop_items")) global.shop_items = scr_ds_list_to_array(list, json.progress.specific.shop_items);
+                if (variable_struct_exists(json.progress.specific, "bananas")) global.bananas = scr_ds_list_to_array(list, json.progress.specific.bananas);
+                if (variable_struct_exists(json.progress.specific, "eggs")) global.eggs = scr_ds_list_to_array(list, json.progress.specific.eggs);
+                if (variable_struct_exists(json.progress.specific, "fix_us")) global.fix_us = scr_ds_list_to_array(list, json.progress.specific.fix_us);
+                if (variable_struct_exists(json.progress.specific, "smorg")) global.smorg = scr_ds_list_to_array(list, json.progress.specific.smorg);
+                if (variable_struct_exists(json.progress.specific, "berdly_encounters")) global.berdly_encounters = scr_ds_list_to_array(list, json.progress.specific.berdly_encounters);
+                if (variable_struct_exists(json.progress.specific, "revivemints")) global.revivemints = scr_ds_list_to_array(list, json.progress.specific.revivemints);
+                if (variable_struct_exists(json.progress.specific, "dojo_challenges")) global.dojo_challenges = scr_ds_list_to_array(list, json.progress.specific.dojo_challenges);
+                if (variable_struct_exists(json.progress.specific, "wrong_warps")) global.wrong_warps = scr_ds_list_to_array(list, json.progress.specific.wrong_warps);
+                if (variable_struct_exists(json.progress.specific, "recruits")) global.recruits = scr_ds_list_to_array(list, json.progress.specific.recruits);
+                if (variable_struct_exists(json.progress.specific, "golden_sheets")) global.golden_sheets = scr_ds_list_to_array(list, json.progress.specific.golden_sheets);
+                if (variable_struct_exists(json.progress.specific, "golden_items")) global.golden_items = scr_ds_list_to_array(list, json.progress.specific.golden_items);
+                if (variable_struct_exists(json.progress.specific, "secret_bosses")) global.secret_bosses = scr_ds_list_to_array(list, json.progress.specific.secret_bosses);
+                if (variable_struct_exists(json.progress.specific, "main_bosses")) global.main_bosses = scr_ds_list_to_array(list, json.progress.specific.main_bosses);
+                if (variable_struct_exists(json.progress.specific, "ribbons")) global.ribbons = scr_ds_list_to_array(list, json.progress.specific.ribbons);
+                if (variable_struct_exists(json.progress.specific, "b2_photos")) global.b2_photos = scr_ds_list_to_array(list, json.progress.specific.b2_photos);
+                if (variable_struct_exists(json.progress.specific, "chapter_recruits")) global.chapter_recruits = scr_ds_list_to_array(list, json.progress.specific.chapter_recruits);
+                if (variable_struct_exists(json.progress.specific, "armors_got")) global.armors_got = scr_ds_list_to_array(list, json.progress.specific.armors_got);
+                if (variable_struct_exists(json.progress.specific, "weapons_got")) global.weapons_got = scr_ds_list_to_array(list, json.progress.specific.weapons_got);
             }
 
             ds_list_destroy(list);
@@ -636,8 +411,10 @@ function scr_save_bingo_data()
     data.progress.specific.ribbons = ds_list_write(scr_array_to_ds_list(list, global.ribbons));
     data.progress.specific.b2_photos = ds_list_write(scr_array_to_ds_list(list, global.b2_photos));
     data.progress.specific.chapter_recruits = ds_list_write(scr_array_to_ds_list(list, global.chapter_recruits));
+    data.progress.specific.armors_got = ds_list_write(scr_array_to_ds_list(list, global.armors_got));
+    data.progress.specific.weapons_got = ds_list_write(scr_array_to_ds_list(list, global.weapons_got));
     ds_list_destroy(list);
-    file_text_write_string(file, json_stringify(data));
+    file_text_write_string(file, json_stringify(data, true));
     file_text_close(file);
 }
 
@@ -663,6 +440,8 @@ function scr_reset_bingo_data()
     global.ribbons = array_create(array_length(global.ribbons), 0);
     global.b2_photos = array_create(array_length(global.b2_photos), 0);
     global.chapter_recruits = array_create(array_length(global.chapter_recruits), 0);
+    global.armors_got = array_create(array_length(global.armors_got), 0);
+    global.weapons_got = array_create(array_length(global.weapons_got), 0);
     scr_save_bingo_data();
 }
 
@@ -690,28 +469,17 @@ function scr_goal_requirements(slot)
         case 16:
         case 80:
             return global.goal_progress[slot] >= 10;
-        
+
         case 3:
         case 72:
             return global.goal_progress[slot] >= 5;
-        
-        case 10:
-            return global.goal_progress[slot] >= 25;
-        
-        case 30:
-            return global.goal_progress[slot] >= 15;
-        
-        case 31:
-            return global.goal_progress[slot] >= 20;
-        
-        case 42:
-            return global.goal_progress[slot] >= 3;
-        
-        case 78:
-            return global.goal_progress[slot] >= 2;
-        
-        default:
-            return global.goal_progress[slot] >= 1;
+
+        case 10: return global.goal_progress[slot] >= 25;
+        case 30: return global.goal_progress[slot] >= 15;
+        case 31: return global.goal_progress[slot] >= 20;
+        case 42: return global.goal_progress[slot] >= 3;
+        case 78: return global.goal_progress[slot] >= 2;
+        default: return global.goal_progress[slot] >= 1;
     }
 }
 
@@ -719,405 +487,144 @@ function scr_internal_name_from_slot(slot)
 {
     switch (slot)
     {
-        case 0:
-            return "$2000";
-        
-        case 1:
-            return "get an egg (original source)";
-        
-        case 2:
-            return "spare/pacify 10 enemies";
-        
-        case 3:
-            return "kill 5 enemies";
-        
-        case 4:
-            return "bed inspector";
-        
-        case 5:
-            return "complete jevil";
-        
-        case 6:
-            return "get the freeze ring";
-        
-        case 7:
-            return "die";
-        
-        case 8:
-            return "buy an item from seam and rouxls";
-        
-        case 9:
-            return "complete the hacker side quest";
-        
-        case 10:
-            return "spare/pacify 25 enemies";
-        
-        case 11:
-            return "buy the royal pin (ch2 mansion shop)";
-        
-        case 12:
-            return "defeat king";
-        
-        case 13:
-            return "finish chapter 1";
-        
-        case 14:
-            return "defeat giga queen";
-        
-        case 15:
-            return "defeat queen";
-        
-        case 16:
-            return "kill 10 enemies";
-        
-        case 17:
-            return "complete the giasfelfebrehber puzzle";
-        
-        case 18:
-            return "collect 2 bananas";
-        
-        case 19:
-            return "get the spin cake";
-        
-        case 20:
-            return "fuse an item";
-        
-        case 21:
-            return "get 2 eggs";
-        
-        case 22:
-            return "$3000";
-        
-        case 23:
-            return "use susie's ultimate heal";
-        
-        case 24:
-            return "do 'fix us' in all possible chapters";
-        
-        case 25:
-            return "talk to starwalker";
-        
-        case 26:
-            return "get the dice brace";
-        
-        case 27:
-            return "complete all smorgasbords";
-        
-        case 28:
-            return "enter the dark world without using the bed";
-        
-        case 29:
-            return "get the thorn ring (original source)";
-        
-        case 30:
-            return "spare/pacify 15 enemies";
-        
-        case 31:
-            return "kill 20 enemies";
-        
-        case 32:
-            return "complete 3 challenges in party dojo";
-        
-        case 33:
-            return "complete spamton neo (basement)";
-        
-        case 34:
-            return "complete both berdly encounters";
-        
-        case 35:
-            return "buy something from spamton's shop";
-        
-        case 36:
-            return "get 3 revivemints";
-        
-        case 37:
-            return "eat moss";
-        
-        case 38:
-            return "complete the sweet cap'n cakes battle";
-        
-        case 39:
-            return "fill up your inventory";
-        
-        case 40:
-            return "open the balloon chest (city heights)";
-        
-        case 41:
-            return "abort snowgrave after getting the freeze ring";
-        
-        case 42:
-            return "hit 3 pipis";
-        
-        case 43:
-            return "complete spamton neo (snowgrave)";
-        
-        case 44:
-            return "complete the spamton encounter (normal)";
-        
-        case 45:
-            return "complete the spelling bee cutscene (mansion)";
-        
-        case 46:
-            return "get captured in chapter 2";
-        
-        case 47:
-            return "get a lancer cookie";
-        
-        case 48:
-            return "build the flb duck (pink)";
-        
-        case 49:
-            return "see obj_weirdroute_manipulator";
-        
-        case 50:
-            return "recruit mauswheel";
-        
-        case 51:
-            return "lose tasque manager";
-        
-        case 52:
-            return "recruit werewerewire";
-        
-        case 53:
-            return "lose werewerewire";
-        
-        case 54:
-            return "watch the lesbian cutscene";
-        
-        case 55:
-            return "beat the rouxls fight (ch2/ch3)";
-        
-        case 56:
-            return "get revivedust";
-        
-        case 57:
-            return "talk to the green swatchling";
-        
-        case 58:
-            return "crash with noelle anticheat";
-        
-        case 59:
-            return "trigger milk on the 2nd k.round fight";
-        
-        case 60:
-            return "spare clover without using the manual (ch1)";
-        
-        case 61:
-            return "lose mauswheel";
-        
-        case 62:
-            return "watch the legend";
-        
-        case 63:
-            return "complete the dummy tutorial";
-        
-        case 64:
-            return "hug ralsei";
-        
-        case 65:
-            return "talk to lancer in the epilogue";
-        
-        case 66:
-            return "spare ponman";
-        
-        case 67:
-            return "beat triple rabbick";
-        
-        case 68:
-            return "build the cutest machine";
-        
-        case 69:
-            return "get a glowshard";
-        
-        case 70:
-            return "ww into 7 unique rooms";
-        
-        case 71:
-            return "recruit 3 different enemies";
-        
-        case 72:
-            return "heal in battles 5 times";
-        
-        case 73:
-            return "hit a baby car";
-        
-        case 74:
-            return "full berdly spare";
-        
-        case 75:
-            return "equip white ribbon (ch1/ch3)";
-        
-        case 76:
-            return "pot balance";
-        
-        case 77:
-            return "donate d$1";
-        
-        case 78:
-            return "get both chests on 2 maus 1 maus";
-        
-        case 79:
-            return "use dual heal";
-        
-        case 80:
-            return "pacify 10 enemies";
-        
-        case 81:
-            return "get ms.pipis";
-        
-        case 82:
-            return "speak to sans";
-        
-        case 83:
-            return "place the egg in hometown";
-        
-        case 84:
-            return "visit rudy";
-
-        case 85:
-            return "z rank board 1 or 2";
-
-        case 86:
-            return "get to the tropic of love";
-
-        case 87:
-            return "bomberman key (board 1)";
-
-        case 88:
-            return "beat fake gerson";
-
-        case 89:
-            return "get pipis";
-
-        case 90:
-            return "recruit miss mizzle";
-
-        case 91:
-            return "lose miss mizzle";
-
-        case 92:
-            return "recruit watercooler";
-
-        case 93:
-            return "lose watercooler";
-
-        case 94:
-            return "beat titan";
-
-        case 95:
-            return "beat tenna";
-
-        case 96:
-            return "beat the knight";
-
-        case 97:
-            return "beat gerson";
-
-        case 98:
-            return "play megalovania on the big piano";
-
-        case 99:
-            return "reach the knight at the start of ch4";
-
-        case 100:
-            return "beat nightmare";
-
-        case 101:
-            return "beat mike";
-
-        case 102:
-            return "find the 3 golden sheets";
-
-        case 103:
-            return "have a tea party with gerson";
-
-        case 104:
-            return "enter ralsei's room";
-
-        case 105:
-            return "get princessribbon";
-
-        case 106:
-            return "get 2 gold items";
-
-        case 107:
-            return "spend 1225 points in the gamble machine";
-
-        case 108:
-            return "get goldwidow";
-
-        case 109:
-            return "get bittertear";
-
-        case 110:
-            return "defeat 2 secret bosses";
-
-        case 111:
-            return "defeat 2 main bosses";
-
-        case 112:
-            return "get ice key";
-
-        case 113:
-            return "get shelter key";
-
-        case 114:
-            return "get the 4 ribbons";
-
-        case 115:
-            return "kill a titan spawn";
-
-        case 116:
-            return "show compassion to ralsei";
-
-        case 117:
-            return "get 4 photos (board 2)";
-
-        case 118:
-            return "get quiz key (board 1)";
-
-        case 119:
-            return "b or better rank susiezilla";
-
-        case 120:
-            return "find the among us reference";
-
-        case 121:
-            return "get a shadow crystal";
-
-        case 122:
-            return "get a dog dollar";
-
-        case 123:
-            return "get annoying dog on rouxls";
-
-        case 124:
-            return "recruit shuttah";
-
-        case 125:
-            return "lose shuttah";
-
-        case 126:
-            return "lose rabbick (ch3)";
-
-        case 127:
-            return "go to the diner with susie";
-
-        case 128:
-            return "recruit an enemy in each chapter";
-
-        case 129:
-            return "lanino/elnina rematch";
-        
-        default:
-            return "none";
+        case 0:   return "$2000";
+        case 1:   return "get an egg (original source)";
+        case 2:   return "spare/pacify 10 enemies";
+        case 3:   return "kill 5 enemies";
+        case 4:   return "bed inspector";
+        case 5:   return "complete jevil";
+        case 6:   return "get the freeze ring";
+        case 7:   return "die";
+        case 8:   return "buy an item from seam and rouxls";
+        case 9:   return "complete the hacker side quest";
+        case 10:  return "spare/pacify 25 enemies";
+        case 11:  return "buy the royal pin (ch2 mansion shop)";
+        case 12:  return "defeat king";
+        case 13:  return "finish chapter 1";
+        case 14:  return "defeat giga queen";
+        case 15:  return "defeat queen";
+        case 16:  return "kill 10 enemies";
+        case 17:  return "complete the giasfelfebrehber puzzle";
+        case 18:  return "collect 2 bananas";
+        case 19:  return "get the spin cake";
+        case 20:  return "fuse an item";
+        case 21:  return "get 2 eggs";
+        case 22:  return "$3000";
+        case 23:  return "use susie's ultimate heal";
+        case 24:  return "do 'fix us' in all possible chapters";
+        case 25:  return "talk to starwalker";
+        case 26:  return "get the dice brace";
+        case 27:  return "complete all smorgasbords";
+        case 28:  return "enter the dark world without using the bed";
+        case 29:  return "get the thorn ring (original source)";
+        case 30:  return "spare/pacify 15 enemies";
+        case 31:  return "kill 20 enemies";
+        case 32:  return "complete 3 challenges in party dojo";
+        case 33:  return "complete spamton neo (basement)";
+        case 34:  return "complete both berdly encounters";
+        case 35:  return "buy something from spamton's shop";
+        case 36:  return "get 3 revivemints";
+        case 37:  return "eat moss";
+        case 38:  return "complete the sweet cap'n cakes battle";
+        case 39:  return "fill up your inventory";
+        case 40:  return "open the balloon chest (city heights)";
+        case 41:  return "abort snowgrave after getting the freeze ring";
+        case 42:  return "hit 3 pipis";
+        case 43:  return "complete spamton neo (snowgrave)";
+        case 44:  return "complete the spamton encounter (normal)";
+        case 45:  return "complete the spelling bee cutscene (mansion)";
+        case 46:  return "get captured in chapter 2";
+        case 47:  return "get a lancer cookie";
+        case 48:  return "build the flb duck (pink)";
+        case 49:  return "see obj_weirdroute_manipulator";
+        case 50:  return "recruit mauswheel";
+        case 51:  return "lose tasque manager";
+        case 52:  return "recruit werewerewire";
+        case 53:  return "lose werewerewire";
+        case 54:  return "watch the lesbian cutscene";
+        case 55:  return "beat the rouxls fight (ch2/ch3)";
+        case 56:  return "get revivedust";
+        case 57:  return "talk to the green swatchling";
+        case 58:  return "crash with noelle anticheat";
+        case 59:  return "trigger milk on the 2nd k.round fight";
+        case 60:  return "spare clover without using the manual (ch1)";
+        case 61:  return "lose mauswheel";
+        case 62:  return "watch the legend";
+        case 63:  return "complete the dummy tutorial";
+        case 64:  return "hug ralsei";
+        case 65:  return "talk to lancer in the epilogue";
+        case 66:  return "spare ponman";
+        case 67:  return "beat triple rabbick";
+        case 68:  return "build the cutest machine";
+        case 69:  return "get a glowshard";
+        case 70:  return "ww into 7 unique rooms";
+        case 71:  return "recruit 3 different enemies";
+        case 72:  return "heal in battles 5 times";
+        case 73:  return "hit a baby car";
+        case 74:  return "full berdly spare";
+        case 75:  return "equip white ribbon (ch1/ch3)";
+        case 76:  return "pot balance";
+        case 77:  return "donate d$1";
+        case 78:  return "get both chests on 2 maus 1 maus";
+        case 79:  return "use dual heal";
+        case 80:  return "pacify 10 enemies";
+        case 81:  return "get ms.pipis";
+        case 82:  return "speak to sans";
+        case 83:  return "place the egg in hometown";
+        case 84:  return "visit rudy";
+        case 85:  return "z rank board 1 or 2";
+        case 86:  return "get to the tropic of love";
+        case 87:  return "bomberman key (board 1)";
+        case 88:  return "beat fake gerson";
+        case 89:  return "get pipis";
+        case 90:  return "recruit miss mizzle";
+        case 91:  return "lose miss mizzle";
+        case 92:  return "recruit watercooler";
+        case 93:  return "lose watercooler";
+        case 94:  return "beat titan";
+        case 95:  return "beat tenna";
+        case 96:  return "beat the knight";
+        case 97:  return "beat gerson";
+        case 98:  return "play megalovania on the big piano";
+        case 99:  return "reach the knight at the start of ch4";
+        case 100: return "beat nightmare";
+        case 101: return "beat mike";
+        case 102: return "find the 3 golden sheets";
+        case 103: return "have a tea party with gerson";
+        case 104: return "enter ralsei's room";
+        case 105: return "get princessribbon";
+        case 106: return "get 2 gold items";
+        case 107: return "spend 1225 points in the gamble machine";
+        case 108: return "get goldwidow";
+        case 109: return "get bittertear";
+        case 110: return "defeat 2 secret bosses";
+        case 111: return "defeat 2 main bosses";
+        case 112: return "get ice key";
+        case 113: return "get shelter key";
+        case 114: return "get the 4 ribbons";
+        case 115: return "kill a titan spawn";
+        case 116: return "show compassion to ralsei";
+        case 117: return "get 4 photos (board 2)";
+        case 118: return "get quiz key (board 1)";
+        case 119: return "b or better rank susiezilla";
+        case 120: return "find the among us reference";
+        case 121: return "get a shadow crystal";
+        case 122: return "get a dog dollar";
+        case 123: return "get annoying dog on rouxls";
+        case 124: return "recruit shuttah";
+        case 125: return "lose shuttah";
+        case 126: return "lose rabbick (ch3)";
+        case 127: return "go to the diner with susie";
+        case 128: return "recruit an enemy in each chapter";
+        case 129: return "lanino/elnina rematch";
+        case 130: return "obtain 5 armors";
+        case 131: return "obtain 5 weapons";
+        default:  return "none";
     }
 }
 
 function scr_add_goal_array(array_name, index, slot)
 {
-    // I don't like this approach but since this game uses Copy On Write and UndertaleModTool doesn't support accessors,
-    // this is the first way I could think of to do it.
     var array = variable_global_get(array_name);
     var total = 0;
     var threshold = 0;
@@ -1143,6 +650,11 @@ function scr_add_goal_array(array_name, index, slot)
         case 36:
         case 71:
             threshold = 3;
+            break;
+
+        case 130:
+        case 131:
+            threshold = 5;
             break;
 
         default:

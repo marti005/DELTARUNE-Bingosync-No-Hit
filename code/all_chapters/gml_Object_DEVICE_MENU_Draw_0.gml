@@ -11,6 +11,7 @@
 #endif
 /// END
 
+#if CHAPTER_1
 /// AFTER
     else
     {
@@ -18,3 +19,4 @@
 /// CODE
         draw_text_transformed(60.5, 230, "Bingosync Mod " + scr_get_mod_version() + " by Chistosito & NERS", 0.5, 0.5, 0);
 /// END
+#endif

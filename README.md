@@ -9,7 +9,10 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 
 # How to install and use
 - Download [the latest](https://github.com/ners-xd/deltarune-bingosync/releases/latest) version of the mod;
-- **Extract the archive anywhere**, run "Bingosync Patcher.bat" and follow its instructions;
+- Back up your vanilla data.win files just in case;
+- Use your preferred ROM Patcher to apply the patches to each of the vanilla data.win files. If you don't have any, I recommend using [this one](https://www.marcrobledo.com/RomPatcher.js) (place the original file in the ROM section and the mod in the Patch section);
+- Rename the modded CH1-4 files to data_bingosync.win so the game can recognize them;
+- Rename the vanilla Chapter Select data.win to something else and rename the modded one to data.win so you can launch the mod;
 - Create or join a room on Bingosync, open the game and obtain the room ID from the end of the link (bingosync.com/room/XXXXXXXXXXXXXXXXXXXXXX) and the room's password. Choose a nickname and a color (orange, red, blue, green, purple, navy, teal, brown, pink or yellow) and press "Connect to room";
 - In this menu you can also reset your goal progress if needed (in case there's a bug or you just want to reset it, for some reason) and change your preferences.
 - Having the chat open automatically progresses text if you're in a cutscene!
