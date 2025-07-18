@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "2.03";
+    return "2.04";
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
