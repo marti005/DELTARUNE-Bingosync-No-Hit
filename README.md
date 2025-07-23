@@ -3,7 +3,7 @@
 </p>
 
 # DELTARUNE Bingosync Mod
-<b>NOTE</b>: This mod is only supported on Chapters 1-4 v1.02 (CH1 1.37 / CH2 1.43 / CH3 v0.0.091 / CH4 v0.0.090).
+<b>NOTE</b>: This mod is only supported on Chapters 1-4 v1.03 (CH1 1.38 / CH2 1.44 / CH3 v0.0.094 / CH4 v0.0.094).
 
 This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
 
