@@ -2,10 +2,19 @@
   <img src="assets/deltarune_x_bingosync_logo.png" title="DELTARUNE x Bingosync">
 </p>
 
-# DELTARUNE Bingosync Mod
-<b>NOTE</b>: This mod is only supported on Chapters 1-4 v1.04 (CH1 1.40 / CH2 1.46 / CH3 v0.0.098 / CH4 v0.0.098).
+# DELTARUNE Bingosync No Hit Mod
+<b>NOTE</b>: This mod is only supported on Chapters 1-4 v1.05 (CH1 1.41 / CH2 1.47 / CH3 v0.0.099 / CH4 v0.0.100).
 
-This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
+A no hit adaptation of the DELTARUNE Bingosync mod by Chistosito & NERS. Check out the original version [here](https://github.com/ners-xd/DELTARUNE-Bingosync).
+
+This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/marti005/deltarune-bingosync-no-hit/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/marti005/deltarune-bingosync-no-hit/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
+
+This adaptation removes goals which require taking damage and performing glitches, adds goals oriented to no hits, and displays the number of hits taken in a match, following the definition and exceptions defined by the [UT/DR Challenge Community](https://discord.com/invite/WVFcWXwT6A).
+
+# Changes to the original mod
+
+- Removed the "Die", "See obj_weirdroute_manipulator", "Crash With Noelle Anticheat", and "WW into 7 unique rooms" goals.
+
 
 # How to install and use
 - Download [the latest](https://github.com/ners-xd/deltarune-bingosync/releases/latest) version of the mod
@@ -28,6 +37,10 @@ How to contribute to the mod:
 - If you've made some modifications and you want them to be added in the mod, open a Pull Request and we'll look at it.
 
 # Credits
+<b>Original mod:</b>
 - Coding: Chistosito, NERS
 - Goal list: Tadyman, Chistosito, Trinky44, devek1
-- UMP: nhaar.
+- UMP: nhaar
+
+<b>No hit adaptation:</b>
+- Coding: marti005.

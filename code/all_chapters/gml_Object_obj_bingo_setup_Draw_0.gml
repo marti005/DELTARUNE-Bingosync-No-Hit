@@ -9,6 +9,7 @@ draw_text(0, 0, "Bingosync Mod " + scr_get_mod_version() + " by Chistosito & NER
 #else
 draw_text(0, 0, "Bingosync Mod v" + scr_get_mod_version() + " by Chistosito & NERS (Chapter " + string(global.chapter) + ")");
 #endif
+draw_text(0, 18, "No Hit Patch by marti005");
 var base_x = 320;
 var base_y = 70;
 var spacing = 20;

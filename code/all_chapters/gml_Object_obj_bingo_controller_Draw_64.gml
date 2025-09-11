@@ -10,6 +10,12 @@ var base_x = 340;
 var base_y = 1;
 var new_lines = 0;
 draw_set_alpha(1);
+
+var hit_height = global.chat_typing ? (surface_get_height(application_surface) - 80) : (surface_get_height(application_surface) - 30);
+draw_set_font(fnt_mainbig);
+draw_set_color(c_yellow);
+draw_text_outline(5, hit_height, "Hits: " + string(global.hits), 0);
+
 draw_set_font(fnt_main);
 
 if (global.show_board && board_connected)
