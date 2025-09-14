@@ -8,6 +8,7 @@ global.count_once = false;
 global.clover_manual = false;
 #elsif CHAPTER_2
 global.failed_pot_balance = false;
+global.teacupshit = false;
 #endif
 httppost = -1;
 pos = 0;

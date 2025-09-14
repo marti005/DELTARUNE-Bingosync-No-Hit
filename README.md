@@ -7,7 +7,7 @@
 
 A no hit adaptation of the DELTARUNE Bingosync mod by Chistosito & NERS. Check out the original version [here](https://github.com/ners-xd/DELTARUNE-Bingosync).
 
-This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/marti005/deltarune-bingosync-no-hit/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/marti005/deltarune-bingosync-no-hit/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
+This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/marti005/DELTARUNE-Bingosync-No-Hit/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/marti005/DELTARUNE-Bingosync-No-Hit/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
 
 This adaptation removes goals which require taking damage and performing glitches, adds goals oriented to no hits, and displays the number of hits taken in a match, following the definition and exceptions defined by the [UT/DR Challenge Community](https://discord.com/invite/WVFcWXwT6A).
 
@@ -42,5 +42,5 @@ How to contribute to the mod:
 - Goal list: Tadyman, Chistosito, Trinky44, devek1
 - UMP: nhaar
 
-<b>No hit adaptation:</b>
+<b>No hit patch:</b>
 - Coding: marti005.

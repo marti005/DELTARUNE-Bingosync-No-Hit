@@ -718,7 +718,19 @@ function scr_add_goal_progress(slot, amount)
 }
 
 function scr_add_hit()
-{
+{   
+    #if CHAPTER_2
+    if (room == room_dw_mansion_b_west_2f && !global.teacupshit)
+    {
+        global.teacupshit = true;
+        global.hits++;
+    }
+    else if (room != room_dw_mansion_b_west_2f)
+    {
+        global.hits++;
+    }
+    #else
     global.hits++;
+    #endif
     scr_save_bingo_data();
 }
