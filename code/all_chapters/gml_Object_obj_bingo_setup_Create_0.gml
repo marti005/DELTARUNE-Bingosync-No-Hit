@@ -9,6 +9,8 @@ global.clover_manual = false;
 #elsif CHAPTER_2
 global.failed_pot_balance = false;
 global.teacupshit = false;
+#elsif CHAPTER_4
+global.sybauswordcutsceneforcedhits = false;
 #endif
 httppost = -1;
 pos = 0;

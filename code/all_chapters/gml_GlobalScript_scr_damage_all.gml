@@ -1,6 +1,6 @@
 /// PATCH
 
-#if CHAPTER_3
+#if CHAPTER_3 || CHAPTER_4
 /// BEFORE
 remdamage = damage;
 /// CODE
