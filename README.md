@@ -23,7 +23,7 @@ This adaptation removes goals which require taking damage and performing glitche
     - Chapter 4: Being pushed by water during the climb sections, taking damage from the unavoidable sword attacks in either Knight chase.
 
 # How to install and use
-- Download [the latest](https://github.com/ners-xd/deltarune-bingosync/releases/latest) version of the mod
+- Download [the latest](https://github.com/marti005/DELTARUNE-Bingosync-No-Hit/releases/latest) version of the mod
 - **Extract the archive anywhere**, run "Bingosync Patcher.bat" and follow its instructions
 - Create or join a room on Bingosync, open the game and obtain the room ID from the end of the link (bingosync.com/room/XXXXXXXXXXXXXXXXXXXXXX) and the room's password. Choose a nickname and a color (orange, red, blue, green, purple, navy, teal, brown, pink or yellow) and press "Connect to room"
 - In this menu you can also reset your goal progress if needed (in case there's a bug or you just want to reset it, for some reason) and change your preferences.
