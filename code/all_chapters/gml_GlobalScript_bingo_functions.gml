@@ -5,6 +5,11 @@ function scr_get_mod_version()
     return "2.04";
 }
 
+function scr_get_no_hit_version()
+{
+    return "1.00";
+}
+
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
 #if CHAPTER_1
 function draw_text_outline(text_x, text_y, text, text_color)
