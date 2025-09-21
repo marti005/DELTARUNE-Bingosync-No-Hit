@@ -108,7 +108,15 @@ if (global.room_seed != -1)
     var text_x = (base_x + ((square_size + spacing) * grid_size)) - 1;
     var text_y = ((base_y + ((square_size + spacing) * grid_size)) - (2 * spacing)) + 2;
     var text_y_offset = (instance_exists(obj_darkcontroller) && global.interact == 5) ? obj_darkcontroller.tp : 0;
-    draw_text_outline(text_x, (global.show_board && board_connected) ? text_y : text_y_offset, "Seed: " + (board_revealed ? string(global.room_seed) : "Hidden") + " / " + global.room_lockout + "\n" + scr_input_name(global.board_key) + ": Toggle board\n" + scr_input_name(global.toggle_chat_key) + ": Toggle chat\n" + scr_input_name(global.chat_key) + ": Open chatbox", 0);
+    draw_text_outline(text_x, (global.show_board && board_connected) ? text_y : text_y_offset,
+        "Seed: " + (board_revealed ? string(global.room_seed) : "Hidden") + " / " + global.room_lockout + "\n" +
+        scr_input_name(global.board_key) + ": Toggle board\n" +
+        scr_input_name(global.toggle_chat_key) + ": Toggle chat\n" +
+        scr_input_name(global.chat_key) + ": Open chatbox",
+    0);
+
+    if (global.starring_goals)
+        draw_text_outline(text_x, text_y + 64, "* Click on goals to star them. Press ESC to cancel. *", 0);
 }
 
 if (global.chat_typing)
@@ -177,7 +185,6 @@ if (global.chat_typing)
                 {
                     global.starring_goals = true;
                     window_mouse_set(width / 2, height / 2);
-                    scr_chat_message(c_yellow, "Click on goals to star them. Press ESC to cancel.");
                 }
             }
             else
