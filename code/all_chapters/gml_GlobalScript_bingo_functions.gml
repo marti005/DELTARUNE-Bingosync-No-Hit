@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "2.04";
+    return "2.05";
 }
 
 function scr_get_no_hit_version()
@@ -192,7 +192,17 @@ function scr_chat_message(msg_color, msg_text)
 {
     var len = array_length(global.chat_line) - 1;
     var i = 0;
-    
+    var new_lines = 0;
+
+    while (string_width_ext(msg_text, 15, 330) >= 330)
+    {
+        new_lines++;
+        msg_text = string_insert("\n", msg_text, (50 - new_lines) * new_lines);
+        
+        if (new_lines >= 5)
+            break;
+    }
+
     if (global.chat_line[len] == "")
     {
         for (i = 0; i <= len; i++)
@@ -657,6 +667,7 @@ function scr_add_goal_array(array_name, index, slot)
             threshold = 2;
             break;
 
+        case 32:
         case 36:
         case 71:
             threshold = 3;
