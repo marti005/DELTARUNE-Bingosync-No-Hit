@@ -14,16 +14,102 @@ draw_text(0, 18, "No Hit Patch v" + scr_get_no_hit_version() + " by marti005");
 var base_x = 320;
 var base_y = 70;
 var spacing = 20;
+var kb_key;
+var gp_key;
 var text_connect = "Connect to room";
 var text_room_id = "Room ID: " + ((global.room_id != "" || sel == 1) ? global.room_id : "[Empty. Select to be able to type]");
 var text_password = "Password: " + ((global.password != "" || sel == 2) ? censor_password() : "[Empty. Select to be able to type]");
 var text_nickname = "Nickname: " + ((global.nickname != "" || sel == 3) ? global.nickname : "[Empty. Select to be able to type]");
 var text_color = "Color: " + ((global.color != "" || sel == 4) ? global.color : "[Empty. Select to be able to type]");
 var text_reset = (sel == 5) ? "Reset progress? Select again to confirm!" : "Reset progress";
-var text_board = (sel == 6) ? "Board toggle keybind: Listening..." : ("Board toggle keybind: " + scr_input_name(global.board_key));
-var text_chat = (sel == 7) ? "Chat keybind: Listening..." : ("Chat keybind: " + scr_input_name(global.chat_key));
-var text_reveal = (sel == 8) ? "Board reveal keybind: Listening..." : ("Board reveal keybind: " + scr_input_name(global.reveal_key));
-var text_toggle_chat = (sel == 9) ? "Chat toggle keybind: Listening..." : ("Chat toggle keybind: " + scr_input_name(global.toggle_chat_key));
+var text_board;
+
+if (sel == 6)
+{
+    text_board = "Board toggle keybind: Listening...";
+}
+else
+{
+    kb_key = scr_input_name(global.board_key);
+    gp_key = scr_input_name_gp(global.board_key_gp);
+
+    if (is_string(gp_key))
+    {
+        text_board = "Board toggle keybind: " + kb_key + ", " + gp_key;
+    }
+    else
+    {
+        text_board = "Board toggle keybind: " + kb_key + ", ";
+        draw_sprite_ext(gp_key, 0, round(base_x + (string_width(text_board) / 2)), round((base_y + (6 * spacing)) - 6), 1, 1, 0, (pos == 6) ? c_yellow : c_white, 1);
+    }
+}
+
+var text_chat;
+
+if (sel == 7)
+{
+    text_chat = "Chat keybind: Listening...";
+}
+else
+{
+    kb_key = scr_input_name(global.chat_key);
+    gp_key = scr_input_name_gp(global.chat_key_gp);
+
+    if (is_string(gp_key))
+    {
+        text_chat = "Chat keybind: " + kb_key + ", " + gp_key;
+    }
+    else
+    {
+        text_chat = "Chat keybind: " + kb_key + ", ";
+        draw_sprite_ext(gp_key, 0, round(base_x + (string_width(text_chat) / 2)), round((base_y + (7 * spacing)) - 6), 1, 1, 0, (pos == 7) ? c_yellow : c_white, 1);
+    }
+}
+
+var text_reveal;
+
+if (sel == 8)
+{
+    text_reveal = "Board reveal keybind: Listening...";
+}
+else
+{
+    kb_key = scr_input_name(global.reveal_key);
+    gp_key = scr_input_name_gp(global.reveal_key_gp);
+
+    if (is_string(gp_key))
+    {
+        text_reveal = "Board reveal keybind: " + kb_key + ", " + gp_key;
+    }
+    else
+    {
+        text_reveal = "Board reveal keybind: " + kb_key + ", ";
+        draw_sprite_ext(gp_key, 0, round(base_x + (string_width(text_reveal) / 2)), round((base_y + (8 * spacing)) - 6), 1, 1, 0, (pos == 8) ? c_yellow : c_white, 1);
+    }
+}
+
+var text_toggle_chat;
+
+if (sel == 9)
+{
+    text_toggle_chat = "Chat toggle keybind: Listening...";
+}
+else
+{
+    kb_key = scr_input_name(global.toggle_chat_key);
+    gp_key = scr_input_name_gp(global.toggle_chat_key_gp);
+
+    if (is_string(gp_key))
+    {
+        text_toggle_chat = "Chat toggle keybind: " + kb_key + ", " + gp_key;
+    }
+    else
+    {
+        text_toggle_chat = "Chat toggle keybind: " + kb_key + ", ";
+        draw_sprite_ext(gp_key, 0, round(base_x + (string_width(text_toggle_chat) / 2)), round((base_y + (9 * spacing)) - 6), 1, 1, 0, (pos == 9) ? c_yellow : c_white, 1);
+    }
+}
+
 var text_connections = "Show connection/disconnection messages: " + (global.show_connections ? "Yes" : "No");
 var text_reveals = "Show board reveal messages: " + (global.show_reveals ? "Yes" : "No");
 var text_chats = "Show chat messages from players: " + (global.show_chats ? "Yes" : "No");

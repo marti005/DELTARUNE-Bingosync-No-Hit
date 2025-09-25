@@ -53,7 +53,7 @@ if (sel == -1)
                 {
                     status_color = c_red;
                     status_text = "Nickname is too long\n(maximum 50 characters allowed)!";
-                    snd_play(snd_hurt1);                   
+                    snd_play(snd_hurt1);
                 }
                 else if (string_lower(string_trim(global.color)) == "blank" || scr_color_from_name(string_lower(string_trim(global.color))) == 16777215)
                 {
@@ -65,10 +65,10 @@ if (sel == -1)
                 {
                     if (global.nickname != string_trim(global.nickname))
                         global.nickname = string_trim(global.nickname);
-
+                    
                     if (global.color != string_lower(string_trim(global.color)))
                         global.color = string_lower(string_trim(global.color));
-
+                    
                     scr_save_bingo_data();
                     httppost = http_post_string("https://bingosync.com/api/join-room", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"nickname\": \"" + scr_escape_string(global.nickname) + "\", \"password\": \"" + scr_escape_string(global.password) + "\" }");
                     status_color = c_yellow;
@@ -80,35 +80,75 @@ if (sel == -1)
                 break;
             
             case 1:
-                keyboard_string = global.room_id;
-                status_color = c_ltgray;
-                status_text = "Press ESC or Enter to stop typing.";
                 sel = 1;
                 snd_play(snd_select);
+                
+                if (global.is_console)
+                {
+                    mystring = "";
+                    console_string = get_string_async("Input the room ID.", global.room_id);
+                }
+                else
+                {
+                    keyboard_string = global.room_id;
+                    status_color = c_ltgray;
+                    status_text = "Press ESC or Enter to stop typing.";
+                }
+                
                 break;
             
             case 2:
-                keyboard_string = global.password;
-                status_color = c_ltgray;
-                status_text = "Press ESC or Enter to stop typing.";
                 sel = 2;
                 snd_play(snd_select);
+                
+                if (global.is_console)
+                {
+                    mystring = "";
+                    console_string = get_string_async("Input the room password.", global.password);
+                }
+                else
+                {
+                    keyboard_string = global.password;
+                    status_color = c_ltgray;
+                    status_text = "Press ESC or Enter to stop typing.";
+                }
+                
                 break;
             
             case 3:
-                keyboard_string = global.nickname;
-                status_color = c_ltgray;
-                status_text = "Press ESC or Enter to stop typing.\nMaximum 50 characters.";
                 sel = 3;
                 snd_play(snd_select);
+                
+                if (global.is_console)
+                {
+                    mystring = "";
+                    console_string = get_string_async("Input your nickname (maximum 50 characters).", global.nickname);
+                }
+                else
+                {
+                    keyboard_string = global.nickname;
+                    status_color = c_ltgray;
+                    status_text = "Press ESC or Enter to stop typing.\nMaximum 50 characters.";
+                }
+                
                 break;
             
             case 4:
-                keyboard_string = global.color;
-                status_color = c_ltgray;
-                status_text = "Press ESC or Enter to stop typing.\nUse orange, red, blue, green, purple, navy, teal, brown, pink or yellow.";
                 sel = 4;
                 snd_play(snd_select);
+                
+                if (global.is_console)
+                {
+                    mystring = "";
+                    console_string = get_string_async("Input your name color (use orange, red, blue, green, purple, navy, teal, brown, pink or yellow).", global.color);
+                }
+                else
+                {
+                    keyboard_string = global.color;
+                    status_color = c_ltgray;
+                    status_text = "Press ESC or Enter to stop typing.\nUse orange, red, blue, green, purple, navy, teal, brown, pink or yellow.";
+                }
+                
                 break;
             
             case 5:
@@ -127,37 +167,37 @@ if (sel == -1)
                 status_color = c_ltgray;
                 status_text = "Press ESC to cancel.\nNote that trying to use non-English keyboard characters will most likely cause problems!";
                 break;
-
+            
             case 10:
                 global.show_connections = !global.show_connections;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-
+            
             case 11:
                 global.show_reveals = !global.show_reveals;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-
+            
             case 12:
                 global.show_chats = !global.show_chats;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-
+            
             case 13:
                 global.show_colors = !global.show_colors;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-
+            
             case 14:
                 global.show_goal_marks = !global.show_goal_marks;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-
+            
             case 15:
                 global.show_new_cards = !global.show_new_cards;
                 scr_save_bingo_data();
@@ -193,65 +233,109 @@ else if (sel > 0)
     switch (sel)
     {
         case 1:
-            if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
-                keyboard_string += clipboard_get_text();
-            
-            global.room_id = string_trim(keyboard_string);
-            
-            if (keyboard_check_pressed(vk_enter))
+            if (global.is_console && mystring != "")
             {
+                global.room_id = string_trim(mystring);
                 sel = -1;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
+            }
+            else
+            {
+                if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
+                    keyboard_string += clipboard_get_text();
+                
+                global.room_id = string_trim(keyboard_string);
+                
+                if (keyboard_check_pressed(vk_enter))
+                {
+                    sel = -1;
+                    scr_save_bingo_data();
+                    snd_play(snd_select);
+                    status_text = "";
+                }
             }
             
             break;
         
         case 2:
-            if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
-                keyboard_string += clipboard_get_text();
-            
-            global.password = string_trim(keyboard_string);
-            
-            if (keyboard_check_pressed(vk_enter))
+            if (global.is_console && mystring != "")
             {
+                global.password = string_trim(mystring);
                 sel = -1;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
+            }
+            else
+            {
+                if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
+                    keyboard_string += clipboard_get_text();
+                
+                global.password = string_trim(keyboard_string);
+                
+                if (keyboard_check_pressed(vk_enter))
+                {
+                    sel = -1;
+                    scr_save_bingo_data();
+                    snd_play(snd_select);
+                    status_text = "";
+                }
             }
             
             break;
         
         case 3:
-            if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
-                keyboard_string += clipboard_get_text();
-            
-            global.nickname = string_copy(string_trim(keyboard_string), 1, 50);
-            
-            if (keyboard_check_pressed(vk_enter))
+            if (global.is_console && mystring != "")
             {
+                global.nickname = string_copy(string_trim(mystring), 1, 50);
                 sel = -1;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
             }
+            else
+            {
+                if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
+                    keyboard_string += clipboard_get_text();
+                
+                global.nickname = string_copy(string_trim(keyboard_string), 1, 50);
+                
+                if (keyboard_check_pressed(vk_enter))
+                {
+                    sel = -1;
+                    scr_save_bingo_data();
+                    snd_play(snd_select);
+                    status_text = "";
+                }
+            }
             
             break;
         
         case 4:
-            if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
-                keyboard_string += clipboard_get_text();
-            
-            global.color = string_lower(string_trim(keyboard_string));
-            
-            if (keyboard_check_pressed(vk_enter))
+            if (global.is_console && mystring != "")
             {
+                global.color = string_lower(string_trim(mystring));
                 sel = -1;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
+            }
+            else
+            {
+                if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
+                    keyboard_string += clipboard_get_text();
+                
+                global.color = string_lower(string_trim(keyboard_string));
+                
+                if (keyboard_check_pressed(vk_enter))
+                {
+                    sel = -1;
+                    scr_save_bingo_data();
+                    snd_play(snd_select);
+                    status_text = "";
+                }
             }
             
             break;
@@ -268,10 +352,21 @@ else if (sel > 0)
             break;
         
         case 6:
-            if (keyboard_check_pressed(vk_anykey))
+            var key = ossafe_keyboard_lastkey();
+            var key_gp = scr_gamepad_lastkey();
+            
+            if (key != 0)
             {
                 sel = -1;
-                global.board_key = keyboard_lastkey;
+                global.board_key = key;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                status_text = "";
+            }
+            else if (key_gp != 0)
+            {
+                sel = -1;
+                global.board_key_gp = key_gp;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
@@ -280,10 +375,21 @@ else if (sel > 0)
             break;
         
         case 7:
-            if (keyboard_check_pressed(vk_anykey))
+            var key = ossafe_keyboard_lastkey();
+            var key_gp = scr_gamepad_lastkey();
+            
+            if (key != 0)
             {
                 sel = -1;
-                global.chat_key = keyboard_lastkey;
+                global.chat_key = key;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                status_text = "";
+            }
+            else if (key_gp != 0)
+            {
+                sel = -1;
+                global.chat_key_gp = key_gp;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
@@ -292,10 +398,21 @@ else if (sel > 0)
             break;
         
         case 8:
-            if (keyboard_check_pressed(vk_anykey))
+            var key = ossafe_keyboard_lastkey();
+            var key_gp = scr_gamepad_lastkey();
+            
+            if (key != 0)
             {
                 sel = -1;
-                global.reveal_key = keyboard_lastkey;
+                global.reveal_key = key;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                status_text = "";
+            }
+            else if (key_gp != 0)
+            {
+                sel = -1;
+                global.reveal_key_gp = key_gp;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";
@@ -304,10 +421,21 @@ else if (sel > 0)
             break;
         
         case 9:
-            if (keyboard_check_pressed(vk_anykey))
+            var key = ossafe_keyboard_lastkey();
+            var key_gp = scr_gamepad_lastkey();
+            
+            if (key != 0)
             {
                 sel = -1;
-                global.toggle_chat_key = keyboard_lastkey;
+                global.toggle_chat_key = key;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                status_text = "";
+            }
+            else if (key_gp != 0)
+            {
+                sel = -1;
+                global.toggle_chat_key_gp = key_gp;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 status_text = "";

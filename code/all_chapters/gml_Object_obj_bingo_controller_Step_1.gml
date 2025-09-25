@@ -5,17 +5,17 @@ if (!board_connected)
 
 if (!global.chat_typing && !global.starring_goals)
 {
-    if (keyboard_check_pressed(global.board_key))
+    if (scr_check_pressed(global.board_key, global.board_key_gp))
     {
         global.show_board = !global.show_board;
         scr_save_bingo_data();
     }
-    else if (keyboard_check_pressed(global.toggle_chat_key))
+    else if (scr_check_pressed(global.toggle_chat_key, global.toggle_chat_key_gp))
     {
         global.show_chat = !global.show_chat;
         scr_save_bingo_data();
     }
-    else if (keyboard_check_pressed(global.chat_key))
+    else if (scr_check_pressed(global.chat_key, global.chat_key_gp))
     {
         if (keyboard_check(vk_control) || keyboard_check(vk_shift))
         {
@@ -23,20 +23,29 @@ if (!global.chat_typing && !global.starring_goals)
         }
         else
         {
-            for (var i = 0; i < 10; i += 1)
-            {
-                if (global.input_held[i] || global.input_pressed[i])
-                    global.input_released[i] = 1;
-                
-                global.input_held[i] = 0;
-                global.input_pressed[i] = 0;
-            }
-            
             global.chat_typing = true;
-            keyboard_string = "";
+            
+            if (global.is_console)
+            {
+                mystring = "";
+                console_string = get_string_async("Typing in chat. Commands: /color, /star.", "");
+            }
+            else
+            {
+                for (var i = 0; i < 10; i += 1)
+                {
+                    if (global.input_held[i] || global.input_pressed[i])
+                        global.input_released[i] = 1;
+                    
+                    global.input_held[i] = 0;
+                    global.input_pressed[i] = 0;
+                }
+                
+                keyboard_string = "";
+            }
         }
     }
-    else if (keyboard_check_pressed(global.reveal_key))
+    else if (scr_check_pressed(global.reveal_key, global.reveal_key_gp))
     {
         if (board_revealed)
         {
@@ -45,11 +54,11 @@ if (!global.chat_typing && !global.starring_goals)
         else
         {
             board_revealed = true;
-            http_post_string("https://bingosync.com/api/revealed", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\" }");
+            ossafe_http_post("https://bingosync.com/api/revealed", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\" }");
         }
     }
 }
-else if (keyboard_check_pressed(vk_escape))
+else if (scr_check_pressed(vk_escape, global.input_g[5]))
 {
     global.chat_typing = false;
     global.starring_goals = false;
