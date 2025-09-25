@@ -6,18 +6,18 @@ try
     {
         switch (ds_map_find_value(async_load, "type"))
         {
-            case 4:
+            case network_type_non_blocking_connect:
                 var buffer = buffer_create(1024, buffer_fixed, 1);
                 buffer_write(buffer, buffer_text, global.ws_key);
                 network_send_raw(global.ws_client, buffer, buffer_tell(buffer));
                 buffer_delete(buffer);
                 alarm[0] = 1;
-                http_post_string("https://bingosync.com/api/color", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\" }");
+                ossafe_http_post("https://bingosync.com/api/color", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\" }");
                 http_room_settings = http_get("https://bingosync.com/room/" + scr_escape_string(global.room_id) + "/room-settings");
-                http_feed = http_get("https://bingosync.com/room/" + scr_escape_string(global.room_id) + "/feed");
+                http_feed = ossafe_http_get("https://bingosync.com/room/" + scr_escape_string(global.room_id) + "/feed");
                 exit;
             
-            case 3:
+            case network_type_data:
                 var data = ds_map_find_value(async_load, "buffer");
                 buffer_seek(data, buffer_seek_start, 0);
                 var json = json_parse(buffer_read(data, buffer_text));
@@ -26,13 +26,13 @@ try
                 {
                     case "connection":
                         if (global.show_connections)
-                            scr_chat_message(16777215, string(json.player.name + " " + json.event_type + "."));
+                            scr_chat_message(c_white, string(json.player.name + " " + json.event_type + "."));
                         
                         break;
                     
                     case "revealed":
                         if (global.show_reveals)
-                            scr_chat_message(16777215, string(json.player.name + " revealed the card."));
+                            scr_chat_message(c_white, string(json.player.name + " revealed the card."));
                         
                         break;
                     
@@ -52,9 +52,9 @@ try
                         if (global.show_goal_marks)
                         {
                             if (json.remove)
-                                scr_chat_message(16777215, string(json.player.name + " cleared \"" + json.square.name + "\"."));
+                                scr_chat_message(c_white, string(json.player.name + " cleared \"" + json.square.name + "\"."));
                             else
-                                scr_chat_message(16777215, string(json.player.name + " marked \"" + json.square.name + "\"."));
+                                scr_chat_message(c_white, string(json.player.name + " marked \"" + json.square.name + "\"."));
                         }
                         
                         break;
@@ -62,8 +62,8 @@ try
                     case "new-card":
                         if (global.show_new_cards)
                         {
-                            scr_chat_message(16777215, string(json.player.name + " generated a new card (seed: " + (json.hide_card ? "hidden" : json.seed) + ")."));
-                            scr_chat_message(65535, "Your progress was reset.");
+                            scr_chat_message(c_white, string(json.player.name + " generated a new card (seed: " + (json.hide_card ? "hidden" : json.seed) + ")."));
+                            scr_chat_message(c_yellow, "Your progress was reset.");
                         }
 
                         global.room_seed = -1;

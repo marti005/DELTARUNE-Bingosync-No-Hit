@@ -2,12 +2,78 @@
 
 function scr_get_mod_version()
 {
-    return "2.05";
+    return "2.10";
+}
+
+function ossafe_http_get(url)
+{
+    if (global.is_console)
+        return http_request(url, "GET", global.cookie_sessionid, "");
+    else
+        return http_get(url);
+}
+
+function ossafe_http_post(url, body)
+{
+    if (global.is_console)
+        return http_request(url, "POST", global.cookie_sessionid, body);
+    else
+        return http_post_string(url, body);
+}
+
+function ossafe_keyboard_lastkey()
+{
+    if (!keyboard_check_pressed(vk_anykey))
+        return vk_nokey;
+
+    // keyboard_lastkey doesn't update on consoles
+    if (global.is_console)
+    {
+        for (var i = 2; i < 256; i++)
+        {
+            if (keyboard_check_pressed(i))
+                return i;
+        }
+        
+        return vk_nokey;
+    }
+    else
+    {
+        return keyboard_lastkey;
+    }
+}
+
+function scr_gamepad_lastkey()
+{
+    if (!instance_exists(obj_gamecontroller))
+    {
+        return 0;
+    }
+    else
+    {
+        var i;
+
+        // gp_face1 - gp_padr
+        for (i = 32769; i <= 32784; i++)
+        {
+            if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, i))
+                return i;
+        }
+        // Skip axes
+        // gp_home - gp_extra6
+        for (i = 32799; i <= 32810; i++)
+        {
+            if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, i))
+                return i;
+        }
+
+        return 0;
+    }
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
 #if CHAPTER_1
-function draw_text_outline(text_x, text_y, text, text_color)
+function draw_text_outline(text_x, text_y, text, text_color = c_black)
 {
     var reset_color = draw_get_color();
     draw_set_color(text_color);
@@ -24,7 +90,7 @@ function draw_text_outline(text_x, text_y, text, text_color)
 }
 #endif
 
-function draw_text_outline_ext(text_x, text_y, text, text_sep, text_w, text_color = 0)
+function draw_text_outline_ext(text_x, text_y, text, text_sep, text_w, text_color = c_black)
 {
     var reset_color = draw_get_color();
     draw_set_color(text_color);
@@ -40,7 +106,7 @@ function draw_text_outline_ext(text_x, text_y, text, text_sep, text_w, text_colo
     draw_text_ext(text_x, text_y, text, text_sep, text_w);
 }
 
-function draw_text_outline_ext_transformed(text_x, text_y, text, text_sep, text_w, text_xscale, text_yscale, text_angle, text_color = 0)
+function draw_text_outline_ext_transformed(text_x, text_y, text, text_sep, text_w, text_xscale, text_yscale, text_angle, text_color = c_black)
 {
     var reset_color = draw_get_color();
     draw_set_color(text_color);
@@ -133,6 +199,54 @@ function scr_input_name(input)
         case 222: return "APOSTROPHE";
         default:  return chr(input);
     }
+}
+
+function scr_input_name_gp(input)
+{
+    switch (input)
+    {
+        case gp_home:           return "[HOME]";
+        case gp_touchpadbutton: return "[TOUCHPAD]";
+        case gp_paddler:        return "[PADDLE 1]";
+        case gp_paddlerb:       return "[PADDLE 2]";
+        case gp_paddlel:        return "[PADDLE 3]";
+        case gp_paddlelb:       return "[PADDLE 4]";
+        case gp_extra1:         return "[EXTRA 1]";
+        case gp_extra2:         return "[EXTRA 2]";
+        case gp_extra3:         return "[EXTRA 3]";
+        case gp_extra4:         return "[EXTRA 4]";
+        case gp_extra5:         return "[EXTRA 5]";
+        case gp_extra6:         return "[EXTRA 6]";
+        default:                return scr_getbuttonsprite(input, false);
+    }
+}
+
+function scr_check_pressed(kb_key, gp_key)
+{
+    if (keyboard_check_pressed(kb_key))
+        return true;
+
+    if (instance_exists(obj_gamecontroller))
+    {
+        if (obj_gamecontroller.gamepad_active && gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, gp_key))
+            return true;
+    }
+
+    return false;
+}
+
+function scr_check_mouse_pressed(mb_key, gp_key)
+{
+    if (device_mouse_check_button_pressed(0, mb_key))
+        return true;
+
+    if (instance_exists(obj_gamecontroller))
+    {
+        if (obj_gamecontroller.gamepad_active && gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, gp_key))
+            return true;
+    }
+
+    return false;
 }
 
 function scr_escape_string(str)
@@ -267,10 +381,14 @@ function scr_load_bingo_data()
     global.last_card_timestamp = 0;
     global.goal_progress = array_create(global.num_goals, 0);
     global.show_board = true;
-    global.board_key = 66;
-    global.chat_key = 84;
-    global.reveal_key = 82;
-    global.toggle_chat_key = 89;
+    global.board_key = ord("B");
+    global.chat_key = ord("T");
+    global.reveal_key = ord("R");
+    global.toggle_chat_key = ord("Y");
+    global.board_key_gp = gp_face3;
+    global.chat_key_gp = gp_shoulderl;
+    global.reveal_key_gp = gp_start;
+    global.toggle_chat_key_gp = gp_select;
     global.show_connections = true;
     global.show_reveals = true;
     global.show_chats = true;
@@ -326,6 +444,10 @@ function scr_load_bingo_data()
             if (variable_struct_exists(json.keybinds, "chat")) global.chat_key = json.keybinds.chat;
             if (variable_struct_exists(json.keybinds, "reveal")) global.reveal_key = json.keybinds.reveal;
             if (variable_struct_exists(json.keybinds, "toggle_chat")) global.toggle_chat_key = json.keybinds.toggle_chat;
+            if (variable_struct_exists(json.keybinds, "board_gp")) global.board_key_gp = json.keybinds.board_gp;
+            if (variable_struct_exists(json.keybinds, "chat_gp")) global.chat_key_gp = json.keybinds.chat_gp;
+            if (variable_struct_exists(json.keybinds, "reveal_gp")) global.reveal_key_gp = json.keybinds.reveal_gp;
+            if (variable_struct_exists(json.keybinds, "toggle_chat_gp")) global.toggle_chat_key_gp = json.keybinds.toggle_chat_gp;
         }
 
         if (variable_struct_exists(json, "filters"))
@@ -396,6 +518,10 @@ function scr_save_bingo_data()
     data.keybinds.chat = global.chat_key;
     data.keybinds.reveal = global.reveal_key;
     data.keybinds.toggle_chat = global.toggle_chat_key;
+    data.keybinds.board_gp = global.board_key_gp;
+    data.keybinds.chat_gp = global.chat_key_gp;
+    data.keybinds.reveal_gp = global.reveal_key_gp;
+    data.keybinds.toggle_chat_gp = global.toggle_chat_key_gp;
     data.filters.connections = global.show_connections;
     data.filters.reveals = global.show_reveals;
     data.filters.chats = global.show_chats;
@@ -424,8 +550,9 @@ function scr_save_bingo_data()
     data.progress.specific.armors_got = ds_list_write(scr_array_to_ds_list(list, global.armors_got));
     data.progress.specific.weapons_got = ds_list_write(scr_array_to_ds_list(list, global.weapons_got));
     ds_list_destroy(list);
-    file_text_write_string(file, json_stringify(data, true));
+    file_text_write_string(file, json_stringify(data));
     file_text_close(file);
+    ossafe_savedata_save();
 }
 
 function scr_reset_bingo_data()
@@ -712,11 +839,11 @@ function scr_add_goal_progress(slot, amount)
             // Prevent your color from showing up when you mark a taken goal with Lockout enabled
             else if (global.room_lockout == "Non-Lockout")
             {
-                global.goal_colors[board_slot - 1] += " " + global.color;
+                global.goal_colors[board_slot - 1] += (" " + global.color);
                 obj_bingo_controller.alarm[0] = 3 * room_speed;
             }
             
-            http_post_string("https://bingosync.com/api/select", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\", \"slot\": \"" + board_slot + "\", \"remove_color\": false }");
+            ossafe_http_post("https://bingosync.com/api/select", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\", \"slot\": \"" + board_slot + "\", \"remove_color\": false }");
         }
     }
     
