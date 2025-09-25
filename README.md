@@ -3,13 +3,17 @@
 </p>
 
 # DELTARUNE Bingosync Mod
-<b>NOTE</b>: This mod is only supported on Chapters 1-4 v1.04 (CH1 1.40 / CH2 1.46 / CH3 v0.0.098 / CH4 v0.0.098) and v1.05 Beta (CH1 1.41 / CH2 1.47 / CH3 v0.0.099 / CH4 v0.0.100).
+<b>NOTE</b>: This mod is only supported on:
+- Windows Chapters 1-4 v1.04 (CH1 1.40 / CH2 1.46 / CH3 v0.0.098 / CH4 v0.0.098)
+- Windows Chapters 1-4 v1.05 Beta (CH1 1.41 / CH2 1.47 / CH3 v0.0.099 / CH4 v0.0.100)
+- Switch Chapters 1-4 v1.04 (CH1 1.28 / CH2 1.34 / CH3 v0.0.095 / CH4 v0.0.096).
 
 This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
 
 # How to install and use
 - Download [the latest](https://github.com/ners-xd/deltarune-bingosync/releases/latest) version of the mod
-- **Extract the archive anywhere**, run "Bingosync Patcher.bat" and follow its instructions
+- **For Switch:** Use nxdumptool to dump the game files (INCLUDING the update, not just the base application) to your computer **(make sure to use layeredfs dir)**. A tutorial can be found [here](https://www.youtube.com/watch?v=-azK1yjPGQg) if you don't know how
+- **Extract the archive anywhere**, run "Bingosync Patcher.bat" and follow its instructions. **On Switch, the game files will be in atmosphere\contents\0100A0D022A68000\romfs**
 - Create or join a room on Bingosync, open the game and obtain the room ID from the end of the link (bingosync.com/room/XXXXXXXXXXXXXXXXXXXXXX) and the room's password. Choose a nickname and a color (orange, red, blue, green, purple, navy, teal, brown, pink or yellow) and press "Connect to room"
 - In this menu you can also reset your goal progress if needed (in case there's a bug or you just want to reset it, for some reason) and change your preferences.
 - Having the chat open automatically progresses text if you're in a cutscene!
@@ -30,4 +34,5 @@ How to contribute to the mod:
 # Credits
 - Coding: Chistosito, NERS
 - Goal list: Tadyman, Chistosito, Trinky44, devek1
+- Switch version testing: Tadyman
 - UMP: nhaar.
