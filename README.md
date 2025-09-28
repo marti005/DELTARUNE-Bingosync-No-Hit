@@ -18,9 +18,13 @@ This mod connects your game to [Bingosync](https://bingosync.com) and it can aut
 - In this menu you can also reset your goal progress if needed (in case there's a bug or you just want to reset it, for some reason) and change your preferences.
 - Having the chat open automatically progresses text if you're in a cutscene!
 
+# Potential errors while patching
+- Couldn't read ROM - The vanilla file couldn't be found, make sure it's named exactly "data.win" (Windows) / "game.win" (Console)
+- This patch is not intended for this ROM - The file that's trying to be patched is either not vanilla or not supported. Make sure there's no mods already applied on that file and make sure it's on the list of supported versions (found near the top of this page).
+
 # Current quirks
 - You can't open the chat while holding Control or Shift
-- Occasionally, messages might pop up in chat saying you disconnected, but you actually didn't.
+- Rarely, messages may pop up in chat saying you disconnected, but you actually didn't.
 
 # Contributing
 How to contribute to the mod:

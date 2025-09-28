@@ -29,7 +29,7 @@ function wrong_warp_check()
         {
             var len = array_length(global.wrong_warps);
             var room_name = room_get_name(room);
-            
+
             for (var i = 0; i < len; i++)
             {
                 if (global.wrong_warps[i] == room_name)
@@ -40,10 +40,10 @@ function wrong_warp_check()
                 {
                     global.wrong_warps[i] = room_name;
                     scr_save_bingo_data();
-                    
+
                     if (i == (len - 1))
                         scr_add_goal_progress(70, 1);
-                    
+
                     exit;
                 }
             }

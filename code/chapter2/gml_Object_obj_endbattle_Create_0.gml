@@ -4,33 +4,33 @@
 switch (global.encounterno)
 {
     case 74:
-        scr_add_goal_array("smorg", 1, 27);       
+        scr_add_goal_array("smorg", 1, 27);
         break;
-    
+
     case 58:
-        scr_add_goal_array("berdly_encounters", 0, 34);       
+        scr_add_goal_array("berdly_encounters", 0, 34);
         break;
-    
+
     case 83:
         if (global.flag[644] == 1)
             scr_add_goal_progress(50, 1);
         else
             scr_add_goal_progress(61, 1);
-        
+
         break;
-    
+
     case 81:
         if (global.flag[640] == 1)
             scr_add_goal_progress(52, 1);
         else
             scr_add_goal_progress(53, 1);
-        
+
         break;
-    
+
     case 56:
         if (room == room_dw_mansion_potBalance && !global.failed_pot_balance)
             global.failed_pot_balance = true;
-        
+
         break;
 }
 /// END

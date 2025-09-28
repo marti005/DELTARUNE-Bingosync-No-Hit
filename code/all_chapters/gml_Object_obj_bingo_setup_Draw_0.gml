@@ -121,39 +121,39 @@ switch (pos)
     case 0:
         selected_text = text_connect;
         break;
-    
+
     case 1:
         selected_text = text_room_id;
         break;
-    
+
     case 2:
         selected_text = text_password;
         break;
-    
+
     case 3:
         selected_text = text_nickname;
         break;
-    
+
     case 4:
         selected_text = text_color;
         break;
-    
+
     case 5:
         selected_text = text_reset;
         break;
-    
+
     case 6:
         selected_text = text_board;
         break;
-    
+
     case 7:
         selected_text = text_chat;
         break;
-    
+
     case 8:
         selected_text = text_reveal;
         break;
-    
+
     case 9:
         selected_text = text_toggle_chat;
         break;

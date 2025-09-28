@@ -36,7 +36,7 @@ if (true)
     room_goto(roomchoice);
 /// CODE
     instance_destroy(loadtex);
-    
+
     if (!instance_exists(obj_bingo_setup))
         instance_create_depth(0, 0, 0, obj_bingo_setup);
 /// END

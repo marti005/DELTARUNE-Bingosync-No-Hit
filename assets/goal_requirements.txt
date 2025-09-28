@@ -1,10 +1,10 @@
-$2000: Accumulate $2000 on one save file slot. You can spend your money at any time, you just have to have gotten at least $2000 on that save slot in that chapter. (Note that if you start a CH2 file from CH1, the amount gets set to what it was on that CH1 file's slot. If you start a brand new file, the progress on that slot is reset to 0)
+$2000: Accumulate $2000 on one save file slot. You can spend your money at any time, you just have to have gotten at least $2000 on that save slot in that chapter. (Note that if you continue a file from a previous chapter, the amount gets set to what it was on that previous chapter file's slot. If you start a brand new file, the progress on that slot is reset to 0)
 
 Get an Egg (Original Source): Get an Egg without doing the Door Overflow glitch
 
 Spare/Pacify 10 Enemies: Self explanatory. Note that you have to press the Spare or Pacify buttons on the enemies for them to count (in other words, most bosses do not count because their fights end automatically. The only exception is Jevil since you have to manually pacify him)
 
-Kill 5 Enemies: Defeat enemies with violence (that's attacking until they run away or freezing. CH1 enemies also count. Same thing as above applies in regards to bosses, except Jevil does NOT count here)
+Kill 5 Enemies: Defeat enemies with violence (that's attacking until they run away or freezing. Bosses don't count. CH1 enemies count except for Lancer and C. Round). Essentially, if you hear the running away sound effect, you're good
 
 Bed Inspector: Go right instead of left in the room with the Head Hathies in CH1 and interact with every bed to get the Bed Inspector title
 
@@ -14,7 +14,7 @@ Get the Freeze Ring: Self explanatory
 
 Die: Self explanatory (losing to Punch-Out, Giga Queen and in the CH3 boards does also count as dying)
 
-Buy an item from Seam and Rouxls: Self explanatory. It doesn't matter if you buy from Seam in CH1 or 2, as long as you get something from both of the shopkeepers
+Buy an item from Seam and Rouxls: Self explanatory. It doesn't matter in what chapter you buy from Seam, as long as you get something from both of the shopkeepers
 
 Complete the Hacker Side Quest: Get all 3 checkmarks in the Cyber Field and talk to Hacker afterwards. They are in:
 	- The room with the Tasques between the falling bars in the long hallway before the AGREE2ALL puzzle. There is a chest in the bottom-right corner with a GlowWrist and a checkmark
@@ -40,7 +40,7 @@ Collect 2 Bananas: Collect the bananas from Cyber City and Acid Tunnel (they do 
 
 Get the Spin Cake: Self explanatory. You get it by taking the broken cake piece from TopChef in CH1, having Malius fix it in the bake sale, and bringing the TopCake back to the chef
 
-Fuse an Item: Fuse any item in CH2 or CH4's Castle Town
+Fuse an Item: Fuse any item in CH2+'s Castle Town
 
 Get 2 Eggs: Self explanatory
 
@@ -81,7 +81,7 @@ Get 3 ReviveMints: Get 3 of the mints available throughout CH1-4. They are in:
 	- CH2 Cyber Field, in the room with the Virovirokun that shoots arrows, there's a chest at the bottom of the room. Have the enemy shoot it, then open the chest
 	- CH2 Queen's Mansion, in the first room with the fire-shooting paintings, go all the way down and there's a painting with a star on it. Interact with it and it transforms the painting on the left into a chest which you can open
 	- CH3 Green Room, from Ramb if you get B or A rank in Board 1
-	- CH3 TV World, by properly completing the puzzle which requires the LancerController (the one that gets you to the egg quest), solution is (dig on the green dots): https://media.discordapp.net/attachments/1388183105470333120/1388193767122665492/image.png?ex=6871e3f1&is=68709271&hm=e8bf839aec403631a6659ba2cea4e31a44b796f16b352b5f62217080131d810a
+	- CH3 TV World, by properly completing the puzzle which requires the LancerController (the one that gets you to the egg quest), solution is (dig on the green dots): https://i.imgur.com/p24TP65.png
 	- CH4 Right of Gerson's Study, the chest in the pink and green piano puzzle room
 	- CH4 Sanctuary 2, the room where you move the piano, smash the orange bookshelf and it'll reveal a chest
 	- CH4 Sanctuary 1&2, donate 500-1999 D$ to the waterfall and come back to get it from the chest
@@ -111,11 +111,11 @@ Complete the Spelling Bee Cutscene (Mansion): Self explanatory (the goal is mark
 
 Get Captured in Chapter 2: Get captured by Queen in City Heights and get taken to your room in her mansion
 
-Get a Lancer Cookie: Self explanatory. You can get it in CH1's Forest Bake Sale from his stand, or in CH2's Castle Town by going to the bakery
+Get a Lancer Cookie: Self explanatory. You can get it in CH1's Forest Bake Sale from his stand, or in CH2+'s Castle Town by going to the bakery
 
 Build the FLB Duck (PINK): Build the thrash machine that has a duck head, body and shoes AND have all three parts colored with the pinkest pink there is (it is the 5th color from right to left)
 
-See obj_weirdroute_manipulator: Wrong warp out of Queen's basement in CH2 and trigger the cutscene with Ralsei's glasses. If you are on version 1.17 or older you should see frozen Berdly in the top-left corner
+See obj_weirdroute_manipulator: Wrong warp out of Queen's basement in CH2 and trigger the cutscene with Ralsei's glasses. If you are on version 1.17 or older you should see frozen Berdly in the top-left corner. That frozen Berdly is an object called obj_weirdroute_manipulator, hence the goal's name
 
 Recruit Mauswheel: Self explanatory
 
@@ -133,7 +133,7 @@ Get ReviveDust: This item is found in the Acid Tunnel after defeating the Werewi
 
 Talk to the Green Swatchling: After defeating Rouxls, do any of the 3 poses with Ralsei and go back left after getting Susie in your party. Talk to the Green Swatchling
 
-Crash With Noelle Anticheat: Do door overflow but intentionally mess it up so that you get Noelle's choicers and crash the game using them (this is done by interacting with the doorframe while having the bagel choicers up on screen)
+Crash With Bagel Overflow: Do bagel overflow but intentionally mess it up so that you get other choicers and crash the game using them
 
 Trigger Milk on the 2nd K.Round fight: Damage K. Round 2 enough so that it drinks milk
 
@@ -147,7 +147,7 @@ Complete the Dummy Tutorial: Self explanatory. You can do it in any way, you jus
 
 Hug Ralsei: Self explanatory. You can either hug him in CH1's dummy tutorial fight or by posing in CH2's Acid Tunnel
 
-Talk to Lancer In The Epilogue: Self explanatory. You either have to do the True Pacifist Ending in CH1 or perform ARMS after defeating King to go back (if you have no idea what I just said, don't worry about it)
+Talk to Lancer In The Epilogue: Self explanatory. You either have to do the True Pacifist Ending in CH1 or perform ARMS after defeating King to go back (if you have no idea what that means, don't worry about it)
 
 Spare Ponman: Self explanatory
 
@@ -171,9 +171,11 @@ Equip White Ribbon (CH1/CH3): Self explanatory. The White Ribbon is found in:
 	- CH1: the Field's Maze of Death in a chest that's clearly visible when entering the room
 	- CH3: the Green Room, from Ramb by getting S or T rank Board 2
 
-Pot Balance: Self explanatory. Complete the pot balancing minigame without triggering the Swatchling fight
+Pot Balance: Self explanatory. Complete the pot balancing minigame without triggering the Swatchling fight (you have to exit the room for the goal to be marked. Dropping the pot just before the finish line also works)
 
-Donate D$1: Talk to the Jigsawry in front of Seam's shop, go to the donation hole and donate One Dark Dollar
+Donate D$1:
+    - CH1: Talk to the Jigsawry in front of Seam's shop, go to the donation hole and donate One Dark Dollar
+    - CH4: Donate at least One Dark Dollar to the water fountain in Sanctuary 1 (left of the Bibliox room above Gerson's study)
 
 Get Both Chests On 2 Maus 1 Maus: After the room in Acid Tunnel with the house maze, there is a room where you can release the maice into 2 chests or 2 houses. Get both chests
 	- For the first chest, turn the first house blue
@@ -266,7 +268,7 @@ Get 4 Photos (Board 2): Self explanatory. The bonus photo is from buying Lancer 
 
 Get Quiz Key (Board 1): Get the two Qs from answering the quizzes, then bring them to the sphinx to unlock the key that's to the left
 
-B or better rank Susiezilla: Self explanatory. Susiezilla is unlocked by going to the special A-rank room and paying the Pippin 500 POINTs
+B or better rank Susiezilla: Self explanatory. Susiezilla is unlocked by going to the special A-rank room and paying the Pippins 500 POINTs
 
 Find the Among Us Reference: Inspect all the giftboxes in Noelle's house in the room with the vent
 
@@ -283,7 +285,7 @@ Recruit Shuttah: Self explanatory
 
 Lose Shuttah: Self explanatory
 
-Lose Rabbick (CH3): Have Ribbick fully recruited, then encounter the double Ribbick in the room with the trashcans. CroakOn them until 100% and one of them will turn into a Rabbick
+Lose Rabbick (CH3): Have Ribbick fully recruited, then encounter the double Ribbick in the room with the trashcans. One of them will be disguised as a Rabbick, just attack them both
 
 Go to the diner with Susie: Have a seat with Susie at the diner in CH4's Light World (you need to have stolen Asriel's money from his nightstand first)
 

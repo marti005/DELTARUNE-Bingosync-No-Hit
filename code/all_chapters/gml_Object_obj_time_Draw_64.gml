@@ -12,9 +12,9 @@ if (global.show_chat)
     draw_set_font(fnt_main);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
-    
+
     for (var i = 0; i < array_length(global.chat_line); i++)
-    {  
+    {
         message_height = string_height_ext(global.chat_line[i], 15, 330);
         draw_set_color(global.chat_color[i]);
         draw_text_outline_ext(2, ypos, global.chat_line[i], 15, 330);

@@ -7,16 +7,25 @@
             if (i == 11)
                 scr_add_goal_progress(39, 1);
 
-            else if (arg0 == 2)
+            else
             {
-                switch (room)
+                switch (arg0)
                 {
-                    case room_forest_dancers1:
-                        scr_add_goal_array("revivemints", 0, 36);
+                    case 2:
+                        switch (room)
+                        {
+                            case room_forest_dancers1:
+                                scr_add_goal_array("revivemints", 0, 36);
+                                break;
+
+                            case room_cc_4f:
+                                scr_add_goal_array("revivemints", 1, 36);
+                                break;
+                        }
                         break;
 
-                    case room_cc_4f:
-                        scr_add_goal_array("revivemints", 1, 36);
+                    case 9:
+                        scr_add_goal_progress(47, 1);
                         break;
                 }
             }
@@ -72,6 +81,10 @@
                 }
                 break;
 
+            case 9:
+                scr_add_goal_progress(47, 1);
+                break;
+
             case 35:
                 scr_add_goal_progress(89, 1);
                 break;
@@ -79,7 +92,7 @@
             case 63:
                 scr_add_goal_progress(109, 1);
                 break;
-                
+
             case 33:
                 scr_add_goal_progress(122, 1);
                 break;

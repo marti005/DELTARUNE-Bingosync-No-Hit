@@ -24,7 +24,7 @@ if (!global.chat_typing && !global.starring_goals)
         else
         {
             global.chat_typing = true;
-            
+
             if (global.is_console)
             {
                 mystring = "";
@@ -36,11 +36,11 @@ if (!global.chat_typing && !global.starring_goals)
                 {
                     if (global.input_held[i] || global.input_pressed[i])
                         global.input_released[i] = 1;
-                    
+
                     global.input_held[i] = 0;
                     global.input_pressed[i] = 0;
                 }
-                
+
                 keyboard_string = "";
             }
         }

@@ -2,6 +2,6 @@
 
 /// AFTER
         scr_monsterdefeat();
-/// CODE     
+/// CODE
         scr_add_goal_progress(44, 1);
 /// END

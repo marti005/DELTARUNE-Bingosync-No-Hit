@@ -13,7 +13,7 @@
 #if !CHAPTER_1
 /// AFTER
     times_fused++;
-/// CODE     
+/// CODE
     scr_add_goal_progress(20, 1);
 /// END
 #endif
