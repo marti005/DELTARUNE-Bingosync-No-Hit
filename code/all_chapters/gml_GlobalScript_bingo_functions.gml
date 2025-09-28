@@ -64,9 +64,9 @@ function scr_gamepad_lastkey()
             if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, i))
                 return i;
         }
-
-        return 0;
     }
+
+    return 0;
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
