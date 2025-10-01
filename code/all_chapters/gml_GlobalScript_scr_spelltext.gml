@@ -9,7 +9,7 @@
 // This is a workaround for making the regular Tasques count towards the spare/pacify goals in the Tasque Manager fight
 #if CHAPTER_2
                     var tasques = 0;
-                    
+
                     if (global.encounterno == 57 && global.monstertype[star] == 42)
                     {
                         with (obj_tasque_enemy)
@@ -51,7 +51,7 @@
 /// CODE
 #if CHAPTER_2
                 var tasques = 0;
-                
+
                 if (global.encounterno == 57 && global.monstertype[star] == 42)
                 {
                     with (obj_tasque_enemy)

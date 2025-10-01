@@ -2,7 +2,12 @@
 
 function scr_get_mod_version()
 {
-    return "2.10";
+    return "2.11";
+}
+
+function scr_get_no_hit_version()
+{
+    return "1.00";
 }
 
 function ossafe_http_get(url)
@@ -34,7 +39,7 @@ function ossafe_keyboard_lastkey()
             if (keyboard_check_pressed(i))
                 return i;
         }
-        
+
         return vk_nokey;
     }
     else
@@ -49,31 +54,24 @@ function scr_gamepad_lastkey()
     {
         return 0;
     }
-    else
+    else if (obj_gamecontroller.gamepad_active)
     {
-        var i;
-
         // gp_face1 - gp_padr
-        for (i = 32769; i <= 32784; i++)
+        for (var i = 32769; i <= 32784; i++)
         {
             if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, i))
                 return i;
         }
         // Skip axes
         // gp_home - gp_extra6
-        for (i = 32799; i <= 32810; i++)
+        for (var i = 32799; i <= 32810; i++)
         {
             if (gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, i))
                 return i;
         }
-
-        return 0;
     }
-}
 
-function scr_get_no_hit_version()
-{
-    return "1.00";
+    return 0;
 }
 
 // This function already exists in Chapter 2+ but we have to add it for Chapter 1
@@ -259,27 +257,27 @@ function scr_escape_string(str)
     str = string_trim(str);
     var escaped = "";
     var char = "";
-    
+
     for (var i = 1; i <= string_length(str); i++)
     {
         char = string_char_at(str, i);
-        
+
         switch (char)
         {
             case "\"":
                 escaped += "\\\"";
                 break;
-            
+
             case "\\":
                 escaped += "\\\\";
                 break;
-            
+
             default:
                 escaped += char;
                 break;
         }
     }
-    
+
     return escaped;
 }
 
@@ -312,7 +310,7 @@ function scr_chat_message(msg_color, msg_text)
     {
         new_lines++;
         msg_text = string_insert("\n", msg_text, (50 - new_lines) * new_lines);
-        
+
         if (new_lines >= 5)
             break;
     }
@@ -329,13 +327,13 @@ function scr_chat_message(msg_color, msg_text)
             }
         }
     }
-    
+
     for (i = 0; i < len; i++)
     {
         global.chat_color[i] = global.chat_color[i + 1];
         global.chat_line[i] = global.chat_line[i + 1];
     }
-    
+
     global.chat_color[len] = msg_color;
     global.chat_line[len] = msg_text;
 }
@@ -346,13 +344,13 @@ function scr_ds_list_to_array(list, key)
     var size = ds_list_size(list);
     var array = array_create(size, 0);
     var value = 0;
-    
+
     for (var i = 0; i < size; i++)
     {
         value = ds_list_find_value(list, i);
         array[i] = is_undefined(value) ? 0 : value;
     }
-    
+
     ds_list_clear(list);
     return array;
 }
@@ -360,10 +358,10 @@ function scr_ds_list_to_array(list, key)
 function scr_array_to_ds_list(list, array)
 {
     ds_list_clear(list);
-    
+
     for (var i = 0; i < array_length(array); i++)
         ds_list_add(list, array[i]);
-    
+
     return list;
 }
 
@@ -427,7 +425,7 @@ function scr_load_bingo_data()
         var file = file_text_open_read("bingo_data.json");
         var json = json_parse(file_text_read_string(file));
         file_text_close(file);
-        
+
         if (variable_struct_exists(json, "last_saved_room"))
         {
             if (variable_struct_exists(json.last_saved_room, "room_id")) global.room_id = json.last_saved_room.room_id;
@@ -437,13 +435,13 @@ function scr_load_bingo_data()
             if (variable_struct_exists(json.last_saved_room, "starred_goals")) global.starred_goals = json.last_saved_room.starred_goals;
             if (variable_struct_exists(json.last_saved_room, "last_card_timestamp")) global.last_card_timestamp = json.last_saved_room.last_card_timestamp;
         }
-        
+
         if (variable_struct_exists(json, "preferences"))
         {
             if (variable_struct_exists(json.preferences, "show_chat")) global.show_chat = json.preferences.show_chat;
             if (variable_struct_exists(json.preferences, "show_board")) global.show_board = json.preferences.show_board;
         }
-        
+
         if (variable_struct_exists(json, "keybinds"))
         {
             if (variable_struct_exists(json.keybinds, "board")) global.board_key = json.keybinds.board;
@@ -465,7 +463,7 @@ function scr_load_bingo_data()
             if (variable_struct_exists(json.filters, "goal_marks")) global.show_goal_marks = json.filters.goal_marks;
             if (variable_struct_exists(json.filters, "new_cards")) global.show_new_cards = json.filters.new_cards;
         }
-        
+
         if (variable_struct_exists(json, "progress"))
         {
             var list = ds_list_create();
@@ -601,7 +599,7 @@ function scr_goal_slot_from_name(name)
         if (string_lower(global.goal_name[i]) == name)
             return string_digits(global.goal_slot[i]);
     }
-    
+
     return 0;
 }
 
@@ -692,7 +690,7 @@ function scr_internal_name_from_slot(slot)
         case 55:  return "beat the rouxls fight (ch2/ch3)";
         case 56:  return "get revivedust";
         case 57:  return "talk to the green swatchling";
-        case 58:  return "crash with noelle anticheat";
+        case 58:  return "crash with bagel overflow";
         case 59:  return "trigger milk on the 2nd k.round fight";
         case 60:  return "spare clover without using the manual (ch1)";
         case 61:  return "lose mauswheel";
@@ -831,13 +829,13 @@ function scr_add_goal_progress(slot, amount)
 {
     if (global.ws_client == -1)
         exit;
-    
+
     global.goal_progress[slot] += amount;
-    
+
     if (scr_goal_requirements(slot))
     {
         var board_slot = scr_goal_slot_from_name(scr_internal_name_from_slot(slot));
-        
+
         if (board_slot > 0 && string_pos(global.color, global.goal_colors[board_slot - 1]) == 0)
         {
             // Prevent goals from triggering multiple times in quick succession (the colors will be updated properly when the board request comes through anyway)
@@ -849,14 +847,14 @@ function scr_add_goal_progress(slot, amount)
             // Prevent your color from showing up when you mark a taken goal with Lockout enabled
             else if (global.room_lockout == "Non-Lockout")
             {
-                global.goal_colors[board_slot - 1] += (" " + global.color);
+                global.goal_colors[board_slot - 1] += " " + global.color;
                 obj_bingo_controller.alarm[0] = 3 * room_speed;
             }
-            
+
             ossafe_http_post("https://bingosync.com/api/select", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"color\": \"" + global.color + "\", \"slot\": \"" + board_slot + "\", \"remove_color\": false }");
         }
     }
-    
+
     scr_save_bingo_data();
 }
 

@@ -10,7 +10,7 @@
 /// CODE
             scr_add_goal_progress(79, 1);
             scr_healall(healnum);
-            
+
             for (i = 0; i < 3; i += 1)
             {
 /// END

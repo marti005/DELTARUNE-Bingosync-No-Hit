@@ -10,7 +10,7 @@
 #endif
 /// CODE
             scr_add_goal_array("armors_got", arg0, 130);
-            
+
             switch (arg0)
             {
                 case 54:

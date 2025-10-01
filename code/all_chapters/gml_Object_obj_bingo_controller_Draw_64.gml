@@ -102,14 +102,14 @@ if (global.show_board && board_connected)
                 if (string_count(" ", shown_str) < 2)
                 {
                     new_lines = 0;
-                    
+
                     while (string_width_ext(shown_str, 13, (x2 - x1) + 20) >= ((x2 - x1) + 20))
                     {
                         new_lines++;
                         shown_str = string_insert("\n", shown_str, (16 - new_lines) * new_lines);
                         shown_str = string_replace_all(shown_str, " \n", "\n");
                         shown_str = string_replace_all(shown_str, "\n ", "\n");
-                        
+
                         if (new_lines >= 3)
                             break;
                     }
@@ -221,7 +221,7 @@ if (global.chat_typing)
         draw_set_color(c_white);
         draw_text_outline_ext(1, surface_height - 32, shown_str, 15, surface_width);
     }
-    
+
     if (keyboard_check_pressed(vk_enter) || mystring != "")
     {
         var str;
@@ -234,15 +234,15 @@ if (global.chat_typing)
         if (string_length(str) > 0)
         {
             var str_lower = string_lower(str);
-            
+
             if (string_pos("/color", str_lower) == 1 || string_pos("/colour", str_lower) == 1)
             {
                 var split_string = string_split(str_lower, " ");
                 var chosen_color = "blank";
-                
+
                 if (array_length(split_string) > 1)
                     chosen_color = split_string[1];
-                
+
                 if (chosen_color == "blank" || scr_color_from_name(chosen_color) == c_white)
                 {
                     scr_chat_message(c_red, "Invalid color. Use orange, red, blue, green, purple, navy, teal, brown, pink or yellow.");

@@ -2,7 +2,7 @@
 
 /// AFTER
     snd_free(global.batmusic[0]);
-/// CODE     
+/// CODE
     scr_add_goal_progress(15, 1);
     scr_add_goal_array("main_bosses", 1, 111);
 /// END
@@ -11,4 +11,4 @@
                 idlesprite = spr_cutscene_25_queen_chair_shocked;
 /// CODE
                 scr_add_goal_progress(74, 1);
-/// END  
+/// END

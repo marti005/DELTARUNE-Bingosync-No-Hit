@@ -4,7 +4,7 @@
 switch (global.encounterno)
 {
     case 23:
-        scr_add_goal_array("smorg", 0, 27);  
+        scr_add_goal_array("smorg", 0, 27);
         break;
 
     case 25:
@@ -24,11 +24,11 @@ switch (global.encounterno)
             global.clover_manual = false;
 
         break;
-    
+
     case 3:
         scr_add_goal_progress(63, 1);
         break;
-    
+
     case 32:
         scr_add_goal_progress(67, 1);
         break;

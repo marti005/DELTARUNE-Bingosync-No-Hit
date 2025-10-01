@@ -20,7 +20,7 @@ texture_groups = ["Default", "ConsolePS4"];
 for (var i = 0; i < array_length(texture_groups); i++)
 {
     var _tex_array = texturegroup_get_textures(texture_groups[i]);
-    
+
     for (var j = 0; j < array_length(_tex_array); j++)
     {
         texturepagecount++;

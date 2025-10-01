@@ -2,7 +2,7 @@
 
 /// AFTER
             scr_wincombat();
-/// CODE     
+/// CODE
             scr_add_goal_progress(43, 1);
 /// END
 

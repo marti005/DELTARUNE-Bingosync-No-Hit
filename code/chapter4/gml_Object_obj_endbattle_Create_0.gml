@@ -4,7 +4,7 @@
 switch (global.encounterno)
 {
     case 189:
-        scr_add_goal_array("smorg", 2, 27);    
+        scr_add_goal_array("smorg", 2, 27);
         break;
 
     case 183:

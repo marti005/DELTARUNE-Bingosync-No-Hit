@@ -1,15 +1,6 @@
 /// PATCH
 
 /// AFTER
-                    var itemgetstring = scr_itemget_anytype_text(9, "item");
-                    
-                    if (noroom == 0)
-                    {
-/// CODE
-                        scr_add_goal_progress(47, 1);
-/// END
-
-/// AFTER
                 with (obj_ch2_scene21_loop)
                     photocon = 2;
 /// CODE
@@ -24,7 +15,28 @@
 /// END
 
 /// AFTER
-        case 1206:
+        case 1186:
+/// CODE
+            if (room == room_dw_cyber_musical_door)
+                scr_add_goal_progress(58, 1);
+/// END
+
+/// AFTER
+        case 1187:
+/// CODE
+            if (room == room_dw_cyber_musical_door)
+                scr_add_goal_progress(58, 1);
+/// END
+
+/// AFTER
+        case 1188:
+/// CODE
+            if (room == room_dw_cyber_musical_door)
+                scr_add_goal_progress(58, 1);
+/// END
+
+/// AFTER
+        case 1189:
 /// CODE
             if (room == room_dw_cyber_musical_door)
                 scr_add_goal_progress(58, 1);

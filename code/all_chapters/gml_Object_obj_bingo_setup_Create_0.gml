@@ -26,9 +26,9 @@ mystring = "";
 function censor_password()
 {
     var text = "";
-    
+
     for (var i = 0; i < string_length(global.password); i++)
         text += "*";
-    
+
     return text;
 }

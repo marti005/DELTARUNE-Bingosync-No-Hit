@@ -5,19 +5,19 @@ if (sel == -1)
     if (up_p())
     {
         pos--;
-        
+
         if (pos < 0)
             pos = max_pos;
-        
+
         snd_play(snd_menumove);
     }
     else if (down_p())
     {
         pos++;
-        
+
         if (pos > max_pos)
             pos = 0;
-        
+
         snd_play(snd_menumove);
     }
     else if (button1_p())
@@ -65,10 +65,10 @@ if (sel == -1)
                 {
                     if (global.nickname != string_trim(global.nickname))
                         global.nickname = string_trim(global.nickname);
-                    
+
                     if (global.color != string_lower(string_trim(global.color)))
                         global.color = string_lower(string_trim(global.color));
-                    
+
                     scr_save_bingo_data();
                     httppost = http_post_string("https://bingosync.com/api/join-room", "{ \"room\": \"" + scr_escape_string(global.room_id) + "\", \"nickname\": \"" + scr_escape_string(global.nickname) + "\", \"password\": \"" + scr_escape_string(global.password) + "\" }");
                     status_color = c_yellow;
@@ -76,13 +76,13 @@ if (sel == -1)
                     sel = 0;
                     snd_play(snd_select);
                 }
-                
+
                 break;
-            
+
             case 1:
                 sel = 1;
                 snd_play(snd_select);
-                
+
                 if (global.is_console)
                 {
                     mystring = "";
@@ -94,13 +94,13 @@ if (sel == -1)
                     status_color = c_ltgray;
                     status_text = "Press ESC or Enter to stop typing.";
                 }
-                
+
                 break;
-            
+
             case 2:
                 sel = 2;
                 snd_play(snd_select);
-                
+
                 if (global.is_console)
                 {
                     mystring = "";
@@ -112,13 +112,13 @@ if (sel == -1)
                     status_color = c_ltgray;
                     status_text = "Press ESC or Enter to stop typing.";
                 }
-                
+
                 break;
-            
+
             case 3:
                 sel = 3;
                 snd_play(snd_select);
-                
+
                 if (global.is_console)
                 {
                     mystring = "";
@@ -130,13 +130,13 @@ if (sel == -1)
                     status_color = c_ltgray;
                     status_text = "Press ESC or Enter to stop typing.\nMaximum 50 characters.";
                 }
-                
+
                 break;
-            
+
             case 4:
                 sel = 4;
                 snd_play(snd_select);
-                
+
                 if (global.is_console)
                 {
                     mystring = "";
@@ -148,16 +148,16 @@ if (sel == -1)
                     status_color = c_ltgray;
                     status_text = "Press ESC or Enter to stop typing.\nUse orange, red, blue, green, purple, navy, teal, brown, pink or yellow.";
                 }
-                
+
                 break;
-            
+
             case 5:
                 sel = 5;
                 snd_play(snd_select);
                 status_color = c_ltgray;
                 status_text = "Press ESC to cancel.";
                 break;
-            
+
             case 6:
             case 7:
             case 8:
@@ -167,37 +167,37 @@ if (sel == -1)
                 status_color = c_ltgray;
                 status_text = "Press ESC to cancel.\nNote that trying to use non-English keyboard characters will most likely cause problems!";
                 break;
-            
+
             case 10:
                 global.show_connections = !global.show_connections;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-            
+
             case 11:
                 global.show_reveals = !global.show_reveals;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-            
+
             case 12:
                 global.show_chats = !global.show_chats;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-            
+
             case 13:
                 global.show_colors = !global.show_colors;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-            
+
             case 14:
                 global.show_goal_marks = !global.show_goal_marks;
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
-            
+
             case 15:
                 global.show_new_cards = !global.show_new_cards;
                 scr_save_bingo_data();
@@ -205,7 +205,7 @@ if (sel == -1)
                 break;
         }
     }
-    
+
     if (!internet && os_is_network_connected())
     {
         internet = true;
@@ -229,7 +229,7 @@ else if (sel > 0)
         snd_play(snd_swing);
         status_text = "";
     }
-    
+
     switch (sel)
     {
         case 1:
@@ -245,9 +245,9 @@ else if (sel > 0)
             {
                 if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
                     keyboard_string += clipboard_get_text();
-                
+
                 global.room_id = string_trim(keyboard_string);
-                
+
                 if (keyboard_check_pressed(vk_enter))
                 {
                     sel = -1;
@@ -256,9 +256,9 @@ else if (sel > 0)
                     status_text = "";
                 }
             }
-            
+
             break;
-        
+
         case 2:
             if (global.is_console && mystring != "")
             {
@@ -272,9 +272,9 @@ else if (sel > 0)
             {
                 if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
                     keyboard_string += clipboard_get_text();
-                
+
                 global.password = string_trim(keyboard_string);
-                
+
                 if (keyboard_check_pressed(vk_enter))
                 {
                     sel = -1;
@@ -283,9 +283,9 @@ else if (sel > 0)
                     status_text = "";
                 }
             }
-            
+
             break;
-        
+
         case 3:
             if (global.is_console && mystring != "")
             {
@@ -299,9 +299,9 @@ else if (sel > 0)
             {
                 if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
                     keyboard_string += clipboard_get_text();
-                
+
                 global.nickname = string_copy(string_trim(keyboard_string), 1, 50);
-                
+
                 if (keyboard_check_pressed(vk_enter))
                 {
                     sel = -1;
@@ -310,9 +310,9 @@ else if (sel > 0)
                     status_text = "";
                 }
             }
-            
+
             break;
-        
+
         case 4:
             if (global.is_console && mystring != "")
             {
@@ -326,9 +326,9 @@ else if (sel > 0)
             {
                 if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
                     keyboard_string += clipboard_get_text();
-                
+
                 global.color = string_lower(string_trim(keyboard_string));
-                
+
                 if (keyboard_check_pressed(vk_enter))
                 {
                     sel = -1;
@@ -337,9 +337,9 @@ else if (sel > 0)
                     status_text = "";
                 }
             }
-            
+
             break;
-        
+
         case 5:
             if (button1_p())
             {
@@ -348,13 +348,13 @@ else if (sel > 0)
                 snd_play(AUDIO_APPEARANCE);
                 status_text = "";
             }
-            
+
             break;
-        
+
         case 6:
             var key = ossafe_keyboard_lastkey();
             var key_gp = scr_gamepad_lastkey();
-            
+
             if (key != 0)
             {
                 sel = -1;
@@ -371,13 +371,13 @@ else if (sel > 0)
                 snd_play(snd_select);
                 status_text = "";
             }
-            
+
             break;
-        
+
         case 7:
             var key = ossafe_keyboard_lastkey();
             var key_gp = scr_gamepad_lastkey();
-            
+
             if (key != 0)
             {
                 sel = -1;
@@ -394,13 +394,13 @@ else if (sel > 0)
                 snd_play(snd_select);
                 status_text = "";
             }
-            
+
             break;
-        
+
         case 8:
             var key = ossafe_keyboard_lastkey();
             var key_gp = scr_gamepad_lastkey();
-            
+
             if (key != 0)
             {
                 sel = -1;
@@ -417,13 +417,13 @@ else if (sel > 0)
                 snd_play(snd_select);
                 status_text = "";
             }
-            
+
             break;
-        
+
         case 9:
             var key = ossafe_keyboard_lastkey();
             var key_gp = scr_gamepad_lastkey();
-            
+
             if (key != 0)
             {
                 sel = -1;
@@ -440,7 +440,7 @@ else if (sel > 0)
                 snd_play(snd_select);
                 status_text = "";
             }
-            
+
             break;
     }
 }

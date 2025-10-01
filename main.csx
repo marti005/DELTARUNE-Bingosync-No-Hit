@@ -56,5 +56,5 @@ void BuildMod(int chapter)
     
     loader.Load();
 
-    ScriptMessage(chapter == 0 ? "BingoSync Mod for DELTARUNE Chapter Select was imported!" : $"BingoSync Mod for DELTARUNE Chapter {chapter} was imported!");
+    ScriptMessage(chapter == 0 ? "Bingosync Mod for DELTARUNE Chapter Select was imported!" : $"Bingosync Mod for DELTARUNE Chapter {chapter} was imported!");
 }

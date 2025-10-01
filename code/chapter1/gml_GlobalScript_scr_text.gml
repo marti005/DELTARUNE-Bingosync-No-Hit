@@ -30,15 +30,6 @@
 /// END
 
 /// AFTER
-                    scr_itemget(9);
-                    
-                    if (noroom == 0)
-                    {
-/// CODE
-                        scr_add_goal_progress(47, 1);
-/// END
-
-/// AFTER
                 scr_itemremove(6);
                 scr_itemget(7);
 /// CODE

@@ -3,6 +3,6 @@
 /// AFTER
 if (con == 31)
 {
-/// CODE     
+/// CODE
     scr_add_goal_progress(28, 1);
 /// END

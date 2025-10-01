@@ -4,7 +4,7 @@ if (active)
 {
     if (global.board_room != "b1controls")
         global.board_room = "b1controls";
-    
+
     if (scr_debug())
     {
         if (obj_board_camera.con == 0)

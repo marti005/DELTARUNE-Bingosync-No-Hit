@@ -7,11 +7,11 @@ try
         var http_status = ds_map_find_value(async_load, "http_status");
         var info = ds_map_find_value(async_load, "result");
         var info_str = string(info);
-        
+
         if (global.is_console && http_status == 302)
         {
             var headers = ds_map_find_value(async_load, "response_headers");
-            
+
             if (!ds_exists(headers, ds_type_map) || ds_map_empty(headers))
             {
                 sel = -1;
@@ -56,12 +56,19 @@ try
                 draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
                 audio_stop_all();
-                
+
                 if (!instance_exists(obj_bingo_controller))
                     instance_create_depth(0, 0, 0, obj_bingo_controller);
-                
+
                 room_goto(obj_initializer2.roomchoice);
             }
+        }
+        else
+        {
+            sel = -1;
+            status_color = 255;
+            status_text = "Couldn't connect to Bingosync...\nTry again later.";
+            snd_play(snd_hurt1);
         }
     }
 }
