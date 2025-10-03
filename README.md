@@ -16,7 +16,7 @@ This adaptation removes goals which require taking damage and performing glitche
 
 # Changes to the original mod
 
-- Removed the "Die", "See obj_weirdroute_manipulator", "Crash With Noelle Anticheat", and "WW into 7 unique rooms" goals.
+- Removed the "Die", "See obj_weirdroute_manipulator", "Crash With Bagel Overflow", and "WW into 7 unique rooms" goals.
 - Displays the amount of hits taken in a match. 
   - A hit counts as an avoidable loss of HP in battle or in the overworld, including the arcade minigame in Chapter 2 and the Legend of Tenna and Sword boards in Chapter 3.
   - The following do NOT count as hits and are therefore not counted by the mod:
@@ -24,6 +24,7 @@ This adaptation removes goals which require taking damage and performing glitche
     - Chapter 2: Being ran over by the overworld cars in Cyber City (including the Toby Fox car in the Egg room), HP depletion due to ThornRing.
     - Chapter 3: Getting hit or missing notes in the Cooking and Lightners Live minigames in boards 1 and 2, Susie taking damage from a bomb after she throws one (it DOES count as a hit if any other character takes damage).
     - Chapter 4: Being pushed by water during the climb sections, taking damage from the unavoidable sword attacks in either Knight chase.
+  - In addition, and for balancing reasons, in the Chapter 2 basement teacup ride you can only take up to one hit.
 
 # How to install and use
 - Download [the latest](https://github.com/marti005/DELTARUNE-Bingosync-No-Hit/releases/latest) version of the mod
