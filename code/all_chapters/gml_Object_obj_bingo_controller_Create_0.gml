@@ -23,7 +23,7 @@ if (os_is_network_connected())
 #if !CHAPTER_1
 function wrong_warp_check()
 {
-    call_later(16, 1, function()
+    call_later(16, time_source_units_frames, function()
     {
         if (!instance_exists(obj_mainchara) || (instance_exists(obj_mainchara) && !obj_mainchara.roomenterfreezeend))
         {
