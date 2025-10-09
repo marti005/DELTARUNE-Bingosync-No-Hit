@@ -102,7 +102,7 @@ if (global.show_board && board_connected)
                         shown_str = global.goal_name[idx];
                         break;
                 }
-                
+
                 draw_text_ext_transformed((x1 + x2) / 2, (y1 + y2) / 2, shown_str, 14, (x2 - x1) + 15, 0.5, 0.5, 0);
                 idx++;
             }
