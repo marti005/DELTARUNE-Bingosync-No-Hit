@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "2.11";
+    return "2.12";
 }
 
 function scr_get_no_hit_version()
@@ -256,13 +256,13 @@ function scr_escape_string(str)
 {
     str = string_trim(str);
     var escaped = "";
-    var char = "";
+    var character = "";
 
     for (var i = 1; i <= string_length(str); i++)
     {
-        char = string_char_at(str, i);
+        character = string_char_at(str, i);
 
-        switch (char)
+        switch (character)
         {
             case "\"":
                 escaped += "\\\"";
@@ -273,7 +273,7 @@ function scr_escape_string(str)
                 break;
 
             default:
-                escaped += char;
+                escaped += character;
                 break;
         }
     }
@@ -314,6 +314,8 @@ function scr_chat_message(msg_color, msg_text)
         if (new_lines >= 5)
             break;
     }
+
+    msg_text = string_trim(msg_text);
 
     if (global.chat_line[len] == "")
     {

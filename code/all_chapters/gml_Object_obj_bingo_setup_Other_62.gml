@@ -15,7 +15,7 @@ try
             if (!ds_exists(headers, ds_type_map) || ds_map_empty(headers))
             {
                 sel = -1;
-                status_color = 255;
+                status_color = c_red;
                 status_text = "Couldn't connect to Bingosync...\nTry again later.";
                 snd_play(snd_hurt1);
             }
@@ -31,21 +31,21 @@ try
             if (string_pos("Sorry, that page doesn't exist!", info_str) > 0)
             {
                 sel = -1;
-                status_color = 255;
+                status_color = c_red;
                 status_text = "Invalid room ID!";
                 snd_play(snd_hurt1);
             }
             else if (string_pos("Incorrect Password", info_str) > 0)
             {
                 sel = -1;
-                status_color = 255;
+                status_color = c_red;
                 status_text = "Incorrect password!";
                 snd_play(snd_hurt1);
             }
             else if (string_pos("socket_key", info_str) == 0)
             {
                 sel = -1;
-                status_color = 255;
+                status_color = c_red;
                 status_text = "Couldn't connect to Bingosync...\nTry again later.";
                 snd_play(snd_hurt1);
             }
@@ -66,7 +66,7 @@ try
         else
         {
             sel = -1;
-            status_color = 255;
+            status_color = c_red;
             status_text = "Couldn't connect to Bingosync...\nTry again later.";
             snd_play(snd_hurt1);
         }

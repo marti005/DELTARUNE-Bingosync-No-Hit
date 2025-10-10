@@ -97,25 +97,19 @@ if (global.show_board && board_connected)
                     draw_sprite(spr_goal_star, 0, x1, y1);
 
                 draw_set_color(c_white);
-                shown_str = global.goal_name[idx];
 
-                if (string_count(" ", shown_str) < 2)
+                switch (string_lower(global.goal_name[idx]))
                 {
-                    new_lines = 0;
-
-                    while (string_width_ext(shown_str, 13, (x2 - x1) + 20) >= ((x2 - x1) + 20))
-                    {
-                        new_lines++;
-                        shown_str = string_insert("\n", shown_str, (16 - new_lines) * new_lines);
-                        shown_str = string_replace_all(shown_str, " \n", "\n");
-                        shown_str = string_replace_all(shown_str, "\n ", "\n");
-
-                        if (new_lines >= 3)
-                            break;
-                    }
+                    case "see obj_weirdroute_manipulator":
+                        shown_str = string_insert("\n", global.goal_name[idx], 20);
+                        break;
+                    
+                    default:
+                        shown_str = global.goal_name[idx];
+                        break;
                 }
 
-                draw_text_ext_transformed((x1 + x2) / 2, (y1 + y2) / 2, string_trim(shown_str), 13, (x2 - x1) + 15, 0.5, 0.5, 0);
+                draw_text_ext_transformed((x1 + x2) / 2, (y1 + y2) / 2, shown_str, 14, (x2 - x1) + 15, 0.5, 0.5, 0);
                 idx++;
             }
         }

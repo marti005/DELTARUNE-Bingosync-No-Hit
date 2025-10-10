@@ -4,7 +4,7 @@ Get an Egg (Original Source): Get an Egg without doing the Door Overflow glitch
 
 Spare/Pacify 10 Enemies: Self explanatory. Note that you have to press the Spare or Pacify buttons on the enemies for them to count (in other words, most bosses do not count because their fights end automatically. The only exception is Jevil since you have to manually pacify him)
 
-Kill 5 Enemies: Defeat enemies with violence (that's attacking until they run away or freezing. Bosses don't count. CH1 enemies count except for Lancer and C. Round). Essentially, if you hear the running away sound effect, you're good
+Kill 5 Enemies: Defeat enemies with violence (that's attacking until they run away or freezing. Bosses don't count. CH1 enemies count except for Lancer and C. Round).
 
 Bed Inspector: Go right instead of left in the room with the Head Hathies in CH1 and interact with every bed to get the Bed Inspector title
 
