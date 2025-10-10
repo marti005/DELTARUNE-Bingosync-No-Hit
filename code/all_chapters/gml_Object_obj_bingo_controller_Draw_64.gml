@@ -13,12 +13,11 @@ var surface_width = surface_get_width(application_surface);
 var surface_height = surface_get_height(application_surface);
 draw_set_alpha(1);
 
-
-if (global.hit_counter) {
-    var hit_height = global.chat_typing ? (surface_get_height(application_surface) - 80) : (surface_get_height(application_surface) - 30);
+if (global.hit_counter)
+{
     draw_set_font(fnt_mainbig);
     draw_set_color(c_yellow);
-    draw_text_outline(5, hit_height, "Hits: " + string(global.hits), 0);
+    draw_text_outline(5, global.chat_typing ? (surface_height - 80) : (surface_height - 30), "Hits: " + string(global.hits), c_black);
 }
 
 draw_set_font(fnt_main);
