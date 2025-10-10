@@ -84,9 +84,7 @@
   {"name": "Speak to Sans"},
   {"name": "Place The Egg In Hometown"},
   {"name": "Visit Rudy"},
-  {"name": "Z Rank Board 1 or 2"},
   {"name": "Get to the Tropic of Love"},
-  {"name": "Bomberman Key (Board 1)"},
   {"name": "Beat Fake Gerson"},
   {"name": "Get Pipis"},
   {"name": "Recruit Miss Mizzle"},
@@ -131,4 +129,5 @@
   {"name": "Lanino/Elnina Rematch"},
   {"name": "Obtain 5 Armors"},
   {"name": "Obtain 5 Weapons"}
+
 ]
