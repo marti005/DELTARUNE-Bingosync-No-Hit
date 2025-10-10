@@ -31,7 +31,7 @@ if (i_ex(obj_ch4_DCA01) && global.interact == 0)
     scr_save_bingo_data();
 }
 
-if (i_ex(obj_dw_churchc_darkswords) && (obj_dw_churchc_darkswords.con < 2 || global.sybauswordcutsceneforcedhits))
+if (i_ex(obj_dw_churchc_darkswords) && (obj_dw_churchc_darkswords.con < 2 || global.forcedswords))
 {
     global.hits--;
     scr_save_bingo_data();

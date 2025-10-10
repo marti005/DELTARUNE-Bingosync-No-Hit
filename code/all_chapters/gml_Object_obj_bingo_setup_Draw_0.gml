@@ -6,10 +6,8 @@ draw_set_valign(fa_top);
 draw_set_color(c_yellow);
 #if CHAPTER_1 || CHAPTER_2
 draw_text(0, 0, "Bingosync Mod " + scr_get_mod_version() + " by Chistosito & NERS (Chapter " + string(global.chapter) + ")");
-draw_text(0, 18, "No Hit Patch " + scr_get_no_hit_version() + " by marti005");
 #else
 draw_text(0, 0, "Bingosync Mod v" + scr_get_mod_version() + " by Chistosito & NERS (Chapter " + string(global.chapter) + ")");
-draw_text(0, 18, "No Hit Patch v" + scr_get_no_hit_version() + " by marti005");
 #endif
 var base_x = 320;
 var base_y = 70;
@@ -116,6 +114,7 @@ var text_chats = "Show chat messages from players: " + (global.show_chats ? "Yes
 var text_colors = "Show color change messages: " + (global.show_colors ? "Yes" : "No");
 var text_goal_marks = "Show goal mark/clear messages: " + (global.show_goal_marks ? "Yes" : "No");
 var text_new_cards = "Show new board messages: " + (global.show_new_cards ? "Yes" : "No");
+var text_hit_counter = "Show hit counter: " + (global.hit_counter ? "Yes" : "No");
 var selected_text;
 
 switch (pos)
@@ -183,6 +182,10 @@ switch (pos)
     case 15:
         selected_text = text_new_cards;
         break;
+
+    case 16:
+        selected_text = text_hit_counter;
+        break;
 }
 
 var text_width = string_width(selected_text);
@@ -221,5 +224,7 @@ draw_set_color((pos == 14) ? c_yellow : c_white);
 draw_text(base_x, base_y + (14 * spacing), text_goal_marks);
 draw_set_color((pos == 15) ? c_yellow : c_white);
 draw_text(base_x, base_y + (15 * spacing), text_new_cards);
+draw_set_color((pos == 16) ? c_yellow : c_white);
+draw_text(base_x, base_y + (16 * spacing), text_hit_counter);
 draw_set_color(status_color);
 draw_text_ext(320, base_y + ((max_pos + 2) * spacing), status_text, 15, 350);

@@ -5,11 +5,6 @@ function scr_get_mod_version()
     return "2.12";
 }
 
-function scr_get_no_hit_version()
-{
-    return "1.00";
-}
-
 function ossafe_http_get(url)
 {
     if (global.is_console)
@@ -386,6 +381,7 @@ function scr_load_bingo_data()
     global.color = "";
     global.last_card_timestamp = 0;
     global.goal_progress = array_create(global.num_goals, 0);
+    global.hit_counter = false;
     global.show_board = true;
     global.board_key = ord("B");
     global.chat_key = ord("T");
@@ -439,7 +435,8 @@ function scr_load_bingo_data()
         }
 
         if (variable_struct_exists(json, "preferences"))
-        {
+        {   
+            if (variable_struct_exists(json.preferences, "hit_counter")) global.hit_counter = json.preferences.hit_counter;
             if (variable_struct_exists(json.preferences, "show_chat")) global.show_chat = json.preferences.show_chat;
             if (variable_struct_exists(json.preferences, "show_board")) global.show_board = json.preferences.show_board;
         }
@@ -520,6 +517,7 @@ function scr_save_bingo_data()
     data.last_saved_room.color = global.color;
     data.last_saved_room.starred_goals = global.starred_goals;
     data.last_saved_room.last_card_timestamp = global.last_card_timestamp;
+    data.preferences.hit_counter = global.hit_counter;
     data.preferences.show_chat = global.show_chat;
     data.preferences.show_board = global.show_board;
     data.keybinds.board = global.board_key;

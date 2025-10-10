@@ -12,6 +12,8 @@ Complete Jevil: Self explanatory
 
 Get the Freeze Ring: Self explanatory
 
+Die: Self explanatory (losing to Punch-Out, Giga Queen and in the CH3 boards does also count as dying)
+
 Buy an item from Seam and Rouxls: Self explanatory. It doesn't matter in what chapter you buy from Seam, as long as you get something from both of the shopkeepers
 
 Complete the Hacker Side Quest: Get all 3 checkmarks in the Cyber Field and talk to Hacker afterwards. They are in:
@@ -113,6 +115,8 @@ Get a Lancer Cookie: Self explanatory. You can get it in CH1's Forest Bake Sale 
 
 Build the FLB Duck (PINK): Build the thrash machine that has a duck head, body and shoes AND have all three parts colored with the pinkest pink there is (it is the 5th color from right to left)
 
+See obj_weirdroute_manipulator: Wrong warp out of Queen's basement in CH2 and trigger the cutscene with Ralsei's glasses. If you are on version 1.17 or older you should see frozen Berdly in the top-left corner. That frozen Berdly is an object called obj_weirdroute_manipulator, hence the goal's name
+
 Recruit Mauswheel: Self explanatory
 
 Lose Tasque Manager: Self explanatory
@@ -128,6 +132,8 @@ Beat the Rouxls Fight (CH2/CH3): Self explanatory
 Get ReviveDust: This item is found in the Acid Tunnel after defeating the Werewire found near the top of the room
 
 Talk to the Green Swatchling: After defeating Rouxls, do any of the 3 poses with Ralsei and go back left after getting Susie in your party. Talk to the Green Swatchling
+
+Crash With Bagel Overflow: Do bagel overflow but intentionally mess it up so that you get other choicers and crash the game using them
 
 Trigger Milk on the 2nd K.Round fight: Damage K. Round 2 enough so that it drinks milk
 
