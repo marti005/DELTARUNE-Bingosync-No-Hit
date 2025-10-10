@@ -8,11 +8,14 @@ global.count_once = false;
 global.clover_manual = false;
 #elsif CHAPTER_2
 global.failed_pot_balance = false;
+global.teacupshit = false;
+#elsif CHAPTER_4
+global.forcedswords = false;
 #endif
 global.cookie_sessionid = -1;
 httppost = -1;
 pos = 0;
-max_pos = 15;
+max_pos = 16;
 sel = -1;
 internet = os_is_network_connected();
 status_color = internet ? c_lime : c_red;

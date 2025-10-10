@@ -203,6 +203,12 @@ if (sel == -1)
                 scr_save_bingo_data();
                 snd_play(snd_select);
                 break;
+
+            case 16:
+                global.hit_counter = !global.hit_counter;
+                scr_save_bingo_data();
+                snd_play(snd_select);
+                break;
         }
     }
 

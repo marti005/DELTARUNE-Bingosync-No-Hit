@@ -10,8 +10,17 @@
 
 This mod connects your game to [Bingosync](https://bingosync.com) and it can automatically mark goals from [this list](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_list.json). You can find a little guide on how to complete each goal [here](https://raw.githubusercontent.com/ners-xd/deltarune-bingosync/refs/heads/ch1-4/assets/goal_requirements.txt). You can also chat with other players, see the board update live, star goals and change your name color.
 
+# Hit counter rules
+A hit counts as an avoidable loss of HP in battle or in the overworld, including the arcade minigame in Chapter 2 and the Legend of Tenna and Sword boards in Chapter 3.
+  - The following do NOT count as hits:
+    - Chapter 1: Hitting the white lights in Checkerboard.
+    - Chapter 2: Being ran over by the overworld cars in Cyber City (including the Toby Fox car in the Egg room), HP depletion due to ThornRing.
+    - Chapter 3: Getting hit or missing notes in the Cooking and Lightners Live minigames in boards 1 and 2, Susie taking damage from a bomb after she throws one (it DOES count as a hit if any other character takes damage).
+    - Chapter 4: Being pushed by water during the climb sections, taking damage from the unavoidable sword attacks in either Knight chase.
+  - In addition, for balancing reasons, in the Chapter 2 basement teacup ride you can only take up to one hit.
+
 # How to install and use
-- Download [the latest](https://github.com/ners-xd/deltarune-bingosync/releases/latest) version of the mod
+- Download [the latest](https://github.com/ners-xd/DELTARUNE-Bingosync/releases/latest) version of the mod
 - **For Switch:** Use nxdumptool to dump the game files (INCLUDING the update, not just the base application) to your computer **(make sure to use layeredfs dir)**. A tutorial can be found [here](https://www.youtube.com/watch?v=-azK1yjPGQg) if you don't know how
 - **Extract the archive anywhere**, run "Bingosync Patcher.bat" and follow its instructions. **On Switch, the game files will be in atmosphere\contents\0100A0D022A68000\romfs**
 - Create or join a room on Bingosync, open the game and obtain the room ID from the end of the link (bingosync.com/room/XXXXXXXXXXXXXXXXXXXXXX) and the room's password. Choose a nickname and a color (orange, red, blue, green, purple, navy, teal, brown, pink or yellow) and press "Connect to room"

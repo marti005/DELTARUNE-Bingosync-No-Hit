@@ -373,6 +373,7 @@ function scr_load_bingo_data()
         // Chapter 4 (8)
         62, 63, 64, 65, 66, 67, 68, 69);
         // Total: 26
+    global.hits = 0;
     global.num_goals = 132;
     global.room_id = "";
     global.password = "";
@@ -380,6 +381,7 @@ function scr_load_bingo_data()
     global.color = "";
     global.last_card_timestamp = 0;
     global.goal_progress = array_create(global.num_goals, 0);
+    global.hit_counter = false;
     global.show_board = true;
     global.board_key = ord("B");
     global.chat_key = ord("T");
@@ -433,7 +435,8 @@ function scr_load_bingo_data()
         }
 
         if (variable_struct_exists(json, "preferences"))
-        {
+        {   
+            if (variable_struct_exists(json.preferences, "hit_counter")) global.hit_counter = json.preferences.hit_counter;
             if (variable_struct_exists(json.preferences, "show_chat")) global.show_chat = json.preferences.show_chat;
             if (variable_struct_exists(json.preferences, "show_board")) global.show_board = json.preferences.show_board;
         }
@@ -465,6 +468,8 @@ function scr_load_bingo_data()
             var list = ds_list_create();
 
             if (variable_struct_exists(json.progress, "general")) global.goal_progress = scr_ds_list_to_array(list, json.progress.general);
+            
+            if (variable_struct_exists(json.progress, "hits")) global.hits = json.progress.hits;
 
             if (variable_struct_exists(json.progress, "specific"))
             {
@@ -512,6 +517,7 @@ function scr_save_bingo_data()
     data.last_saved_room.color = global.color;
     data.last_saved_room.starred_goals = global.starred_goals;
     data.last_saved_room.last_card_timestamp = global.last_card_timestamp;
+    data.preferences.hit_counter = global.hit_counter;
     data.preferences.show_chat = global.show_chat;
     data.preferences.show_board = global.show_board;
     data.keybinds.board = global.board_key;
@@ -529,6 +535,7 @@ function scr_save_bingo_data()
     data.filters.goal_marks = global.show_goal_marks;
     data.filters.new_cards = global.show_new_cards;
     data.progress.general = ds_list_write(scr_array_to_ds_list(list, global.goal_progress));
+    data.progress.hits = global.hits;
     data.progress.specific.money_files = ds_list_write(scr_array_to_ds_list(list, global.money_files));
     data.progress.specific.shop_items = ds_list_write(scr_array_to_ds_list(list, global.shop_items));
     data.progress.specific.bananas = ds_list_write(scr_array_to_ds_list(list, global.bananas));
@@ -579,6 +586,7 @@ function scr_reset_bingo_data()
     global.chapter_recruits = array_create(array_length(global.chapter_recruits), 0);
     global.armors_got = array_create(array_length(global.armors_got), 0);
     global.weapons_got = array_create(array_length(global.weapons_got), 0);
+    global.hits = 0;
     scr_save_bingo_data();
 }
 
@@ -847,5 +855,23 @@ function scr_add_goal_progress(slot, amount)
         }
     }
 
+    scr_save_bingo_data();
+}
+
+function scr_add_hit()
+{   
+    #if CHAPTER_2
+    if (room == room_dw_mansion_b_west_2f && !global.teacupshit)
+    {
+        global.teacupshit = true;
+        global.hits++;
+    }
+    else if (room != room_dw_mansion_b_west_2f)
+    {
+        global.hits++;
+    }
+    #else
+    global.hits++;
+    #endif
     scr_save_bingo_data();
 }
