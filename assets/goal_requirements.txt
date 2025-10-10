@@ -193,11 +193,7 @@ Place The Egg In Hometown: Self explanatory. In CH1 if you got the egg, place it
 
 Visit Rudy: Enter Rudy's room in the hospital
 
-Z Rank Board 1 or 2: Self explanatory
-
 Get to the Tropic of Love: Get to the Tropic of Love with the raft (go right immediately) and interact with the tree on the heart-shaped island
-
-Bomberman Key (Board 1): Get the key that spawns after Susie throws a few bombs in the hidden room found down->left of the cacti in Board 1
 
 Beat Fake Gerson: Self explanatory
 
@@ -294,5 +290,6 @@ Recruit an enemy in each chapter: Self explanatory
 Lanino/Elnina Rematch: Beat the only available dojo challenge in CH4
 
 Obtain 5 Armors: Get this many UNIQUE armors. Note that the starting equipment does NOT count. You have to buy or find things
+
 
 Obtain 5 Weapons: Get this many UNIQUE weapons. Same conditions as above apply.
