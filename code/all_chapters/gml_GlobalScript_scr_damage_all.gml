@@ -1,18 +1,14 @@
 /// PATCH
 
-#if CHAPTER_3 || CHAPTER_4
 /// BEFORE
-remdamage = damage;
-/// CODE
-scr_add_hit();
-/// END
-#else
-/// BEFORE
+#if CHAPTER_1 || CHAPTER_2
 scr_damage_cache();
+#else
+remdamage = damage;
+#endif
 /// CODE
 scr_add_hit();
 /// END
-#endif
 
 /// REPLACE
 scr_damage();

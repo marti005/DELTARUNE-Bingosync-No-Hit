@@ -2,7 +2,7 @@
 
 function scr_get_mod_version()
 {
-    return "2.12";
+    return "2.13";
 }
 
 function ossafe_http_get(url)
@@ -860,7 +860,7 @@ function scr_add_goal_progress(slot, amount)
 
 function scr_add_hit()
 {   
-    #if CHAPTER_2
+#if CHAPTER_2
     if (room == room_dw_mansion_b_west_2f && !global.teacupshit)
     {
         global.teacupshit = true;
@@ -870,8 +870,8 @@ function scr_add_hit()
     {
         global.hits++;
     }
-    #else
+#else
     global.hits++;
-    #endif
+#endif
     scr_save_bingo_data();
 }
